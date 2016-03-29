@@ -7,6 +7,10 @@ class Transaction {
 	protected $amount;//double
 	protected $category;//String
 	protected $name;//String
+	protected $priciple; //The other party involved in the transaction (String)
+	protected $ID; //Int
+	protected $accountID;
+	protected $userID;
 
 	function __construct($date,$amount,$category,$name){
 		$this->date=$date;
@@ -14,16 +18,16 @@ class Transaction {
 		$this->category=$category;
 		$this->name=$name;
 	}
-	
+
 	//getters for protected variables
 	function getDate(){
 		return $this->date;
 	}
-	
+
 	function getAmount(){
 		return $this->amount;
 	}
-	
+
 	function getCategory(){
 		return $this->category;
 	}
