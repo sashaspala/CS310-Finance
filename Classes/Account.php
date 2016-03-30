@@ -1,13 +1,13 @@
 <?php
 
-class Account  {
+class Account {
   protected $name; //String
-  protected $ID; //int
+  protected $accountID; //int
   protected $userID //int
 
-  function __construct($name, $ID, $userID){
+  function __construct($name, $accountID, $userID){
     $this->name = $name;
-    $this->ID = $ID;
+    $this->accountID = $accountID;
     $this->userID = $userID;
   }
 }

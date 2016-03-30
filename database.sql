@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `310Database`.`Users` (
   `firstName` VARCHAR(45) NOT NULL COMMENT '',
   `lastName` VARCHAR(45) NOT NULL COMMENT '',
   `email` VARCHAR(45) NOT NULL COMMENT '',
-  `hashedPasswords` VARCHAR(45) NULL COMMENT '',
+  `hashedPassword` VARCHAR(45) NULL COMMENT '',
   PRIMARY KEY (`userID`)  COMMENT '',
   UNIQUE INDEX `userID_UNIQUE` (`userID` ASC)  COMMENT '')
 ENGINE = InnoDB;

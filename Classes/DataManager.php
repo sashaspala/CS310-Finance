@@ -1,9 +1,18 @@
 <?php
+
+require_once("User.php");
+//require_once("Account.php");
+//require_once("Transaction.php");
+
 $testManager = new DataManager();
+$testManager->loginUser('swag@swag.com', 'swag');
+//var_dump(new User(15, "Kyle", "Tan", "swag@swaggery.com", "moreswaggery"));
+
 
 class DataManager {
 
 	public $currentLoggedInUserID; // ID for the currently logged in user
+	private $_db; //database connection
 
 	/**
 	* Add a new user to the database with the given information, and creates an instance of
@@ -18,26 +27,26 @@ class DataManager {
 
 	function __construct() {
 
-	define('DBHOST','localhost');
-	define('DBUSER','root');
-	define('DBPASS','password');
-	define('DBNAME','mydb');
+		define('DBHOST','localhost');
+		define('DBUSER','root');
+		define('DBPASS','password');
+		define('DBNAME','310Database');
 
-	try {
-		//create PDO connection 
-		$db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
-		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		echo "connected successfully\n";
+		try {
+			//create PDO connection 
+			$this->_db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
+			$this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			echo "connected successfully\n";
 
-	} catch(PDOException $e) {
-		//show error
-		echo '<p class="bg-danger">'.$e->getMessage().'</p>';
-		exit;
+		} catch(PDOException $e) {
+			//show error
+			echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+			exit;
+		}
+
 	}
-
-}
 	
-	function addUser($firstName, $lastName, $userName, $email, $hashedPassword) {
+	function addUser($firstName, $lastName, $email, $hashedPassword) {
 
 	}
 
@@ -49,7 +58,20 @@ class DataManager {
 	*
 	*/
 	function loginUser($email, $hashedPassword) {
-		
+		try {
+			$stmt = $this->_db->prepare('SELECT userID, firstName, lastName, email, hashedPassword FROM Users WHERE email = :email AND hashedPassword= :hashedPassword');
+			$stmt->execute(array('email' => $email, 'hashedPassword' => $hashedPassword));
+
+			$results = $stmt->fetchAll (PDO::FETCH_CLASS, "User"); 
+			$newUser = $results[0];
+			$this->currentLoggedInUserID = $newUser->getUserID(); 
+			// $this->currentLoggedInUserID = $results['userID'];
+			// echo currentLoggedInUserID;
+
+		} catch(PDOException $e) {
+		    //echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+			echo $e->getMessage();
+		}
 	}
 
 	/**
