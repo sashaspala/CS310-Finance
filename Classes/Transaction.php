@@ -10,7 +10,7 @@ class Transaction {
 	protected $priciple; //The other party involved in the transaction (String)
 	protected $ID; //Int
 	protected $accountID;
-	protected $userID;
+	protected $userID;git 
 
 	function __construct($date,$amount,$category,$name){
 		$this->date=$date;

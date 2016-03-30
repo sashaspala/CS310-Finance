@@ -1,6 +1,5 @@
 <?php
 
-
 class User{
 	//basic info related to user account
 	private $firstName; //String
