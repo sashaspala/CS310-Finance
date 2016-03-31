@@ -8,6 +8,13 @@ class Transaction {
 	protected $category;//String
 	protected $name;//String
 
+	function __construct(){
+		$this->date="00/00/0000";
+		$this->amount=0.00;
+		$this->category="";
+		$this->name="";
+	}
+
 	function __construct($date,$amount,$category,$name){
 		$this->date=$date;
 		$this->amount=$amount;

@@ -6,36 +6,42 @@ class Account {
 
 	private $accountName;
 	private $transactions;
-	private $netWorth;
+	private $sum;
 
 	/*
 	private $dateCreated;
 	*/
 
+	function __construct(){
+		$this->accountName = "";
+		$this->transactions = array();
+		$this->sum = 0.00;
+	}
+
 	function __construct($accountName,$arrayOfTransactions){
 		$this->accountName = $accountName;
 		$this->transactions = array();
-		$this->netWorth = 0.00;
+		$this->sum = 0.00;
 		$this->transactions = $arrayOfTransactions;
 		$this->calculateNetWorth();
 	}
 
-	function calculateNetWorth(){
-		$sum = 0.00;
+	function calculateTotalSum(){
+		$total = 0.00;
 		if(!empty($this->transactions)){
 			foreach($this->transactions as $item){
-				$sum += $item->getAmount();
+				$total += $item->getAmount();
 			}
-			$this->netWorth = $sum;
+			$this->sum = $total;
 		}
 		else{
-			$this->netWorth = $sum;
+			$this->sum = $total;
 		}
 
 	}
 
-	function getNetWorth(){
-		return $this->netWorth;
+	function getSum(){
+		return $this->sum;
 	}
 
 	function getAccountName(){
