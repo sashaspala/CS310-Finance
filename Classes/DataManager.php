@@ -6,9 +6,9 @@ require_once("Transaction.php");
 
 $testManager = new DataManager();
 $testManager->loginUser('swag@swag.com', 'swag');
-//$testManager->addAccount('Credit Card', 2);
+$testManager->addAccount('Credit Card2', 2);
 $newAccount = $testManager->getAccount('Credit Card', 2); 
-echo $newAccount->name; 
+$results = $testManager->getAccountsForUser(2); 
 //$testManager->removeAccount('Credit Card', 1); 
 //var_dump(new User(15, "Kyle", "Tan", "swag@swaggery.com", "moreswaggery"));
 
@@ -152,8 +152,15 @@ class DataManager {
 
 	}
 
-	function getAccountsForUser($name) {
+	function getAccountsForUser($userID = null) {
+		if ($userID == null) {
+			$userID = $this->currentLoggedInUserID;
+		}
 
+		$stmt = $this->_db->prepare('SELECT * FROM Accounts WHERE Users_userID = :userID');
+		$stmt->execute(array('userID'=>$userID));
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Account");
+		return $results; 
 	}
 
 	/**

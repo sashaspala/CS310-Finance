@@ -12,7 +12,7 @@ class Transaction {
 	protected $accountID;
 	protected $userID;//git 
 
-	function __construct($date,$amount,$category,$name){
+	function __construct($date=null,$amount=null,$category=null,$name=null){
 		$this->date=$date;
 		$this->amount=$amount;
 		$this->category=$category;
