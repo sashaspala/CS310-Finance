@@ -9,7 +9,7 @@ class User{
 	private $userName; //String
 	private $hashedPassword; //String
 	private $databaseID; //int
-
+	
 
 	function __construct($userName,$hashedPassword,$firstName,$lastName,$email,$databaseID){
 		$this->userName=$userName;
@@ -18,6 +18,7 @@ class User{
 		$this->lastName=$lastName;
 		$this->email=$email;
 		$this->databaseID=$databaseID;
+
 	}
 	//getter functions for private variables
 	function getUserName(){
