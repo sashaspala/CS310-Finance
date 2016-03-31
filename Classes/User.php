@@ -9,6 +9,7 @@ class User{
 	private $userName; //String
 	private $hashedPassword; //String
 	private $databaseID; //int
+
 	
 
 	function __construct($userName,$hashedPassword,$firstName,$lastName,$email,$databaseID){
