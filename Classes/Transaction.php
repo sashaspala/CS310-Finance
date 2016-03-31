@@ -10,9 +10,9 @@ class Transaction {
 	private $principal; //The other party involved in the transaction (String)
 	private $transactionID; //Int
 	private $Accounts_accountID;
-	private $Accounts_Users_userID;//git 
+	private $Accounts_Users_userID;//git
 
-	function __construct($date=null,$amount=null,$category=null,$name=null, $principal=null, 
+	function __construct($date=null,$amount=null,$category=null,$name=null, $principal=null,
 							$transactionID = null, $accountID = null, $userID = null) {
 		if($date != null) $this->transactionDate=$date;
 		if($amount != null) $this->amount=$amount;

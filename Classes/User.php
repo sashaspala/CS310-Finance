@@ -14,6 +14,7 @@ class User{
 		if ($lastName != null) $this->lastName=$lastName;
 		if ($email != null) $this->email=$email;
 		if ($userID != null) $this->userID=$userID;
+
 	}
 	//getter functions for private variables
 
