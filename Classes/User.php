@@ -1,5 +1,11 @@
 <?php
 
+/* Error checking code
+ini_set('display_erros','on');
+error_reporting(E_ALL | E_STRICT);
+*/
+	
+
 class User{
 	//basic info related to user account
 	private $userID; //int
