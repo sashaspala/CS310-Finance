@@ -6,7 +6,10 @@ require_once("Transaction.php");
 
 $testManager = new DataManager();
 $testManager->loginUser('swag@swag.com', 'swag');
-$testManager->addAccount('Credit Card', 1);
+//$testManager->addAccount('Credit Card', 2);
+$newAccount = $testManager->getAccount('Credit Card', 2); 
+echo $newAccount->name; 
+//$testManager->removeAccount('Credit Card', 1); 
 //var_dump(new User(15, "Kyle", "Tan", "swag@swaggery.com", "moreswaggery"));
 
 
@@ -69,31 +72,56 @@ class DataManager {
 			return $newUser;
 
 		} catch(PDOException $e) {
-		    //echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+			//echo '<p class="bg-danger">'.$e->getMessage().'</p>';
 			echo $e->getMessage();
 		}
 	}
 
 	/**
 	* Adds an account to the database
-	* @param string name The name associated with the account/
+	* @param string name The name associated with the account
 	* @param int userID The ID for the user who owns the account
-	* @return Account The new account that was created, with the ID specified.
+	* @return Account The new account that was created, with the ID specified if no errors, null otherwise;
 	*/
 
 	function addAccount ($name, $userID) {
+		//Check if the account name already exists in the database
+		$stmt = $this->_db->prepare('SELECT * FROM Accounts WHERE name = :name AND Users_userID = :userID');
+		$stmt->execute(array('name'=>$name, 'userID'=>$userID));
+		$results = $stmt->fetch();
+		if($results[0]) {
+			echo "An account of that name already exists in database\n";
+			return null;
+		}
+
 		$stmt = $this->_db->prepare('INSERT INTO Accounts (name, Users_userID) 
-   										VALUES (:name, :userID)');
+										VALUES (:name, :userID)');
 
-	    $stmt->bindParam(':name', $name);
-	    $stmt->bindParam(':userID', $userID);
-	    $stmt->execute();
+		$stmt->bindParam(':name', $name);
+		$stmt->bindParam(':userID', $userID);
+		
 
-	    return new Account($name, $userID);
+		if($this->executeStatement($stmt)==true) {
+			$accountID = $this->_db->lastInsertId();
+			return new Account($name, $accountID, $userID);
+		} else {
+			return null; 
+		}
+
 	}
 
+	/**
+	* Removes an account to the database
+	* @param string name The name associated with the account
+	* @param int userID The ID for the user who owns the account
+	*/
 	function removeAccount ($name, $userID) {
+		$statement = $this->_db->prepare('DELETE FROM Accounts WHERE name = :name AND Users_userID = :userID'); 
+		
+		$statement->bindParam(':name', $name);
+		$statement->bindParam(':userID', $userID);
 
+		$this->executeStatement($statement);
 	}
 
 	/**
@@ -104,9 +132,24 @@ class DataManager {
 	* @return Account The account, if found, NULL otherwise
 	*/
 	function getAccount ($name, $userID = null) {
-	if ($userID == null) {
-		$userID = $this->currentLoggedInUserID;
-	}
+		if ($userID == null) {
+			$userID = $this->currentLoggedInUserID;
+		}
+
+		$stmt = $this->_db->prepare('SELECT * FROM Accounts WHERE name = :name AND Users_userID = :userID');
+		$stmt->execute(array('name'=>$name, 'userID'=>$userID));
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Account"); 
+		if(count($results) == 1) {
+			$newAccount = $results[0];
+			return $newAccount; 
+		}
+
+		else {
+			echo 'Could not find account for the specified user'; 
+			return null; 
+		}
+
+
 	}
 
 	function getAccountsForUser($name) {
@@ -130,6 +173,23 @@ class DataManager {
 	*/
 	function addTransaction($transactionDate, $transactionAmount, $transactionCategory, $transactionName, $transactionPrinciple,  $accountID, $userID) {
 
+	}
+
+
+	/**
+	* Executes a statement and returns the error string, if any 
+	* @param Statement The SQL statement to execute. Must have parameters bound to variables 
+	* @param Bool True if the execute was successful, False otherwise
+	*/ 
+	function executeStatement($statement) {
+		try {
+			$statement->execute(); 
+			echo "Success\n";
+			return true;
+		} catch(PDOException $error) {
+			echo $error->getMessage()."\n";
+			return false;
+		}
 	}
 
 
