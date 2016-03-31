@@ -1,8 +1,8 @@
 <?php
 
 require_once("User.php");
-//require_once("Account.php");
-//require_once("Transaction.php");
+require_once("Account.php");
+require_once("Transaction.php");
 
 $testManager = new DataManager();
 $testManager->loginUser('swag@swag.com', 'swag');
@@ -65,8 +65,7 @@ class DataManager {
 			$results = $stmt->fetchAll (PDO::FETCH_CLASS, "User"); 
 			$newUser = $results[0];
 			$this->currentLoggedInUserID = $newUser->getUserID(); 
-			// $this->currentLoggedInUserID = $results['userID'];
-			// echo currentLoggedInUserID;
+			return $newUser;
 
 		} catch(PDOException $e) {
 		    //echo '<p class="bg-danger">'.$e->getMessage().'</p>';
@@ -82,7 +81,7 @@ class DataManager {
 	*/
 
 	function addAcount ($name, $userID) {
-
+		$newAccount = new Account($name, $userID);
 	}
 
 	function removeAccount ($name, $userID) {

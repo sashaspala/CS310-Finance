@@ -3,7 +3,7 @@
 class Account {
   protected $name; //String
   protected $accountID; //int
-  protected $userID //int
+  protected $userID; //int
 
   function __construct($name, $accountID, $userID){
     $this->name = $name;
