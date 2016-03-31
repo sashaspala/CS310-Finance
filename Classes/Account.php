@@ -1,30 +1,19 @@
 <?php
 
-include_once "Transaction.php";
-
 class Account {
+	private $name; //String
+	private $accountID; //int
+	private $Users_userID; //int
+    private $sum;
+    private $transactions;
 
-	private $accountName;
-	private $transactions;
-	private $sum;
-
-	/*
-	private $dateCreated;
-	*/
-
-	// function __construct(){
-	// 	$this->accountName = "";
-	// 	$this->transactions = array();
-	// 	$this->sum = 0.00;
-	// }
-
-	function __construct($accountName,$arrayOfTransactions){
-		$this->accountName = $accountName;
-		$this->transactions = array();
-		$this->sum = 0.00;
-		$this->transactions = $arrayOfTransactions;
-		$this->calculateNetWorth();
+	function __construct($name = null, $accountID = null , $userID = null){
+		if($name != null) $this->name = $name;
+		if ($accountID != null) $this->accountID = $accountID;
+		if ($userID != null)  $this->Users_userID = $userID;
+        $this->transactions = DataManager.getTransactionsForAccount($this->accountID);
 	}
+
 
 	function calculateTotalSum(){
 		$total = 0.00;
@@ -53,6 +42,7 @@ class Account {
 	}
 
 	function getTransactions(){
+        $this->transactions = DataManager.getTransactionsForAccount($this->accountID); 
 		return $this->transactions;
 	}
 
@@ -61,7 +51,5 @@ class Account {
 	}
 
 }
-
-
 
 ?>
