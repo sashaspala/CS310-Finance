@@ -7,10 +7,11 @@ require_once("Transaction.php");
 $testManager = new DataManager();
 $testManager->loginUser('swag@swag.com', 'swag');
 $testManager->addAccount('Credit Card2', 2);
-$newAccount = $testManager->getAccount('Credit Card', 2); 
-$results = $testManager->getAccountsForUser(2); 
-//$testManager->removeAccount('Credit Card', 1); 
-//var_dump(new User(15, "Kyle", "Tan", "swag@swaggery.com", "moreswaggery"));
+//$newAccount = $testManager->getAccount('Credit Card2', 2); 
+var_dump($testManager->getAccountsForUser(2));
+//$testManager->removeAccount('Credit Card', 1); */
+//$testManager->addTransaction(date('Y-m-d'), 99.99, "Food", "Lots of groceries", "Ralphs", 1, 2); 
+//var_dump($testManager->getTransactionsForAccount(1, 2));
 
 
 class DataManager {
@@ -145,7 +146,7 @@ class DataManager {
 		}
 
 		else {
-			echo 'Could not find account for the specified user'; 
+			echo "Could not find account for the specified user\n"; 
 			return null; 
 		}
 
@@ -170,16 +171,45 @@ class DataManager {
 	* @return Transaction[] An array of the transactions for the account. Empty if the account doesn't exist,
 	*          or has no transactions
 	*/
-	function getTransactionsForAccount($accountID, $userID) {
+	function getTransactionsForAccount($accountID, $userID = null) {
+		if ($userID == null) {
+			$userID = $this->currentLoggedInUserID;
+		}
 
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_accountID = :accountID AND Accounts_Users_userID = :userID');
+		$stmt->execute(array('userID' => $userID, 'accountID' => $accountID));
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
+		return $results; 
 	}
 
 	/**
 	* Adds a transaction to the database
 	* @return Transaction The newly created transaction
 	*/
-	function addTransaction($transactionDate, $transactionAmount, $transactionCategory, $transactionName, $transactionPrinciple,  $accountID, $userID) {
+	function addTransaction($transactionDate, $transactionAmount, $transactionCategory, $transactionName, $transactionPrincipal,  $accountID, $userID) {
 
+		$prep = "INSERT INTO Transactions (transactionDate, amount, category, name, principal, Accounts_accountID, Accounts_Users_userID) 
+							  VALUES (:transactionDate, :amount, :category, :name, :principal, :Accounts_accountID, :Accounts_Users_userID)";
+
+		$stmt = $this->_db->prepare($prep);
+
+		$stmt->bindParam(':transactionDate', $transactionDate);
+		$stmt->bindParam(':amount', $transactionAmount);
+		$stmt->bindParam(':category', $transactionCategory);
+		$stmt->bindParam(':name', $transactionName);
+		$stmt->bindParam(':principal', $transactionPrincipal);
+		$stmt->bindParam(':Accounts_accountID', $accountID);
+		$stmt->bindParam(':Accounts_Users_userID', $userID);
+
+
+		
+
+		if($this->executeStatement($stmt)==true) {
+			$transactionID = $this->_db->lastInsertId();
+			return new Account($transactionDate, $transactionAmount, $transactionCategory, $transactionName, $transactionPrincipal, $accountID, $userID, $transactionID);
+		} else {
+			return null; 
+		}
 	}
 
 
