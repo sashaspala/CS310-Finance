@@ -12,11 +12,11 @@ class Account {
 	private $dateCreated;
 	*/
 
-	function __construct(){
-		$this->accountName = "";
-		$this->transactions = array();
-		$this->sum = 0.00;
-	}
+	// function __construct(){
+	// 	$this->accountName = "";
+	// 	$this->transactions = array();
+	// 	$this->sum = 0.00;
+	// }
 
 	function __construct($accountName,$arrayOfTransactions){
 		$this->accountName = $accountName;

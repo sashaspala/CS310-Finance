@@ -7,9 +7,9 @@ class BalanceSheet{
 	private $accounts; // array of accounts
 	private $netWorth;
 
-	function __construct(){
-		$this->accounts = array();
-	}
+	// function __construct(){
+	// 	$this->accounts = array();
+	// }
 
 	function __construct($accountsArray){
 		$this->accounts = array();
