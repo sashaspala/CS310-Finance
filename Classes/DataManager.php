@@ -6,6 +6,7 @@ require_once("Transaction.php");
 
 $testManager = new DataManager();
 $testManager->loginUser('swag@swag.com', 'swag');
+$testManager->addAccount('Credit Card', 1);
 //var_dump(new User(15, "Kyle", "Tan", "swag@swaggery.com", "moreswaggery"));
 
 
@@ -80,8 +81,15 @@ class DataManager {
 	* @return Account The new account that was created, with the ID specified.
 	*/
 
-	function addAcount ($name, $userID) {
-		$newAccount = new Account($name, $userID);
+	function addAccount ($name, $userID) {
+		$stmt = $this->_db->prepare('INSERT INTO Accounts (name, Users_userID) 
+   										VALUES (:name, :userID)');
+
+	    $stmt->bindParam(':name', $name);
+	    $stmt->bindParam(':userID', $userID);
+	    $stmt->execute();
+
+	    return new Account($name, $userID);
 	}
 
 	function removeAccount ($name, $userID) {
