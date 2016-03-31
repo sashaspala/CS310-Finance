@@ -201,12 +201,10 @@ class DataManager {
 		$stmt->bindParam(':Accounts_accountID', $accountID);
 		$stmt->bindParam(':Accounts_Users_userID', $userID);
 
-
-		
-
 		if($this->executeStatement($stmt)==true) {
 			$transactionID = $this->_db->lastInsertId();
-			return new Account($transactionDate, $transactionAmount, $transactionCategory, $transactionName, $transactionPrincipal, $accountID, $userID, $transactionID);
+			return new Transaction($transactionDate, $transactionAmount, $transactionCategory, $transactionName, $transactionPrincipal,
+				$transactionID, $accountID, $userID);
 		} else {
 			return null; 
 		}
@@ -228,10 +226,7 @@ class DataManager {
 			return false;
 		}
 	}
-
-
-
 }
 
 
- ?>
+?>
