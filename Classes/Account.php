@@ -4,13 +4,16 @@ class Account {
 	private $name; //String
 	private $accountID; //int
 	private $Users_userID; //int
-    private $sum;
-    private $transactions;
+    private $sum;//
+    private $transactions;//array transactions
 
 	function __construct($name = null, $accountID = null , $userID = null){
-		if($name != null) $this->name = $name;
-		if ($accountID != null) $this->accountID = $accountID;
-		if ($userID != null)  $this->Users_userID = $userID;
+		if($name != null) 
+			$this->name = $name;
+		if ($accountID != null)
+			$this->accountID = $accountID;
+		if ($userID != null)  
+			$this->Users_userID = $userID;
         $this->transactions = DataManager.getTransactionsForAccount($this->accountID);
 	}
 
