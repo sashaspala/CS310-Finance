@@ -43,14 +43,13 @@ class DataManager {
 
 		define('DBHOST','localhost');
 		define('DBUSER','root');
-		define('DBPASS','password');
+		define('DBPASS','van78756');
 		define('DBNAME','310Database');
 
 		try {
 			//create PDO connection
 			$this->_db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
 			$this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			echo "connected successfully\n";
 
 		} catch(PDOException $e) {
 			//show error
@@ -79,11 +78,13 @@ class DataManager {
 			$results = $stmt->fetchAll (PDO::FETCH_CLASS, "User");
 			$newUser = $results[0];
 			$this->currentLoggedInUserID = $newUser->getUserID();
+						echo '<p class="bg-danger">'.'done'.'</p>';
+
 			return $newUser;
 
 		} catch(PDOException $e) {
-			//echo '<p class="bg-danger">'.$e->getMessage().'</p>';
-			echo $e->getMessage();
+			echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+			//echo $e->getMessage();
 		}
 	}
 
