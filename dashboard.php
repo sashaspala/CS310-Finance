@@ -53,40 +53,40 @@
 
 		<div class="col-md-4">
 			<div class="well" style="background-color:#FFFFFF">
-				<table class="table table-bordered table-hover">
+				<h2>Transactions</h2>
+				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
-						<tr><th colspan="4">Transactions</th></tr>
 						<tr>
 							<th>Name</th>
-							<th>Date</th>
-							<th>Amount</th>
 							<th>Type</th>
+							<th>Amount</th>
+							<th>Date</th>
 						</tr>
 					</thead>
 					<tbody>
 					<tr>
-						<td>1</td>
+						<td>trying</td>
 						<td>2</td>
-						<td>3</td>
-						<td>4</td>
+						<td>4.0</td>
+						<td>12/02/2016</td>
 					</tr>
 					<tr>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
-						<td>4</td>
+						<td>to</td>
+						<td>670</td>
+						<td>2.1</td>
+						<td>05/04/1999</td>
 					</tr>
 					<tr>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
-						<td>4</td>
+						<td>run</td>
+						<td>-6</td>
+						<td>-1.5</td>
+						<td>06/30/2005</td>
 					</tr>
 					<tr>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
-						<td>4</td>
+						<td>a test of this</td>
+						<td>-7</td>
+						<td>7.3</td>
+						<td>08/12/1986</td>
 					</tr>
 					</tbody>
 				</table>
