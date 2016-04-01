@@ -5,7 +5,9 @@ include_once "Account.php";
 class BalanceSheet{
 
 	private $accounts; // array of accounts
-	private $netWorth;
+	private $netWorth; 
+	private $liabilities;
+	private $assets;
 
 	// function __construct(){
 	// 	$this->accounts = array();
