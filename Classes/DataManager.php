@@ -5,17 +5,26 @@ require_once("Account.php");
 require_once("Transaction.php");
 
 $testManager = new DataManager();
-$testManager->loginUser('swag@swag.com', 'swag');
+$testManager->getInstance()->loginUser('swag@swag.com', 'swag');
 $testManager->addAccount('Credit Card2', 2);
-//$newAccount = $testManager->getAccount('Credit Card2', 2); 
+//$newAccount = $testManager->getAccount('Credit Card2', 2);
 var_dump($testManager->getAccountsForUser(2));
 //$testManager->removeAccount('Credit Card', 1); */
-//$testManager->addTransaction(date('Y-m-d'), 99.99, "Food", "Lots of groceries", "Ralphs", 1, 2); 
+//$testManager->addTransaction(date('Y-m-d'), 99.99, "Food", "Lots of groceries", "Ralphs", 1, 2);
 //var_dump($testManager->getTransactionsForAccount(1, 2));
 
 
 class DataManager {
 
+	private static $currentInstance;
+
+	static function getInstance() {
+		if (self::$currentInstance == null) {
+			self::$currentInstance = new DataManager();
+		}
+
+		return self::$currentInstance;
+	}
 	public $currentLoggedInUserID; // ID for the currently logged in user
 	private $_db; //database connection
 
@@ -38,7 +47,7 @@ class DataManager {
 		define('DBNAME','310Database');
 
 		try {
-			//create PDO connection 
+			//create PDO connection
 			$this->_db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
 			$this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			echo "connected successfully\n";
@@ -50,7 +59,7 @@ class DataManager {
 		}
 
 	}
-	
+
 	function addUser($firstName, $lastName, $email, $hashedPassword) {
 
 	}
@@ -67,9 +76,9 @@ class DataManager {
 			$stmt = $this->_db->prepare('SELECT userID, firstName, lastName, email, hashedPassword FROM Users WHERE email = :email AND hashedPassword= :hashedPassword');
 			$stmt->execute(array('email' => $email, 'hashedPassword' => $hashedPassword));
 
-			$results = $stmt->fetchAll (PDO::FETCH_CLASS, "User"); 
+			$results = $stmt->fetchAll (PDO::FETCH_CLASS, "User");
 			$newUser = $results[0];
-			$this->currentLoggedInUserID = $newUser->getUserID(); 
+			$this->currentLoggedInUserID = $newUser->getUserID();
 			return $newUser;
 
 		} catch(PDOException $e) {
@@ -95,18 +104,18 @@ class DataManager {
 			return null;
 		}
 
-		$stmt = $this->_db->prepare('INSERT INTO Accounts (name, Users_userID) 
+		$stmt = $this->_db->prepare('INSERT INTO Accounts (name, Users_userID)
 										VALUES (:name, :userID)');
 
 		$stmt->bindParam(':name', $name);
 		$stmt->bindParam(':userID', $userID);
-		
+
 
 		if($this->executeStatement($stmt)==true) {
 			$accountID = $this->_db->lastInsertId();
 			return new Account($name, $accountID, $userID);
 		} else {
-			return null; 
+			return null;
 		}
 
 	}
@@ -117,8 +126,8 @@ class DataManager {
 	* @param int userID The ID for the user who owns the account
 	*/
 	function removeAccount ($name, $userID) {
-		$statement = $this->_db->prepare('DELETE FROM Accounts WHERE name = :name AND Users_userID = :userID'); 
-		
+		$statement = $this->_db->prepare('DELETE FROM Accounts WHERE name = :name AND Users_userID = :userID');
+
 		$statement->bindParam(':name', $name);
 		$statement->bindParam(':userID', $userID);
 
@@ -139,15 +148,15 @@ class DataManager {
 
 		$stmt = $this->_db->prepare('SELECT * FROM Accounts WHERE name = :name AND Users_userID = :userID');
 		$stmt->execute(array('name'=>$name, 'userID'=>$userID));
-		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Account"); 
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Account");
 		if(count($results) == 1) {
 			$newAccount = $results[0];
-			return $newAccount; 
+			return $newAccount;
 		}
 
 		else {
-			echo "Could not find account for the specified user\n"; 
-			return null; 
+			echo "Could not find account for the specified user\n";
+			return null;
 		}
 
 
@@ -161,7 +170,7 @@ class DataManager {
 		$stmt = $this->_db->prepare('SELECT * FROM Accounts WHERE Users_userID = :userID');
 		$stmt->execute(array('userID'=>$userID));
 		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Account");
-		return $results; 
+		return $results;
 	}
 
 	/**
@@ -179,7 +188,7 @@ class DataManager {
 		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_accountID = :accountID AND Accounts_Users_userID = :userID');
 		$stmt->execute(array('userID' => $userID, 'accountID' => $accountID));
 		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
-		return $results; 
+		return $results;
 	}
 
 	/**
@@ -188,7 +197,7 @@ class DataManager {
 	*/
 	function addTransaction($transactionDate, $transactionAmount, $transactionCategory, $transactionName, $transactionPrincipal,  $accountID, $userID) {
 
-		$prep = "INSERT INTO Transactions (transactionDate, amount, category, name, principal, Accounts_accountID, Accounts_Users_userID) 
+		$prep = "INSERT INTO Transactions (transactionDate, amount, category, name, principal, Accounts_accountID, Accounts_Users_userID)
 							  VALUES (:transactionDate, :amount, :category, :name, :principal, :Accounts_accountID, :Accounts_Users_userID)";
 
 		$stmt = $this->_db->prepare($prep);
@@ -206,19 +215,19 @@ class DataManager {
 			return new Transaction($transactionDate, $transactionAmount, $transactionCategory, $transactionName, $transactionPrincipal,
 				$transactionID, $accountID, $userID);
 		} else {
-			return null; 
+			return null;
 		}
 	}
 
 
 	/**
-	* Executes a statement and returns the error string, if any 
-	* @param Statement The SQL statement to execute. Must have parameters bound to variables 
+	* Executes a statement and returns the error string, if any
+	* @param Statement The SQL statement to execute. Must have parameters bound to variables
 	* @param Bool True if the execute was successful, False otherwise
-	*/ 
+	*/
 	function executeStatement($statement) {
 		try {
-			$statement->execute(); 
+			$statement->execute();
 			echo "Success\n";
 			return true;
 		} catch(PDOException $error) {
