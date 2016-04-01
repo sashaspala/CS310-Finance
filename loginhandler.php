@@ -2,7 +2,7 @@
 	if(!session_id()) {
 		session_start();
 	}
-				echo '<p class="bg-danger">'.'done'.'</p>';
+			
 
 	require_once("Classes/DataManager.php");
 

@@ -4,11 +4,9 @@ require_once("User.php");
 require_once("Account.php");
 require_once("Transaction.php");
 
-$testManager = new DataManager();
-$testManager->getInstance()->loginUser('swag@swag.com', 'swag');
-$testManager->addAccount('Credit Card2', 2);
+
 //$newAccount = $testManager->getAccount('Credit Card2', 2);
-var_dump($testManager->getAccountsForUser(2));
+//var_dump($testManager->getAccountsForUser(2));
 //$testManager->removeAccount('Credit Card', 1); */
 //$testManager->addTransaction(date('Y-m-d'), 99.99, "Food", "Lots of groceries", "Ralphs", 1, 2);
 //var_dump($testManager->getTransactionsForAccount(1, 2));
@@ -48,14 +46,19 @@ class DataManager {
 
 		try {
 			//create PDO connection
+
 			$this->_db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
 			$this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		} catch(PDOException $e) {
+		} catch(Exception $e) {
+
+			header('Location: ' . $e->getMessage());
 			//show error
 			echo '<p class="bg-danger">'.$e->getMessage().'</p>';
 			exit;
 		}
+
+
 
 	}
 
@@ -71,6 +74,9 @@ class DataManager {
 	*
 	*/
 	function loginUser($email, $hashedPassword) {
+		
+
+
 		try {
 			$stmt = $this->_db->prepare('SELECT userID, firstName, lastName, email, hashedPassword FROM Users WHERE email = :email AND hashedPassword= :hashedPassword');
 			$stmt->execute(array('email' => $email, 'hashedPassword' => $hashedPassword));
@@ -78,12 +84,13 @@ class DataManager {
 			$results = $stmt->fetchAll (PDO::FETCH_CLASS, "User");
 			$newUser = $results[0];
 			$this->currentLoggedInUserID = $newUser->getUserID();
-						echo '<p class="bg-danger">'.'done'.'</p>';
 
 			return $newUser;
 
-		} catch(PDOException $e) {
+		} catch(Exception $e) {
+			header('Location: afterretry.php');
 			echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+			return null;
 			//echo $e->getMessage();
 		}
 	}
@@ -101,8 +108,8 @@ class DataManager {
 		$stmt->execute(array('name'=>$name, 'userID'=>$userID));
 		$results = $stmt->fetch();
 		if($results[0]) {
-			echo "An account of that name already exists in database\n";
-			return null;
+			echo "An acdfasdcount of that name already exists in database\n";
+			//return null;
 		}
 
 		$stmt = $this->_db->prepare('INSERT INTO Accounts (name, Users_userID)
