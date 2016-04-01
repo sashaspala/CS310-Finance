@@ -10,13 +10,15 @@
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
-	    	<button type="button" class="btn btn-default navbar-btn">Upload CSV</button>
+	    	<span class="btn btn-default btn-file">
+			    Upload CSV <input type="file" accept=".csv">
+			</span>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
 	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as William GJ Halfond</p>
 		</div>
 	</nav>
 	<div class="container-fluid">
-		<div class="row" style="margin:100px auto; float:none;padding">
+		<div class="row" style="margin:100px auto;float:none;padding">
 		<div class="col-md-2">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Accounts</h2>
@@ -45,7 +47,7 @@
 
 		<div class="col-md-6">
 			<div class="well" style="background-color:#FFFFFF">
-				<h2>Graph goes here</h2>
+				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
 		</div>
 
@@ -92,5 +94,6 @@
 		</div>
 	</div>
 	</div>
+	<script src="graph.js"></script>
 </body>
 </html>
