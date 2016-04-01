@@ -1,8 +1,17 @@
 <?php
-	if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
+	require_once("DataManager.php");
 
-	} else if(empty($_POST['username'])) {
+	if (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+		$user = DataManager::getInstance()->loginUser($_POST['email'], $_POST['password']);
+
+		if(is_null($user)) {
+			header('Location: http://www.reddit.com/');
+			exit();
+		}
+
+		$_SESSION['email'] = $_POST['email'];
+		$_SESSION['userID'] = $user->getUserID();
+
 		header('Location: http://www.google.com/');
 		exit();
-	}
 ?>
