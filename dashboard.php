@@ -2,9 +2,12 @@
 	
 require_once('DataManager.php') ; 
 
-
+//LOADS PERSISTENT DATA
 $accounts = DataManager::getInstance()->getAccountsForUserID($_SESSION['userid']); 
-$user = DataManager::getInstance()->
+for($i=0; $i<count($accounts); $i++){
+	$accounts[$i]=DataManager.getTransactionsForAccount($acounts[$i].getAccountID(),$_SESSION['userid']);
+
+}
 
 $balanceSheet = balanceSheet($accounts);
 $_GLOBALS['balanceSheet'] = $balanceSheet; 
@@ -22,7 +25,7 @@ $_GLOBALS['balanceSheet'] = $balanceSheet;
 			    Upload CSV <input type="file" accept=".csv" id="csvUpload">
 			</span>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
-	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php $_SESSION['userFullName'] ?> 
+	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php $_SESSION['userFullName']?> 
 		</div>
 	</nav>
 	<div class="container-fluid">
