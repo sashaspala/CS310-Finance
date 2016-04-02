@@ -1,5 +1,13 @@
 <?php
-	session_start();
+	
+require_once('DataManager.php') ; 
+
+
+$accounts = DataManager::getInstance()->getAccountsForUserID($_SESSION['userid']); 
+$user = DataManager::getInstance()->
+
+$balanceSheet = balanceSheet($accounts);
+$_GLOBALS['balanceSheet'] = $balanceSheet; 
 
 	require_once("header.php");
 ?>
@@ -11,10 +19,10 @@
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 	    	<span class="btn btn-default btn-file">
-			    Upload CSV <input type="file" accept=".csv">
+			    Upload CSV <input type="file" accept=".csv" id="csvUpload">
 			</span>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
-	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as William GJ Halfond</p>
+	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php $_SESSION['userFullName'] ?> 
 		</div>
 	</nav>
 	<div class="container-fluid">

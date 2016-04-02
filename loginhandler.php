@@ -15,7 +15,7 @@
 
 		$_SESSION['email'] = $_POST['email'];
 		$_SESSION['userID'] = $user->getUserID();
-
+		$_SESSION['userFullName']= $user->getFirstName() ." ". $user->getLastName();
 		header('Location: dashboard.php');
 		exit();
 
