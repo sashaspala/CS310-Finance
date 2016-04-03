@@ -19,9 +19,9 @@
 	</nav>
 	<div class="container-fluid">
 		<div class="row" style="margin:100px auto;float:none;padding">
-		<div class="col-md-2">
+		<div class="col-md-2 col-sm-2">
 			<div class="well" style="background-color:#FFFFFF">
-				<h2>Accounts</h2>
+				<h2>Accounts</h2> 
 				<table class="table table-hover">
 					<tr>
 						<td>Account 1</td>
@@ -45,13 +45,13 @@
 			</div>
 		</div>
 
-		<div class="col-md-6">
+		<div class="col-md-6 col-sm-6">
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-4">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Transactions</h2>
 				<table id="transactions" class="table table-bordered table-hover sortable">
@@ -64,6 +64,12 @@
 						</tr>
 					</thead>
 					<tbody>
+
+
+					
+
+
+
 					<tr>
 						<td>trying</td>
 						<td>2</td>
