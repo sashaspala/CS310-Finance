@@ -82,7 +82,14 @@ class DataManager {
 			$stmt->execute(array('email' => $email, 'hashedPassword' => $hashedPassword));
 
 			$results = $stmt->fetchAll (PDO::FETCH_CLASS, "User");
+			
+
+			if (count($results) == 0) {
+				return null; 
+			}
+			
 			$newUser = $results[0];
+		
 			$this->currentLoggedInUserID = $newUser->getUserID();
 
 			return $newUser;

@@ -27,7 +27,7 @@ $_GLOBALS['balanceSheet'] = $balanceSheet;
 		<div class="row" style="margin:100px auto;float:none;padding">
 		<div class="col-md-2 col-sm-2">
 			<div class="well" style="background-color:#FFFFFF">
-				<h2>Accounts</h2>
+				<h2>Accounts</h2> 
 				<table class="table table-hover">
 					<tr>
 						<td>Account 1</td>
@@ -70,6 +70,12 @@ $_GLOBALS['balanceSheet'] = $balanceSheet;
 						</tr>
 					</thead>
 					<tbody>
+
+
+					
+
+
+
 					<tr>
 						<td>trying</td>
 						<td>2</td>
