@@ -1,12 +1,17 @@
 <?php
 	
 require_once("Classes/DataManager.php");
-require_once("Classes/BalanceSheet.php");  
+//TODO FIX BALANCESHEET
+// require_once("Classes/BalanceSheet.php");  
 require_once("header.php");
 
 //LOADS PERSISTENT DATA
-// $accounts = DataManager::getInstance()->getAccountsForUserID($_SESSION['userid']); 
-// $balanceSheet = balanceSheet($accounts);
+
+// NEED TO FIX TOO
+$accounts = DataManager::getInstance()->getAccountsForUserID($_SESSION['userID']); 
+
+//TODO FIX BALANCESHEET
+// $balanceSheet = new balanceSheet($accounts); 
 // $_GLOBALS['balanceSheet'] = $balanceSheet; 
 
 ?>
@@ -17,9 +22,13 @@ require_once("header.php");
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
-	    	<span class="btn btn-default btn-file">
-			    Upload CSV <input type="file" accept=".csv" id="csvUpload" action="csvhandler.php" name="csvfilename">
-			</span>
+	    	<form action="csvhandler.php" method = "post" enctype="mulipart/form-data">
+
+	    	 <!-- <span class="btn btn-default btn-file"> -->
+			    Upload CSV <input type="file" accept=".csv" id="csvUpload" name="csvfilename">    
+			<!-- </span> -->
+			<input type="submit" value= "Upload">
+			</form>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
 	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php $_SESSION['userFullName']?> 
 		</div>
