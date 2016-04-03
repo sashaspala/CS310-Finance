@@ -1,6 +1,6 @@
 <?php
 	if(!session_id()) {
-		session_start();
+		session_start();   
 	}
 			
 
@@ -26,6 +26,7 @@
 		$_SESSION['email'] = $_POST['email'];
 		$_SESSION['userID'] = $user->getUserID();
 		$_SESSION['userFullName']= $user->getFirstName() ." ". $user->getLastName();
+		$_SESSION["blah"]= "goesfromlogin";
 		header('Location: dashboard.php');
 		exit();
 

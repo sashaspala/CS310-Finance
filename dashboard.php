@@ -1,13 +1,17 @@
 <?php
+
+
 	
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");  
 require_once("header.php");
 
+session_start();
+
 //LOADS PERSISTENT DATA
 
-$accounts = DataManager::getInstance()->getAccountsForUser($_SESSION['userID']); 
+$accounts = DataManager::getInstance()->getAccountsForUser(1); 
 
 //TODO FIX BALANCESHEET
 $balanceSheet = new balanceSheet($accounts); 
@@ -85,17 +89,27 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 					<tbody>
 
 					<?php
-					
+						echo "bas";
+						echo $_SESSION["blah"];
+
+
+
 						//accounts 
 						$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
+						echo count($existingAccountsu);
 						foreach($existingAccounts as $account){
+							echo $account->getName();
 							$existingTransactions = $account->getTransactions();
 							foreach($existingTransactions as $transaction){
+
+								//echo <"tr">;
+								echo "<tr>";
 								echo "<td>" . $transaction->getName() . "</td>";
 								echo "<td>" . $transaction->getCategory() . "</td>";
 								echo "<td>" . $transaction->getAmount() . "</td>";
 								echo "<td>" . $transaction->getDate() . "</td>";
-
+								echo "</tr>";
+								//echo <"/tr>";
 							}
 						}
 
