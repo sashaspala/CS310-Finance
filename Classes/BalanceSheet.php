@@ -36,6 +36,10 @@ class BalanceSheet{
 		return $this->netWorth;
 	}
 
+	function getAccounts(){
+		return $this->accounts;
+	}
+
 }
 
 

@@ -84,10 +84,24 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 					</thead>
 					<tbody>
 
-
+					<?php
 					
+						//accounts 
+						$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
+						foreach($existingAccounts as $account){
+							$existingTransactions = $account->getTransactions();
+							foreach($existingTransactions as $transaction){
+								echo "<td>" . $transaction->getName() . "</td>";
+								echo "<td>" . $transaction->getCategory() . "</td>";
+								echo "<td>" . $transaction->getAmount() . "</td>";
+								echo "<td>" . $transaction->getDate() . "</td>";
+
+							}
+						}
 
 
+
+					?>
 
 					<tr>
 						<td>trying</td>

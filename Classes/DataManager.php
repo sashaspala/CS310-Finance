@@ -5,11 +5,12 @@ require_once("Classes/Account.php");
 require_once("Classes/Transaction.php");
 
 
-//$newAccount = $testManager->getAccount('Credit Card2', 2);
-//var_dump($testManager->getAccountsForUser(2));
-//$testManager->removeAccount('Credit Card', 1); */
-//$testManager->addTransaction(date('Y-m-d'), 99.99, "Food", "Lots of groceries", "Ralphs", 1, 2);
-//var_dump($testManager->getTransactionsForAccount(1, 2));
+// $testManager
+// $newAccount = $testManager->getAccount('Credit `Card2', 2);
+// //var_dump($testManager->getAccountsForUser(2));
+// $testManager->removeAccount('Credit Card', 1); 
+// $testManager->addTransaction(date('Y-m-d'), 99.99, "Food", "Lots of groceries", "Ralphs", 1, 2);
+// //var_dump($testManager->getTransactionsForAccount(1, 2));
 
 
 class DataManager {
