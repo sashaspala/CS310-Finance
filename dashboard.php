@@ -42,22 +42,17 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
 				<h2>Accounts</h2> 
 				<table class="table table-hover">
-					<tr>
-						<td>Account 1</td>
-						<td><input type="checkbox" name="showAccount"/></td>
-					</tr>
-					<tr>
-						<td>Account 2</td>
-						<td><input type="checkbox" name="showAccount"/></td>
-					</tr>
-					<tr>
-						<td>Account 3</td>
-						<td><input type="checkbox" name="showAccount"/></td>
-					</tr>
-					<tr>
-						<td>Account 4</td>
-						<td><input type="checkbox" name="showAccount"/></td>
-					</tr>
+				<?php
+					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
+						foreach($existingAccounts as $account){
+
+						
+						echo "<tr>";
+						echo "<td>" . $account->getAccountName() . "</td>";
+						echo "<td><input type="."checkbox". " name=showAccount"."/></td>";
+						echo "</tr>";
+						}
+				?>
 				</table>
 				<div class="account-btn">
 					<button type="button" class="btn btn-success">Add</button>
