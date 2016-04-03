@@ -1,5 +1,5 @@
 <?php 
-	$file= file_get_contents($_FILES["fileToUpload"]["tmp_name"]);
+	$file= file_get_contents($_FILES[$_POST['fileName']]]["tmp_name"]);
 	$data = array_map("str_getcsv",preg_split('/\r*\n+|\r+/',$file));
 
 	$line=0;
