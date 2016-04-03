@@ -1,18 +1,13 @@
 <?php
 	
 require_once('DataManager.php') ; 
+require_once("header.php");
 
 //LOADS PERSISTENT DATA
 $accounts = DataManager::getInstance()->getAccountsForUserID($_SESSION['userid']); 
-for($i=0; $i<count($accounts); $i++){
-	$accounts[$i]=DataManager.getTransactionsForAccount($acounts[$i].getAccountID(),$_SESSION['userid']);
-
-}
-
 $balanceSheet = balanceSheet($accounts);
 $_GLOBALS['balanceSheet'] = $balanceSheet; 
 
-	require_once("header.php");
 ?>
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -22,7 +17,7 @@ $_GLOBALS['balanceSheet'] = $balanceSheet;
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 	    	<span class="btn btn-default btn-file">
-			    Upload CSV <input type="file" accept=".csv" id="csvUpload">
+			    Upload CSV <input type="file" accept=".csv" id="csvUpload" >
 			</span>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
 	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php $_SESSION['userFullName']?> 
@@ -30,7 +25,7 @@ $_GLOBALS['balanceSheet'] = $balanceSheet;
 	</nav>
 	<div class="container-fluid">
 		<div class="row" style="margin:100px auto;float:none;padding">
-		<div class="col-md-2">
+		<div class="col-md-2 col-sm-2">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Accounts</h2>
 				<table class="table table-hover">
@@ -56,13 +51,13 @@ $_GLOBALS['balanceSheet'] = $balanceSheet;
 			</div>
 		</div>
 
-		<div class="col-md-6">
+		<div class="col-md-6 col-sm-6">
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-4">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Transactions</h2>
 				<table id="transactions" class="table table-bordered table-hover sortable">
