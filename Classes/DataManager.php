@@ -13,7 +13,7 @@ require_once("Classes/Transaction.php");
 // //var_dump($testManager->getTransactionsForAccount(1, 2));
 
 //DataManager::getInstance()->addAccount('test account', 1); 
-$accounts = DataManager::getInstance()->getAccountsForUser(1); 
+//$accounts = DataManager::getInstance()->getAccountsForUser(1); 
 
 
 
@@ -46,8 +46,8 @@ class DataManager {
 
 		define('DBHOST','localhost');
 		define('DBUSER','root');
-		//define('DBPASS','van78756');
-		define('DBPASS', 'password'); 
+		define('DBPASS','van78756');
+		//define('DBPASS', 'password'); 
 		define('DBNAME','310Database');
 
 		try {
