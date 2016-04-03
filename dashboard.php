@@ -89,27 +89,21 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 					<tbody>
 
 					<?php
-						echo "bas";
-						echo $_SESSION["blah"];
-
 
 
 						//accounts 
 						$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
-						echo count($existingAccountsu);
 						foreach($existingAccounts as $account){
-							echo $account->getName();
 							$existingTransactions = $account->getTransactions();
 							foreach($existingTransactions as $transaction){
 
-								//echo <"tr">;
+								echo "<tr>";
 								echo "<tr>";
 								echo "<td>" . $transaction->getName() . "</td>";
 								echo "<td>" . $transaction->getCategory() . "</td>";
 								echo "<td>" . $transaction->getAmount() . "</td>";
 								echo "<td>" . $transaction->getDate() . "</td>";
 								echo "</tr>";
-								//echo <"/tr>";
 							}
 						}
 

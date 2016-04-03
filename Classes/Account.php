@@ -47,7 +47,7 @@ class Account {
 	}
 
 	function getTransactions(){
-        $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID); 
+        $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, $_SESSION['userID']); 
 		return $this->transactions;
 	}
 
