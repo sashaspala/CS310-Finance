@@ -31,8 +31,8 @@
 
 		$line++;
 	// 	// ADD ACCOUNT TO BALLANCESHEET LOCALLY
-		//NEEDS TODO
-	// 	$_GLLOBAL['ballanceSheet']->addAccount($account);
+
+		$_SESSION['ballanceSheet']->addAccount($account);
 	}
 	header('Location: dashboard.php');
 	exit();
