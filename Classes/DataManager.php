@@ -12,6 +12,10 @@ require_once("Classes/Transaction.php");
 // $testManager->addTransaction(date('Y-m-d'), 99.99, "Food", "Lots of groceries", "Ralphs", 1, 2);
 // //var_dump($testManager->getTransactionsForAccount(1, 2));
 
+//DataManager::getInstance()->addAccount('test account', 1); 
+$accounts = DataManager::getInstance()->getAccountsForUser(1); 
+
+
 
 class DataManager {
 
@@ -42,7 +46,8 @@ class DataManager {
 
 		define('DBHOST','localhost');
 		define('DBUSER','root');
-		define('DBPASS','van78756');
+		//define('DBPASS','van78756');
+		define('DBPASS', 'password'); 
 		define('DBNAME','310Database');
 
 		try {
@@ -185,7 +190,8 @@ class DataManager {
 
 		$stmt = $this->_db->prepare('SELECT * FROM Accounts WHERE Users_userID = :userID');
 		$stmt->execute(array('userID'=>$userID));
-		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Account");
+		$results = $stmt->fetchAll(PDO::FETCH_CLASS, "Account");
+		echo $results[0]->getAccountName(); 
 		return $results;
 	}
 

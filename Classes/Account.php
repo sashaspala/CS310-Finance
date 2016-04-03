@@ -1,6 +1,5 @@
 <?php
 
-require_once('Classes/DataManager.php'); 
 class Account {
 	private $name; //String
 	private $accountID; //int
@@ -15,6 +14,8 @@ class Account {
 			$this->accountID = $accountID;
 		if ($userID != null)  
 			$this->Users_userID = $userID;
+
+		echo 'Constructed Account with ' . $this->name; 
         $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 	}
 
@@ -38,11 +39,11 @@ class Account {
 	}
 
 	function getAccountName(){
-		return $this->accountName;
+		return $this->name;
 	}
 
 	function setAccountName($name){
-		$this->accountName = $name;
+		$this->name = $name;
 	}
 
 	function getTransactions(){
