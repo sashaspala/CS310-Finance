@@ -6,12 +6,12 @@ class BalanceSheet{
 
 	private $accounts; // array of accounts
 	private $netWorth; 
-	private $liabilities// an account;
+	private $liabilities;// an account;
 	private $assets; // an account
 
-	// function __construct(){
-	// 	$this->accounts = array();
-	// }
+	function __construct(){
+		$this->accounts = array();
+	}
 
 	function __construct($accountsArray){		
 		$this->accounts = $accountsArray;

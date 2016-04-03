@@ -2,13 +2,12 @@
 	
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
-// require_once("Classes/BalanceSheet.php");  
+require_once("Classes/BalanceSheet.php");  
 require_once("header.php");
 
 //LOADS PERSISTENT DATA
 
-// NEED TO FIX TOO
-$accounts = DataManager::getInstance()->getAccountsForUserID($_SESSION['userID']); 
+$accounts = DataManager::getInstance()->getAccountsForUser($_SESSION['userID']); 
 
 //TODO FIX BALANCESHEET
 // $balanceSheet = new balanceSheet($accounts); 
