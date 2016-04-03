@@ -11,7 +11,7 @@ require_once("header.php");
 
 ?>
 <head>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet"   type="text/css" href="styles.css">
 </head>
 
 <body>
