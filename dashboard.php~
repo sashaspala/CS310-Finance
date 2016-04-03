@@ -1,9 +1,8 @@
 <?php
 	
-
+//require_once('DataManager.php') ; 
 require_once("header.php");
-require_once("Classes/DataManager.php");
-require_once("Classes/BalanceSheet.php");
+
 // //LOADS PERSISTENT DATA
 // $accounts = DataManager::getInstance()->getAccountsForUserID($_SESSION['userid']); 
 // $balanceSheet = balanceSheet($accounts);
@@ -18,10 +17,10 @@ require_once("Classes/BalanceSheet.php");
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 	    	<span class="btn btn-default btn-file">
-			    Upload CSV <input type="file" accept=".csv" id="csvUpload" name="csvFileName" action="csvhandler.php">
+			    Upload CSV <input type="file" accept=".csv" id="csvUpload">
 			</span>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
-	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php $_SESSION['userFullName']?> 
+	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> 
 		</div>
 	</nav>
 	<div class="container-fluid">
