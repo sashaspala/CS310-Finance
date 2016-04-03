@@ -5,7 +5,9 @@ require_once("Classes/Account.php");
 require_once("Classes/Transaction.php");
 
 DataManager::getInstance()->addAccount('test',1);
-DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,1);
+DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
+
+DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
 
 
 

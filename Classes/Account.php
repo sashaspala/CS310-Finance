@@ -1,5 +1,6 @@
 <?php
 
+
 class Account {
 	private $name; //String
 	private $accountID; //int
@@ -48,6 +49,7 @@ class Account {
 
 	function getTransactions(){
         $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, $_SESSION['userID']); 
+        echo count($this->transactions);
 		return $this->transactions;
 	}
 
