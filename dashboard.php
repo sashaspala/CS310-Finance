@@ -1,6 +1,7 @@
 <?php
 	
 
+
 require_once("header.php");
 require_once("Classes/DataManager.php");
 require_once("Classes/BalanceSheet.php");
@@ -25,10 +26,16 @@ require_once("Classes/BalanceSheet.php");
 		</div>
 	</nav>
 	<div class="container-fluid">
+
 		<div class="row" style="margin:100px auto;float:none;padding">
 		<div class="col-md-2 col-sm-2">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Accounts</h2>
+		<div class="row row-margin" style="float:none;">
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
+				<h2>Accounts</h2> 
+
 				<table class="table table-hover">
 					<tr>
 						<td>Account 1</td>
@@ -47,18 +54,22 @@ require_once("Classes/BalanceSheet.php");
 						<td><input type="checkbox" name="showAccount"/></td>
 					</tr>
 				</table>
-				<button type="button" class="btn btn-success">Add</button>
-				<button type="button" class="btn btn-danger">Remove</button>
+				<div class="account-btn">
+					<button type="button" class="btn btn-success">Add</button>
+					<button type="button" class="btn btn-danger">Remove</button>
+				</div>
 			</div>
 		</div>
 
-		<div class="col-md-6 col-sm-6">
+		<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
 		</div>
+		</div>
 
-		<div class="col-md-4 col-sm-4">
+		<div class="row" style="margin:0px auto;float:none;">
+		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Transactions</h2>
 				<table id="transactions" class="table table-bordered table-hover sortable">
