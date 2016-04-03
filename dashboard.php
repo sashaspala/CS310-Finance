@@ -1,11 +1,10 @@
 <?php
 	
-
-
-require_once("header.php");
 require_once("Classes/DataManager.php");
-require_once("Classes/BalanceSheet.php");
-// //LOADS PERSISTENT DATA
+require_once("Classes/BalanceSheet.php");  
+require_once("header.php");
+
+//LOADS PERSISTENT DATA
 // $accounts = DataManager::getInstance()->getAccountsForUserID($_SESSION['userid']); 
 // $balanceSheet = balanceSheet($accounts);
 // $_GLOBALS['balanceSheet'] = $balanceSheet; 
@@ -19,23 +18,17 @@ require_once("Classes/BalanceSheet.php");
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 	    	<span class="btn btn-default btn-file">
-			    Upload CSV <input type="file" accept=".csv" id="csvUpload" name="csvFileName" action="csvhandler.php">
+			    Upload CSV <input type="file" accept=".csv" id="csvUpload" action="csvhandler.php" name="csvfilename">
 			</span>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
 	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php $_SESSION['userFullName']?> 
 		</div>
 	</nav>
 	<div class="container-fluid">
-
-		<div class="row" style="margin:100px auto;float:none;padding">
-		<div class="col-md-2 col-sm-2">
-			<div class="well" style="background-color:#FFFFFF">
-				<h2>Accounts</h2>
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
 				<h2>Accounts</h2> 
-
 				<table class="table table-hover">
 					<tr>
 						<td>Account 1</td>
@@ -82,6 +75,12 @@ require_once("Classes/BalanceSheet.php");
 						</tr>
 					</thead>
 					<tbody>
+
+
+					
+
+
+
 					<tr>
 						<td>trying</td>
 						<td>2</td>
