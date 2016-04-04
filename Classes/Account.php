@@ -20,6 +20,9 @@ class Account {
         $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 	}
 
+	function getID(){
+		return $this->accountID;
+	}
 
 	function calculateTotalSum(){
 		$total = 0.00;
