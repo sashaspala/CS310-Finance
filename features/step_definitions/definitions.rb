@@ -49,3 +49,6 @@ Then /^my account decreases$/ do
 	find('div#accountBalanceDiv').txt[1..9].to_i.should_not equal(1000)
 end
 
+Then /^(.*?) should load$/ do |elementName|
+	page.should have_text(elementName)
+end
