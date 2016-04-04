@@ -37,17 +37,6 @@ class DataManager {
 	public $currentLoggedInUserID; // ID for the currently logged in user
 	private $_db; //database connection
 
-	/**
-	* Add a new user to the database with the given information, and creates an instance of
-	* the user class. Also, gives the new User databaseID
-	* @param string firstName The first name of the user
-	* @param string lastName The last name of the user
-	* @param string userName
-	* @param string email
-	* @param string hashedPassword
-	* @return User The new user,
-	*/
-
 	function __construct() {
 
 		define('DBHOST','localhost');
@@ -69,13 +58,37 @@ class DataManager {
 			echo '<p class="bg-danger">'.$e->getMessage().'</p>';
 			exit;
 		}
-
-
-
 	}
 
-	function addUser($firstName, $lastName, $email, $hashedPassword) {
+	/**
+	* Add a new user to the database with the given information, and creates an instance of
+	* the user class. Also, gives the new User databaseID
+	* @param string firstName The first name of the user
+	* @param string lastName The last name of the user
+	* @param string userName
+	* @param string email
+	* @param string hashedPassword
+	* @return User The new user,
+	*/
 
+	function addUser($firstName, $lastName, $email, $hashedPassword) {
+		$stmt = $this->_db->prepare('INSERT INTO Users (firstName, lastName, email, hashedPassword VALUES(:firstName, :lastName, :email, :hashedPassword');
+
+		$stmt->bindParam(':firstName', $firstName);
+		$stmt->bindParam(':lastName', $lastName);
+		$stmt->bindParam(':email', $email);
+		$stmt->bindParam(':hashedPassword', $hashedPassword);
+
+		if($this->executeStatement($stmt)==true) {
+			$userID = $this->_db->lastInsertId();
+			return new User($name, $accountID, $userID);
+		} else {
+			return null;
+		}
+
+		/*insert into Users values 
+			(0, 'Darvish', 'Kamalia', 'swag@swag.com', 'swag'),
+			(null, 'Alex', 'Hong', 'moreswag@moreswag.com', 'moreswag'); */
 	}
 
 	/**
