@@ -16,7 +16,7 @@ class Account {
 		if ($userID != null)  
 			$this->Users_userID = $userID;
 
-		echo 'Constructed Account with ' . $this->name; 
+		//echo 'Constructed Account with ' . $this->name; 
         $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 	}
 

@@ -41,8 +41,8 @@ class DataManager {
 
 		define('DBHOST','localhost');
 		define('DBUSER','root');
-		define('DBPASS','van78756');
-		//define('DBPASS', 'password'); 
+		//define('DBPASS','van78756');
+		define('DBPASS', 'password'); 
 		define('DBNAME','310Database');
 
 		try {
@@ -72,7 +72,7 @@ class DataManager {
 	*/
 
 	function addUser($firstName, $lastName, $email, $hashedPassword) {
-		$stmt = $this->_db->prepare('INSERT INTO Users (firstName, lastName, email, hashedPassword VALUES(:firstName, :lastName, :email, :hashedPassword');
+		$stmt = $this->_db->prepare('INSERT INTO Users (firstName, lastName, email, hashedPassword) VALUES (:firstName, :lastName, :email, :hashedPassword)');
 
 		$stmt->bindParam(':firstName', $firstName);
 		$stmt->bindParam(':lastName', $lastName);
@@ -81,7 +81,7 @@ class DataManager {
 
 		if($this->executeStatement($stmt)==true) {
 			$userID = $this->_db->lastInsertId();
-			return new User($name, $accountID, $userID);
+			return new User($userID, $firstName, $lastName, $email, $hashedPassword);
 		} else {
 			return null;
 		}
@@ -110,6 +110,7 @@ class DataManager {
 			
 
 			if (count($results) == 0) {
+				$this->currentLoggedInUserID = null;
 				return null; 
 			}
 			
@@ -121,10 +122,19 @@ class DataManager {
 
 		} catch(Exception $e) {
 			header('Location: afterretry.php');
+			$this->currentLoggedInUserID = null;
 			echo '<p class="bg-danger">'.$e->getMessage().'</p>';
 			return null;
 			//echo $e->getMessage();
 		}
+	}
+
+	/**
+	* Logs a user out of the data manager
+	*
+	*/
+	function logout() {
+		$this->currentLoggedInUserID = null;
 	}
 
 	/**
@@ -140,8 +150,8 @@ class DataManager {
 		$stmt->execute(array('name'=>$name, 'userID'=>$userID));
 		$results = $stmt->fetch();
 		if($results[0]) {
-			echo "An acdfasdcount of that name already exists in database\n";
-			//return null;
+			//echo "An account of that name already exists in database\n";
+			return null;
 		}
 
 		$stmt = $this->_db->prepare('INSERT INTO Accounts (name, Users_userID)
@@ -195,7 +205,7 @@ class DataManager {
 		}
 
 		else {
-			echo "Could not find account for the specified user\n";
+			//echo "Could not find account for the specified user\n";
 			return null;
 		}
 
@@ -210,7 +220,6 @@ class DataManager {
 		$stmt = $this->_db->prepare('SELECT * FROM Accounts WHERE Users_userID = :userID');
 		$stmt->execute(array('userID'=>$userID));
 		$results = $stmt->fetchAll(PDO::FETCH_CLASS, "Account");
-		echo $results[0]->getAccountName(); 
 		return $results;
 	}
 
@@ -269,7 +278,7 @@ class DataManager {
 	function executeStatement($statement) {
 		try {
 			$statement->execute();
-			echo "Success\n";
+			//echo "Success\n";
 			return true;
 		} catch(PDOException $error) {
 			echo $error->getMessage()."\n";
