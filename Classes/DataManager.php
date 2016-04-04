@@ -52,8 +52,8 @@ class DataManager {
 
 		define('DBHOST','localhost');
 		define('DBUSER','root');
-		define('DBPASS','van78756');
-		//define('DBPASS', 'password'); 
+		//define('DBPASS','van78756');
+		define('DBPASS', 'password'); 
 		define('DBNAME','310Database');
 
 		try {
@@ -197,7 +197,7 @@ class DataManager {
 		$stmt = $this->_db->prepare('SELECT * FROM Accounts WHERE Users_userID = :userID');
 		$stmt->execute(array('userID'=>$userID));
 		$results = $stmt->fetchAll(PDO::FETCH_CLASS, "Account");
-		echo $results[0]->getAccountName(); 
+		//echo $results[0]->getAccountName(); 
 		return $results;
 	}
 
@@ -256,7 +256,7 @@ class DataManager {
 	function executeStatement($statement) {
 		try {
 			$statement->execute();
-			echo "Success\n";
+			//echo "Success\n";
 			return true;
 		} catch(PDOException $error) {
 			echo $error->getMessage()."\n";

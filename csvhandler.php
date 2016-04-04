@@ -2,11 +2,9 @@
 	require_once("Classes/DataManager.php");
 
 	require_once("Classes/BalanceSheet.php"); 
-	echo "Blae2";
 	$myFilePath=$_FILES["csvfilename"]["name"];
 	$file= file_get_contents("sampleCSV.csv");
 	$data = array_map("str_getcsv",preg_split('/\r*\n+|\r+/',$file));
-	echo "BLAH";
 	$line=0;
 	$numOfAccount=$data[$line][0];
 	$line++;
