@@ -1,6 +1,6 @@
 <?php
 
-require_once('Classes/DataManager.php'); 
+
 class Account {
 	private $name; //String
 	private $accountID; //int
@@ -15,9 +15,14 @@ class Account {
 			$this->accountID = $accountID;
 		if ($userID != null)  
 			$this->Users_userID = $userID;
+
+		echo 'Constructed Account with ' . $this->name; 
         $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 	}
 
+	function getID(){
+		return $this->accountID;
+	}
 
 	function calculateTotalSum(){
 		$total = 0.00;
@@ -38,15 +43,16 @@ class Account {
 	}
 
 	function getAccountName(){
-		return $this->accountName;
+		return $this->name;
 	}
 
 	function setAccountName($name){
-		$this->accountName = $name;
+		$this->name = $name;
 	}
 
 	function getTransactions(){
-        $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID); 
+        $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, $_SESSION['userID']); 
+        echo count($this->transactions);
 		return $this->transactions;
 	}
 
