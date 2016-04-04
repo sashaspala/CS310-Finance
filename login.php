@@ -13,14 +13,14 @@
 </head>
 	<body>
 		<div class="container">
-			<div class="col-md-4 well" style="margin:40px auto; float:none;background-color: #EFEFEF;">
+			<div class="col-md-4 well" style="margin:40px auto; float:none;background-color: #EFEFEF;" id="textFields">
 		    	<form class="form-signin" action='loginhandler.php' method='post' accept-charset='UTF-8'>
 		        <h2 class="form-signin-heading">Sign In</h2>
 		        <label for="inputEmail" class="sr-only">Email</label>
 		        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required autofocus>
 		        <label for="inputPassword" class="sr-only">Password</label>
 		        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-		        <button  class="btn btn-lg btn-primary btn-block" type="submit" name = "login">Sign in</button>
+		        <button  class="btn btn-lg btn-primary btn-block" type="submit" id="loginButton" name = "login">Sign in</button>
 		      	</form>
 		    </div>
     	</div>
