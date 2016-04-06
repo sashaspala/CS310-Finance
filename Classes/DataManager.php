@@ -41,8 +41,7 @@ class DataManager {
 
 		define('DBHOST','localhost');
 		define('DBUSER','root');
-		define('DBPASS','van78756');
-		//define('DBPASS', 'password'); 
+		define('DBPASS', 'password'); 
 		define('DBNAME','310Database');
 
 		try {
