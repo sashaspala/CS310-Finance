@@ -74,7 +74,9 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 				<h2>Transactions</h2>
 
 				<script>
-				  
+				  $(function() {
+				    $( "#datepicker" ).datepicker();
+				  });
 				 </script>
 
  				<p> Date: <input type="text" id="datepicker"></p>
