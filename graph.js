@@ -41,3 +41,7 @@ $(function () {
         }]
     });
 });
+
+$(function() {
+    $( "#datepicker" ).datepicker();
+});
