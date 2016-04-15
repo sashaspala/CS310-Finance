@@ -39,7 +39,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<input type="submit" value= "Upload">
 			</form>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
-	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php $_SESSION['userFullName']?> 
+	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?> 
 		</div>
 	</nav>
 	<div class="container-fluid">
@@ -47,14 +47,44 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
 				<h2>Accounts</h2> 
-				<table class="table table-hover">
+				<table class="table table-hover" id="AccountsTable">
+				<script type="text/javascript">
+					function filter(){
+						var accountTable = document.getElementById("AccountsTable");
+						var checkedAccounts = accountTable.getElementsByTagName("input");
+						var getString;
+						for(var i =0; i<checkedAccounts.lenght; i++){
+							if(checkedAccounts[i].checked){
+								var currentRow = $(checkedAccounts[i]).closest('tr');
+								var accountName = currentRow.cells[0].innerText;
+								getString = getString.concat(accountName,"-");
+
+							}
+					}
+
+						if(window.XMLHttpRequest) {
+           				var	request = new XMLHttpRequest();
+						request.onreadystatechange = function() {
+			            if (request.readyState == 4 && request.status == 200) {
+			                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+			            	}
+			        	};
+			        	request.open("GET","getAccounts.php?accounts="+getString,true);
+        				request.send();
+					}
+
+
+
+
+
+				</script>
 				<?php
 					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
 						foreach($existingAccounts as $account){
 
 						
 						echo "<tr>";
-						echo "<td>" . $account->getAccountName() . "</td>";
+						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
 						echo "<td><input type="."checkbox". " name=showAccount"."/></td>";
 						echo "</tr>";
 						}
