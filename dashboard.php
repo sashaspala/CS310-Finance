@@ -16,6 +16,10 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 ?>
 <head>
 	<link rel="stylesheet"   type="text/css" href="styles.css">
+	<!-- Script for date Picker 
+	datepicker represents start date
+	datepicker 2 represents end date
+	 -->
 	<script>
 	  $(function() {
 	    $( "#datepicker" ).datepicker();
