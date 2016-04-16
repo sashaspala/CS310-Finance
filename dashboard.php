@@ -20,6 +20,9 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 	  $(function() {
 	    $( "#datepicker" ).datepicker();
 	  });
+	   $(function() {
+	    $( "#datepicker2" ).datepicker();
+	  });
   	</script>
 </head>
 
@@ -74,7 +77,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Transactions</h2>
 				<p>Start Date: <input type="text" id="datepicker"></p>
-				<p>End Date: <input type="text" id="datepicker"></p>
+				<p>End Date: <input type="text" id="datepicker2"></p>
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
