@@ -18,12 +18,12 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 	<link rel="stylesheet"   type="text/css" href="styles.css">
 	<script>
 	  $(function() {
-	    $( "datepickerStart" ).datepicker();
+	    $( "#datepickerStart" ).datepicker();
 	  });
   	</script>
   	<script>
 	  $(function() {
-	    $( "datepickerEnd" ).datepicker();
+	    $( "#datepickerEnd" ).datepicker();
 	  });
   	</script>
 </head>
