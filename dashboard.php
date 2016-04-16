@@ -1,59 +1,89 @@
 <?php
-	session_start();
 
-	require_once("header.php");
+
+	
+require_once("Classes/DataManager.php");
+//TODO FIX BALANCESHEET
+require_once("Classes/BalanceSheet.php");  
+require_once("header.php");
+
+session_start();
+
+//LOADS PERSISTENT DATA
+
+$accounts = DataManager::getInstance()->getAccountsForUser(1); 
+
+//TODO FIX BALANCESHEET
+$balanceSheet = new balanceSheet($accounts); 
+$_SESSION['balanceSheet'] = $balanceSheet; 
+
 ?>
 <head>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet"   type="text/css" href="styles.css">
+	<script>
+	  $(function() {
+	    $( "#datepicker" ).datepicker();
+	  });
+	 </script>
+
 </head>
 
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
-	    	<span class="btn btn-default btn-file">
-			    Upload CSV <input type="file" accept=".csv">
-			</span>
+	    	<form action="csvhandler.php" method = "post" enctype="mulipart/form-data">
+
+	    	 <!-- <span class="btn btn-default btn-file"> -->
+			    Upload CSV <input type="file" accept=".csv" id="csvUpload" name="csvfilename">    
+			<!-- </span> -->
+			<input type="submit" value= "Upload">
+			</form>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
-	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as William GJ Halfond</p>
+	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php $_SESSION['userFullName']?> 
 		</div>
 	</nav>
 	<div class="container-fluid">
-		<div class="row" style="margin:100px auto;float:none;padding">
-		<div class="col-md-2">
-			<div class="well" style="background-color:#FFFFFF">
-				<h2>Accounts</h2>
+		<div class="row row-margin" style="float:none;">
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
+				<h2>Accounts</h2> 
 				<table class="table table-hover">
-					<tr>
-						<td>Account 1</td>
-						<td><input type="checkbox" name="showAccount"/></td>
-					</tr>
-					<tr>
-						<td>Account 2</td>
-						<td><input type="checkbox" name="showAccount"/></td>
-					</tr>
-					<tr>
-						<td>Account 3</td>
-						<td><input type="checkbox" name="showAccount"/></td>
-					</tr>
-					<tr>
-						<td>Account 4</td>
-						<td><input type="checkbox" name="showAccount"/></td>
-					</tr>
+				<?php
+					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
+						foreach($existingAccounts as $account){
+
+						
+						echo "<tr>";
+						echo "<td>" . $account->getAccountName() . "</td>";
+						echo "<td><input type="."checkbox". " name=showAccount"."/></td>";
+						echo "</tr>";
+						}
+				?>
 				</table>
-				<button type="button" class="btn btn-success">Add</button>
-				<button type="button" class="btn btn-danger">Remove</button>
+				<div class="account-btn">
+					<button type="button" class="btn btn-success">Add</button>
+					<button type="button" class="btn btn-danger">Remove</button>
+				</div>
 			</div>
 		</div>
 
-		<div class="col-md-6">
+		<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
 		</div>
+		</div>
 
-		<div class="col-md-4">
+		<div class="row" style="margin:0px auto;float:none;">
+		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Transactions</h2>
+
+				
+ 				<p> Date: <input type="text" id="datepicker"></p>
+				
+
+
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
@@ -64,30 +94,26 @@
 						</tr>
 					</thead>
 					<tbody>
-					<tr>
-						<td>trying</td>
-						<td>2</td>
-						<td>4.0</td>
-						<td>12/02/2016</td>
-					</tr>
-					<tr>
-						<td>to</td>
-						<td>670</td>
-						<td>2.1</td>
-						<td>05/04/1999</td>
-					</tr>
-					<tr>
-						<td>run</td>
-						<td>-6</td>
-						<td>-1.5</td>
-						<td>06/30/2005</td>
-					</tr>
-					<tr>
-						<td>a test of this</td>
-						<td>-7</td>
-						<td>7.3</td>
-						<td>08/12/1986</td>
-					</tr>
+
+					<?php
+
+
+						//accounts 
+						$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
+						foreach($existingAccounts as $account){
+							$existingTransactions = $account->getTransactions();
+							foreach($existingTransactions as $transaction){
+
+								echo "<tr>";
+								echo "<tr>";
+								echo "<td>" . $transaction->getName() . "</td>";
+								echo "<td>" . $transaction->getCategory() . "</td>";
+								echo "<td>" . $transaction->getAmount() . "</td>";
+								echo "<td>" . $transaction->getDate() . "</td>";
+								echo "</tr>";
+							}
+						}
+					?>
 					</tbody>
 				</table>
 			</div>

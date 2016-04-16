@@ -1,8 +1,25 @@
 <?php
 
-require_once("User.php");
-require_once("Account.php");
-require_once("Transaction.php");
+require_once("Classes/User.php");
+require_once("Classes/Account.php");
+require_once("Classes/Transaction.php");
+
+// DataManager::getInstance()->addAccount('test',1);
+// DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
+
+// DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
+
+
+
+// $testManager
+// $newAccount = $testManager->getAccount('Credit `Card2', 2);
+// //var_dump($testManager->getAccountsForUser(2));
+// $testManager->removeAccount('Credit Card', 1);
+// $testManager->addTransaction(date('Y-m-d'), 99.99, "Food", "Lots of groceries", "Ralphs", 1, 2);
+// //var_dump($testManager->getTransactionsForAccount(1, 2));
+
+//DataManager::getInstance()->addAccount('test account', 1);
+//$accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 // $testManager = new DataManager();
 // $testManager->getInstance()->loginUser('swag@swag.com', 'swag');
@@ -12,6 +29,7 @@ require_once("Transaction.php");
 //$testManager->removeAccount('Credit Card', 1); */
 //$testManager->addTransaction(date('Y-m-d'), 99.99, "Food", "Lots of groceries", "Ralphs", 1, 2);
 //var_dump($testManager->getTransactionsForAccount(1, 2));
+
 
 
 class DataManager {
@@ -28,6 +46,28 @@ class DataManager {
 	public $currentLoggedInUserID; // ID for the currently logged in user
 	private $_db; //database connection
 
+	function __construct() {
+
+		define('DBHOST','localhost');
+		define('DBUSER','root');
+		define('DBPASS', 'password');
+		define('DBNAME','310Database');
+
+		try {
+			//create PDO connection
+
+			$this->_db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
+			$this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		} catch(Exception $e) {
+
+			header('Location: ' . $e->getMessage());
+			//show error
+			echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+			exit;
+		}
+	}
+
 	/**
 	* Add a new user to the database with the given information, and creates an instance of
 	* the user class. Also, gives the new User databaseID
@@ -39,29 +79,24 @@ class DataManager {
 	* @return User The new user,
 	*/
 
-	function __construct() {
+	function addUser($firstName, $lastName, $email, $hashedPassword) {
+		$stmt = $this->_db->prepare('INSERT INTO Users (firstName, lastName, email, hashedPassword) VALUES (:firstName, :lastName, :email, :hashedPassword)');
 
-		define('DBHOST','localhost');
-		define('DBUSER','root');
-		define('DBPASS','password');
-		define('DBNAME','310Database');
+		$stmt->bindParam(':firstName', $firstName);
+		$stmt->bindParam(':lastName', $lastName);
+		$stmt->bindParam(':email', $email);
+		$stmt->bindParam(':hashedPassword', $hashedPassword);
 
-		try {
-			//create PDO connection
-			$this->_db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
-			$this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			echo "connected successfully\n";
-
-		} catch(PDOException $e) {
-			//show error
-			echo '<p class="bg-danger">'.$e->getMessage().'</p>';
-			exit;
+		if($this->executeStatement($stmt)==true) {
+			$userID = $this->_db->lastInsertId();
+			return new User($userID, $firstName, $lastName, $email, $hashedPassword);
+		} else {
+			return null;
 		}
 
-	}
-
-	function addUser($firstName, $lastName, $email, $hashedPassword) {
-
+		/*insert into Users values
+			(0, 'Darvish', 'Kamalia', 'swag@swag.com', 'swag'),
+			(null, 'Alex', 'Hong', 'moreswag@moreswag.com', 'moreswag'); */
 	}
 
 	/**
@@ -72,19 +107,42 @@ class DataManager {
 	*
 	*/
 	function loginUser($email, $hashedPassword) {
+
+
+
 		try {
 			$stmt = $this->_db->prepare('SELECT userID, firstName, lastName, email, hashedPassword FROM Users WHERE email = :email AND hashedPassword= :hashedPassword');
 			$stmt->execute(array('email' => $email, 'hashedPassword' => $hashedPassword));
 
 			$results = $stmt->fetchAll (PDO::FETCH_CLASS, "User");
+
+
+			if (count($results) == 0) {
+				$this->currentLoggedInUserID = null;
+				return null;
+			}
+
 			$newUser = $results[0];
+
 			$this->currentLoggedInUserID = $newUser->getUserID();
+
 			return $newUser;
 
-		} catch(PDOException $e) {
-			//echo '<p class="bg-danger">'.$e->getMessage().'</p>';
-			echo $e->getMessage();
+		} catch(Exception $e) {
+			header('Location: afterretry.php');
+			$this->currentLoggedInUserID = null;
+			echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+			return null;
+			//echo $e->getMessage();
 		}
+	}
+
+	/**
+	* Logs a user out of the data manager
+	*
+	*/
+	function logout() {
+		$this->currentLoggedInUserID = null;
 	}
 
 	/**
@@ -100,7 +158,7 @@ class DataManager {
 		$stmt->execute(array('name'=>$name, 'userID'=>$userID));
 		$results = $stmt->fetch();
 		if($results[0]) {
-			echo "An account of that name already exists in database\n";
+			//echo "An account of that name already exists in database\n";
 			return null;
 		}
 
@@ -155,7 +213,7 @@ class DataManager {
 		}
 
 		else {
-			echo "Could not find account for the specified user\n";
+			//echo "Could not find account for the specified user\n";
 			return null;
 		}
 
@@ -169,7 +227,7 @@ class DataManager {
 
 		$stmt = $this->_db->prepare('SELECT * FROM Accounts WHERE Users_userID = :userID');
 		$stmt->execute(array('userID'=>$userID));
-		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Account");
+		$results = $stmt->fetchAll(PDO::FETCH_CLASS, "Account");
 		return $results;
 	}
 
@@ -228,7 +286,7 @@ class DataManager {
 	function executeStatement($statement) {
 		try {
 			$statement->execute();
-			echo "Success\n";
+			//echo "Success\n";
 			return true;
 		} catch(PDOException $error) {
 			echo $error->getMessage()."\n";

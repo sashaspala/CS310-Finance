@@ -37,3 +37,17 @@ table.sortable thead {
     font-weight: bold;
     cursor: default;
 }
+
+.row-margin {
+    margin: auto;
+    margin-top: 100px;
+}
+
+.account-div {
+    position: relative;
+} 
+
+.account-btn {
+    position: absolute;
+    bottom: 15px;
+}

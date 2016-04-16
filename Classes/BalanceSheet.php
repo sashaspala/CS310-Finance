@@ -1,20 +1,16 @@
 <?php
 
-include_once "Account.php";
+require_once "Account.php";
 
 class BalanceSheet{
 
 	private $accounts; // array of accounts
 	private $netWorth; 
-	private $liabilities;
-	private $assets;
+	private $liabilities;// an account;
+	private $assets; // an account
 
-	// function __construct(){
-	// 	$this->accounts = array();
-	// }
 
-	function __construct($accountsArray){
-		$this->accounts = array();
+	function __construct($accountsArray){		
 		$this->accounts = $accountsArray;
 	}
 
@@ -27,7 +23,7 @@ class BalanceSheet{
 		if(!empty($this->accounts)){
 			foreach($this->accounts as $item){
 				$item->calculateTotalSum();
-				total += $item->getSum();
+				$total += $item->getSum();
 			}
 			$this->netWorth = $total;
 		}
@@ -38,6 +34,10 @@ class BalanceSheet{
 
 	function getNetWorth(){
 		return $this->netWorth;
+	}
+
+	function getAccounts(){
+		return $this->accounts;
 	}
 
 }
