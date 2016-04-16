@@ -70,6 +70,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
+			<script src="graph.js"></script>
 		</div>
 		</div>
 
@@ -119,6 +120,5 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 		</div>
 	</div>
 	</div>
-	<script src="graph.js"></script>
 </body>
 </html>
