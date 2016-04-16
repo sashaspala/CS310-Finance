@@ -10,7 +10,7 @@ session_start();
 
 //LOADS PERSISTENT DATA
 
-$accounts = DataManager::getInstance()->getAccountsForUser($_SESSION('userID'));
+$accounts = DataManager::getInstance()->getAccountsForUser($_SESSION['userID']);
 
 //TODO FIX BALANCESHEET
 $balanceSheet = new BalanceSheet($accounts);
