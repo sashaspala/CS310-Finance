@@ -1,30 +1,21 @@
 <?php
 
-
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
 require_once("header.php");
-
-session_start();
 
 //LOADS PERSISTENT DATA
 
 $accounts = DataManager::getInstance()->getAccountsForUser($_SESSION['userID']);
 
 //TODO FIX BALANCESHEET
-$balanceSheet = new BalanceSheet($accounts);
+$balanceSheet = new balanceSheet($accounts);
 $_SESSION['balanceSheet'] = $balanceSheet;
 
 ?>
 <head>
 	<link rel="stylesheet"   type="text/css" href="styles.css">
-	<script>
-	  $(function() {
-	    $( "#datepicker" ).datepicker();
-	  });
-	 </script>
-
 </head>
 
 <body>
@@ -47,17 +38,22 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
 				<h2>Accounts</h2>
 				<table class="table table-hover">
-				<?php
-					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
-						foreach($existingAccounts as $account){
-
-
-						echo "<tr>";
-						echo "<td>" . $account->getAccountName() . "</td>";
-						echo "<td><input type="."checkbox". " name=showAccount"."/></td>";
-						echo "</tr>";
-						}
-				?>
+					<tr>
+						<td>Account 1</td>
+						<td><input type="checkbox" name="showAccount"/></td>
+					</tr>
+					<tr>
+						<td>Account 2</td>
+						<td><input type="checkbox" name="showAccount"/></td>
+					</tr>
+					<tr>
+						<td>Account 3</td>
+						<td><input type="checkbox" name="showAccount"/></td>
+					</tr>
+					<tr>
+						<td>Account 4</td>
+						<td><input type="checkbox" name="showAccount"/></td>
+					</tr>
 				</table>
 				<div class="account-btn">
 					<button type="button" class="btn btn-success">Add</button>
@@ -70,7 +66,6 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
-			<script src="graph.js"></script>
 		</div>
 		</div>
 
@@ -78,12 +73,6 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Transactions</h2>
-
-
- 				<p> Date: <input type="text" id="datepicker"></p>
-
-
-
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
@@ -95,30 +84,41 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 					</thead>
 					<tbody>
 
-					<?php
 
 
-						//accounts
-						$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
-						foreach($existingAccounts as $account){
-							$existingTransactions = $account->getTransactions();
-							foreach($existingTransactions as $transaction){
 
-								echo "<tr>";
-								echo "<tr>";
-								echo "<td>" . $transaction->getName() . "</td>";
-								echo "<td>" . $transaction->getCategory() . "</td>";
-								echo "<td>" . $transaction->getAmount() . "</td>";
-								echo "<td>" . $transaction->getDate() . "</td>";
-								echo "</tr>";
-							}
-						}
-					?>
+
+
+					<tr>
+						<td>trying</td>
+						<td>2</td>
+						<td>4.0</td>
+						<td>12/02/2016</td>
+					</tr>
+					<tr>
+						<td>to</td>
+						<td>670</td>
+						<td>2.1</td>
+						<td>05/04/1999</td>
+					</tr>
+					<tr>
+						<td>run</td>
+						<td>-6</td>
+						<td>-1.5</td>
+						<td>06/30/2005</td>
+					</tr>
+					<tr>
+						<td>a test of this</td>
+						<td>-7</td>
+						<td>7.3</td>
+						<td>08/12/1986</td>
+					</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
 	</div>
+	<script src="graph.js"></script>
 </body>
 </html>
