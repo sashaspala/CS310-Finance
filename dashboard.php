@@ -10,7 +10,7 @@ require_once("header.php");
 $accounts = DataManager::getInstance()->getAccountsForUser($_SESSION['userID']);
 
 //TODO FIX BALANCESHEET
-$balanceSheet = new balanceSheet($accounts);
+$balanceSheet = new BalanceSheet($accounts);
 $_SESSION['balanceSheet'] = $balanceSheet;
 
 ?>
