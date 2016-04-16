@@ -7,8 +7,7 @@ require_once("header.php");
 
 //LOADS PERSISTENT DATA
 
-header ('Location : ' . $_SESSION['userID']); 
-$accounts = DataManager::getInstance()->getAccountsForUser($_SESSION['userID']);
+$accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 //TODO FIX BALANCESHEET
 $balanceSheet = new BalanceSheet($accounts);
