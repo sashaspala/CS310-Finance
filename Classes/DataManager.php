@@ -64,7 +64,7 @@ class DataManager {
 			header('Location: ' . $e->getMessage());
 			//show error
 			echo '<p class="bg-danger">'.$e->getMessage().'</p>';
-			exit;
+			//exit;
 		}
 	}
 
