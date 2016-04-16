@@ -77,6 +77,13 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 
  				<p> Date: <input type="text" id="datepicker"></p>
 
+ 				<div class="input-group date" data-provide="datepicker">
+				    <input type="text" class="form-control">
+				    <div class="input-group-addon">
+				        <span class="glyphicon glyphicon-th"></span>
+				    </div>
+				</div>
+
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
