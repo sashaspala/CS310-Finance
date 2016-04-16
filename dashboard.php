@@ -119,7 +119,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 
 
 
-				
+
 
 
 				<h2>Transactions</h2>
@@ -131,6 +131,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 				 </script>
 
  				<p> Date: <input type="text" id="datepicker"></p>
+ 				<p> asdasda sdasda sdasd as </p>
 				
 
 
