@@ -16,11 +16,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 ?>
 <head>
 	<link rel="stylesheet"   type="text/css" href="styles.css">
-	<script>
-	  	$(function() {
-    		$( "#datepicker" ).datepicker();
-		});
-  </script>
+	
 </head>
 
 <body>
