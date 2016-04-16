@@ -66,7 +66,6 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
-			<p>Date: <input type="text" id="datepicker"></p>
 		</div>
 		</div>
 
