@@ -1,21 +1,20 @@
 <?php
 
 
-	
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
-require_once("Classes/BalanceSheet.php");  
+require_once("Classes/BalanceSheet.php");
 require_once("header.php");
 
 session_start();
 
 //LOADS PERSISTENT DATA
 
-$accounts = DataManager::getInstance()->getAccountsForUser(1); 
+$accounts = DataManager::getInstance()->getAccountsForUser($_SESSION('userID'));
 
 //TODO FIX BALANCESHEET
-$balanceSheet = new balanceSheet($accounts); 
-$_SESSION['balanceSheet'] = $balanceSheet; 
+$balanceSheet = new BalanceSheet($accounts);
+$_SESSION['balanceSheet'] = $balanceSheet;
 
 ?>
 <head>
@@ -34,25 +33,25 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 	    	<form action="csvhandler.php" method = "post" enctype="mulipart/form-data">
 
 	    	 <!-- <span class="btn btn-default btn-file"> -->
-			    Upload CSV <input type="file" accept=".csv" id="csvUpload" name="csvfilename">    
+			    Upload CSV <input type="file" accept=".csv" id="csvUpload" name="csvfilename">
 			<!-- </span> -->
 			<input type="submit" value= "Upload">
 			</form>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
-	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php $_SESSION['userFullName']?> 
+	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php $_SESSION['userFullName']?>
 		</div>
 	</nav>
 	<div class="container-fluid">
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
-				<h2>Accounts</h2> 
+				<h2>Accounts</h2>
 				<table class="table table-hover">
 				<?php
 					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
 						foreach($existingAccounts as $account){
 
-						
+
 						echo "<tr>";
 						echo "<td>" . $account->getAccountName() . "</td>";
 						echo "<td><input type="."checkbox". " name=showAccount"."/></td>";
@@ -79,9 +78,9 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Transactions</h2>
 
-				
+
  				<p> Date: <input type="text" id="datepicker"></p>
-				
+
 
 
 				<table id="transactions" class="table table-bordered table-hover sortable">
@@ -98,7 +97,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 					<?php
 
 
-						//accounts 
+						//accounts
 						$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
 						foreach($existingAccounts as $account){
 							$existingTransactions = $account->getTransactions();
