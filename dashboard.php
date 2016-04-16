@@ -114,9 +114,22 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 				        <span class="glyphicon glyphicon-th"></span>
 				    </div>
 				</div>
-				<h2>Transactions</h2>
 
 				
+
+
+
+				
+
+
+				<h2>Transactions</h2>
+
+				<script>
+				  $(function() {
+				    $( "#datepicker" ).datepicker();
+				  });
+				 </script>
+
  				<p> Date: <input type="text" id="datepicker"></p>
 				
 
