@@ -102,18 +102,18 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
 
-			<div class="input-group date" data-provide="datepicker">
-			    <input type="text" class="form-control">
-			    <div class="input-group-addon">
-			        <span class="glyphicon glyphicon-th"></span>
-			    </div>
-			</div>
 		</div>
 		</div>
 
 		<div class="row" style="margin:0px auto;float:none;">
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 			<div class="well" style="background-color:#FFFFFF">
+				<div class="input-group date" data-provide="datepicker">
+				    <input type="text" class="form-control">
+				    <div class="input-group-addon">
+				        <span class="glyphicon glyphicon-th"></span>
+				    </div>
+				</div>
 				<h2>Transactions</h2>
 
 				
