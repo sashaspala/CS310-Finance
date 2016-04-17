@@ -6,7 +6,7 @@ $accountList = explode("-", $accountsString);
 $accounts = array();
 $transactions = array();
 
-get array of accounts
+//get array of accounts
 foreach ($accountList as $item) {
 
 	$account = DataManager::getInstance()->getAccount($item, $_SESSION['userID']);
