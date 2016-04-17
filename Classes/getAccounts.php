@@ -1,8 +1,6 @@
 <?php
 
-require_once("Classes/DataManager.php");
-session_start();
-$accountsString= $_REQUEST["accounts"];
+$accountsString = $_REQUEST["accounts"];
 $accountList = explode("-", $accountsString);
 
 $accounts = array();
@@ -16,38 +14,38 @@ foreach ($accountList as $item) {
 	# code...
 }
 
-//get transactions
-foreach ($accounts as $item) {
-	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),$_SESSION['userID']);
-	array_merge($transactions, $accountTrans);
-	# code...
-}
+// //get transactions
+// foreach ($accounts as $item) {
+// 	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),$_SESSION['userID']);
+// 	array_merge($transactions, $accountTrans);
+// 	# code...
+// }
 
-//echo transactions
+// //echo transactions
 
-echo "<thead>";
-echo"<tr>";
-echo		"<th>Name</th>";
-echo		"<th>Type</th>";
-echo	"<th>Amount</th>";
-echo "<th>Date</th>";
-echo "</tr>";
-echo "</thead>";
-echo "<tbody>";
+// echo "<thead>";
+// echo"<tr>";
+// echo		"<th>Name</th>";
+// echo		"<th>Type</th>";
+// echo	"<th>Amount</th>";
+// echo "<th>Date</th>";
+// echo "</tr>";
+// echo "</thead>";
+// echo "<tbody>";
 
-foreach ($transactions as $item) {
+// foreach ($transactions as $item) {
 
-	echo "<tr>";
-	echo "<td>" . $item->getName() . "</td>";
-    echo "<td>" . $item->getCategory(). "</td>";
-    echo "<td>" . $item->getAmount() . "</td>";
-    echo "<td>" . $item->getDate() . "</td>";
-    echo "<tr>";
+// 	echo "<tr>";
+// 	echo "<td>" . $item->getName() . "</td>";
+//     echo "<td>" . $item->getCategory(). "</td>";
+//     echo "<td>" . $item->getAmount() . "</td>";
+//     echo "<td>" . $item->getDate() . "</td>";
+//     echo "<tr>";
 
-	# code...
-}
+// 	# code...
+// }
 
-echo "</tbody>";
+// echo "</tbody>";
 
 
 
