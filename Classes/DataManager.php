@@ -14,12 +14,21 @@ require_once("Classes/Transaction.php");
 // $testManager
 // $newAccount = $testManager->getAccount('Credit `Card2', 2);
 // //var_dump($testManager->getAccountsForUser(2));
-// $testManager->removeAccount('Credit Card', 1); 
+// $testManager->removeAccount('Credit Card', 1);
 // $testManager->addTransaction(date('Y-m-d'), 99.99, "Food", "Lots of groceries", "Ralphs", 1, 2);
 // //var_dump($testManager->getTransactionsForAccount(1, 2));
 
-//DataManager::getInstance()->addAccount('test account', 1); 
-//$accounts = DataManager::getInstance()->getAccountsForUser(1); 
+//DataManager::getInstance()->addAccount('test account', 1);
+//$accounts = DataManager::getInstance()->getAccountsForUser(1);
+
+// $testManager = new DataManager();
+// $testManager->getInstance()->loginUser('swag@swag.com', 'swag');
+// $testManager->addAccount('Credit Card2', 2);
+// //$newAccount = $testManager->getAccount('Credit Card2', 2);
+// var_dump($testManager->getAccountsForUser(2));
+//$testManager->removeAccount('Credit Card', 1); */
+//$testManager->addTransaction(date('Y-m-d'), 99.99, "Food", "Lots of groceries", "Ralphs", 1, 2);
+//var_dump($testManager->getTransactionsForAccount(1, 2));
 
 
 
@@ -41,7 +50,7 @@ class DataManager {
 
 		define('DBHOST','localhost');
 		define('DBUSER','root');
-		define('DBPASS', 'password'); 
+		define('DBPASS', 'password');
 		define('DBNAME','310Database');
 
 		try {
@@ -55,7 +64,7 @@ class DataManager {
 			header('Location: ' . $e->getMessage());
 			//show error
 			echo '<p class="bg-danger">'.$e->getMessage().'</p>';
-			exit;
+			//exit;
 		}
 	}
 
@@ -85,7 +94,7 @@ class DataManager {
 			return null;
 		}
 
-		/*insert into Users values 
+		/*insert into Users values
 			(0, 'Darvish', 'Kamalia', 'swag@swag.com', 'swag'),
 			(null, 'Alex', 'Hong', 'moreswag@moreswag.com', 'moreswag'); */
 	}
@@ -98,7 +107,7 @@ class DataManager {
 	*
 	*/
 	function loginUser($email, $hashedPassword) {
-		
+
 
 
 		try {
@@ -106,15 +115,15 @@ class DataManager {
 			$stmt->execute(array('email' => $email, 'hashedPassword' => $hashedPassword));
 
 			$results = $stmt->fetchAll (PDO::FETCH_CLASS, "User");
-			
+
 
 			if (count($results) == 0) {
 				$this->currentLoggedInUserID = null;
-				return null; 
+				return null;
 			}
-			
+
 			$newUser = $results[0];
-		
+
 			$this->currentLoggedInUserID = $newUser->getUserID();
 
 			return $newUser;

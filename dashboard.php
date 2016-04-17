@@ -1,31 +1,33 @@
 <?php
 
-
-	
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
-require_once("Classes/BalanceSheet.php");  
+require_once("Classes/BalanceSheet.php");
 require_once("header.php");
-
-session_start();
 
 //LOADS PERSISTENT DATA
 
-$accounts = DataManager::getInstance()->getAccountsForUser(1); 
+$accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 //TODO FIX BALANCESHEET
-$balanceSheet = new balanceSheet($accounts); 
-$_SESSION['balanceSheet'] = $balanceSheet; 
+$balanceSheet = new BalanceSheet($accounts);
+$_SESSION['balanceSheet'] = $balanceSheet;
 
 ?>
 <head>
 	<link rel="stylesheet"   type="text/css" href="styles.css">
+	<!-- Script for date Picker 
+	datepicker represents start date
+	datepicker 2 represents end date
+	 -->
 	<script>
 	  $(function() {
 	    $( "#datepicker" ).datepicker();
 	  });
-	 </script>
-
+	   $(function() {
+	    $( "#datepicker2" ).datepicker();
+	  });
+  	</script>
 </head>
 
 <body>
@@ -34,18 +36,20 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 	    	<form action="csvhandler.php" method = "post" enctype="mulipart/form-data">
 
 	    	 <!-- <span class="btn btn-default btn-file"> -->
-			    Upload CSV <input type="file" accept=".csv" id="csvUpload" name="csvfilename">    
+			    Upload CSV <input type="file" accept=".csv" id="csvUpload" name="csvfilename">
 			<!-- </span> -->
 			<input type="submit" value= "Upload">
 			</form>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
-	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?> 
+
+	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?>
 		</div>
 	</nav>
 	<div class="container-fluid">
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
+<<<<<<< HEAD
 				<h2>Accounts</h2> 
 				<table class="table table-hover" id="AccountsTable">
 				<script type="text/javascript">
@@ -79,10 +83,13 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 
 				</script>
 				<?php
+// =======
+// 				<h2>Accounts</h2>
+// 				<table class="table table-hover">
+// 					<?php
+// >>>>>>> origin
 					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
 						foreach($existingAccounts as $account){
-
-						
 						echo "<tr>";
 						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
 						echo "<td><input type="."checkbox". " name=showAccount"."/></td>";
@@ -108,6 +115,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 		<div class="row" style="margin:0px auto;float:none;">
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 			<div class="well" style="background-color:#FFFFFF">
+<!-- <<<<<<< HEAD -->
 				<div class="input-group date" data-provide="datepicker">
 				    <input type="text" class="form-control">
 				    <div class="input-group-addon">
@@ -135,6 +143,11 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 				
 
 
+<!-- =======
+				<h2>Transactions</h2>
+				<p>Start Date: <input type="text" id="datepicker" name = "startDate"></p>
+				<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
+>>>>>>> origin -->
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
@@ -145,26 +158,30 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						</tr>
 					</thead>
 					<tbody>
-
-					<?php
-
-
-						//accounts 
-						$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
-						foreach($existingAccounts as $account){
-							$existingTransactions = $account->getTransactions();
-							foreach($existingTransactions as $transaction){
-
-								echo "<tr>";
-								echo "<tr>";
-								echo "<td>" . $transaction->getName() . "</td>";
-								echo "<td>" . $transaction->getCategory() . "</td>";
-								echo "<td>" . $transaction->getAmount() . "</td>";
-								echo "<td>" . $transaction->getDate() . "</td>";
-								echo "</tr>";
-							}
-						}
-					?>
+					<tr>
+						<td>trying</td>
+						<td>2</td>
+						<td>4.0</td>
+						<td>12/02/2016</td>
+					</tr>
+					<tr>
+						<td>to</td>
+						<td>670</td>
+						<td>2.1</td>
+						<td>05/04/1999</td>
+					</tr>
+					<tr>
+						<td>run</td>
+						<td>-6</td>
+						<td>-1.5</td>
+						<td>06/30/2005</td>
+					</tr>
+					<tr>
+						<td>a test of this</td>
+						<td>-7</td>
+						<td>7.3</td>
+						<td>08/12/1986</td>
+					</tr>
 					</tbody>
 				</table>
 			</div>

@@ -1,6 +1,5 @@
 <?php 
 	require_once("Classes/DataManager.php");
-
 	require_once("Classes/BalanceSheet.php"); 
 	$myFilePath=$_FILES["csvfilename"]["name"];
 	$file= file_get_contents("sampleCSV.csv");
@@ -12,7 +11,7 @@
 		$accountName=$data[$line][0];
 		$numOfTransactions=$data[$line][1];
 		$line++;
-	// 	//CREATES AN ACCOUNT IN DB
+	 	// CREATES AN ACCOUNT IN DB
 		// DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots gczvxcvzxcvzx of stuff", "Ralphxzcvxcvzxcs",1,2);
 		$account=DataManager::getInstance()->addAccount($accountName,1);
 		for($j=0;$j<$numOfTransactions;$j++){
@@ -34,7 +33,7 @@
 		$line++;
 	// 	// ADD ACCOUNT TO BALLANCESHEET LOCALLY
 
-		$_SESSION['ballanceSheet']->addAccount($account);
+		$_SESSION['balanceSheet']->addAccount($account);
 	}
 	header('Location: dashboard.php');
 	exit();
