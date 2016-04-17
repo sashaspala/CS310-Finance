@@ -62,7 +62,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString;
 
-
+								alert("bl");
 						alert(checkedAccounts.length);
 						// for(var i =0; i<checkedAccounts.length; i++){
 						// 	if(checkedAccounts[i].checked){
