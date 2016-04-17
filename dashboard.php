@@ -40,7 +40,9 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<!-- </span> -->
 			<input type="submit" value= "Upload">
 			</form>
-	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
+			<form action="logoutHandler.php" method = "GET">
+	    		<button type="submit" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
+	    	</form>
 
 	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?>
 		</div>
