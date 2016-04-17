@@ -56,6 +56,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 				<table class="table table-hover" id="AccountsTable">
 				<script type="text/javascript">
 					function filter(){
+						console.log("enters");
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString;
