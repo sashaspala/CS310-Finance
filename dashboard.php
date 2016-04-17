@@ -4,7 +4,7 @@ require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
 require_once("header.php");
-//require_once("Classes/getAccounts.php");
+require_once("Classes/getAccounts.php");
 
 //LOADS PERSISTENT DATA
 
