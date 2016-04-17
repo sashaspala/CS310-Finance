@@ -41,6 +41,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<input type="submit" value= "Upload">
 			</form>
 	    	<button type="button" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Log Out</button>
+
 	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?>
 		</div>
 	</nav>
@@ -48,13 +49,48 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
-				<h2>Accounts</h2>
-				<table class="table table-hover">
-					<?php
+				<h2>Accounts</h2> 
+				<table class="table table-hover" id="AccountsTable">
+				<script type="text/javascript">
+					function filter(){
+						var accountTable = document.getElementById("AccountsTable");
+						var checkedAccounts = accountTable.getElementsByTagName("input");
+						var getString;
+						for(var i =0; i<checkedAccounts.lenght; i++){
+							if(checkedAccounts[i].checked){
+								var currentRow = $(checkedAccounts[i]).closest('tr');
+								var accountName = currentRow.cells[0].innerText;
+								getString = getString.concat(accountName,"-");
+
+							}
+					}
+
+						if(window.XMLHttpRequest) {
+           				var	request = new XMLHttpRequest();
+						request.onreadystatechange = function() {
+			            if (request.readyState == 4 && request.status == 200) {
+			                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+			            	}
+			        	};
+			        	request.open("GET","getAccounts.php?accounts="+getString,true);
+        				request.send();
+					}
+
+
+
+
+
+				</script>
+				<?php
+// =======
+// 				<h2>Accounts</h2>
+// 				<table class="table table-hover">
+// 					<?php
+// >>>>>>> origin
 					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
 						foreach($existingAccounts as $account){
 						echo "<tr>";
-						echo "<td>" . $account->getAccountName() . "</td>";
+						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
 						echo "<td><input type="."checkbox". " name=showAccount"."/></td>";
 						echo "</tr>";
 						}
@@ -71,15 +107,46 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
+
 		</div>
 		</div>
 
 		<div class="row" style="margin:0px auto;float:none;">
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 			<div class="well" style="background-color:#FFFFFF">
+<!-- <<<<<<< HEAD -->
+				<!-- <div class="input-group date" data-provide="datepicker">
+				    <input type="text" class="form-control">
+				    <div class="input-group-addon">
+				        <span class="glyphicon glyphicon-th"></span>
+				    </div>
+				</div>
+
+				
+
+
+
+
+
+
+				<h2>Transactions</h2>
+
+				<script>
+				  $(function() {
+				    $( "#datepicker" ).datepicker();
+				  });
+				 </script>
+
+ 				<p> Date: <input type="text" id="datepicker"></p>
+ 				<p> asdasda sdasda sdasd as </p> -->
+				
+
+<!-- 
+======= -->
 				<h2>Transactions</h2>
 				<p>Start Date: <input type="text" id="datepicker" name = "startDate"></p>
 				<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
+<!-- >>>>>>> origin -->
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
