@@ -66,9 +66,10 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						//alert(checkedAccounts.length);
 						for(var i =0; i<checkedAccounts.length; i++){
 							if(checkedAccounts[i].checked){
-								alert("yes");
-								// var currentRow = $(checkedAccounts[i]).closest('tr');
-								// var accountName = currentRow.cells[0].innerText;
+								//alert("yes");
+								 var currentRow = $(checkedAccounts[i]).closest('tr');
+								 alert(currentRow.cells[0].innerText);
+								 //var accountName = currentRow.cells[0].innerText;
 								// getString = getString.concat(accountName,"-");
 
 							}
