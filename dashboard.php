@@ -17,7 +17,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 ?>
 <head>
 	<link rel="stylesheet"   type="text/css" href="styles.css">
-	<!-- Script for date Picker 
+	<!-- Script for date Picker
 	datepicker represents start date
 	datepicker 2 represents end date
 	 -->
@@ -52,11 +52,11 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
-				<h2>Accounts</h2> 
+				<h2>Accounts</h2>
 				<table class="table table-hover" id="AccountsTable">
 				<script type="text/javascript">
 					function filter(){
-						console.log("enters");
+						console.log('enters');
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString;
@@ -128,7 +128,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 				    </div>
 				</div>
 
-				
+
 
 
 
@@ -145,9 +145,9 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 
  				<p> Date: <input type="text" id="datepicker"></p>
  				<p> asdasda sdasda sdasd as </p> -->
-				
 
-<!-- 
+
+<!--
 ======= -->
 				<h2>Transactions</h2>
 				<p>Start Date: <input type="text" id="datepicker" name = "startDate"></p>
