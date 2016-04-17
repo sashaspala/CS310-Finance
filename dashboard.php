@@ -98,7 +98,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						foreach($existingAccounts as $account){
 						echo "<tr>";
 						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
-						echo "<td><input type="."checkbox". " name=showAccount"."onClick =" ."filter()"." />"."</td>";
+						echo "<td><input type="."checkbox". " name=showAccount "."onClick =" ."filter()"." />"."</td>";
 						echo "</tr>";
 						}
 				?>
