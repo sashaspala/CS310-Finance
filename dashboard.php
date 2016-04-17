@@ -54,39 +54,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
 				<h2>Accounts</h2> 
 				<table class="table table-hover" id="AccountsTable">
-				<script type="text/javascript">
-					function filter(){
-
-					// 	var accountTable = document.getElementById("AccountsTable");
-					// 	var checkedAccounts = accountTable.getElementsByTagName("input");
-					// 	var getString;
-					// 	for(var i =0; i<checkedAccounts.length; i++){
-					// 		if(checkedAccounts[i].checked){
-					// 			var currentRow = $(checkedAccounts[i]).closest('tr');
-					// 			var accountName = currentRow.cells[0].innerText;
-					// 			getString = getString.concat(accountName,"-");
-
-					// 		}
-					// }
-
-					// 	if(window.XMLHttpRequest) {
-     //       				var	request = new XMLHttpRequest();
-					// 	request.onreadystatechange = function() {
-			  //           if (request.readyState == 4 && request.status == 200) {
-			  //               document.getElementById("transactions").innerHTML = xmlhttp.responseText;
-			  //           	}
-			  //       	};
-			  //       	request.open("GET","getAccounts.php?accounts="+getString,true);
-     //    				request.send();
-					// }
-
-				}
-
-
-
-
-
-				</script>
+				
 				<?php
 // =======
 // 				<h2>Accounts</h2>
