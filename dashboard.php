@@ -54,7 +54,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
 				<h2>Accounts</h2> 
 				<table class="table table-hover" id="AccountsTable">
-				
+
 				<?php
 // =======
 // 				<h2>Accounts</h2>
@@ -65,7 +65,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						foreach($existingAccounts as $account){
 						echo "<tr>";
 						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
-						echo "<td><input type="."checkbox". " name=showAccount"/>"."</td>";
+						echo "<td><input type="."checkbox". " name=showAccount"."/>"."</td>";
 						echo "</tr>";
 						}
 				?>
