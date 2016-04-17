@@ -4,7 +4,7 @@ require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
 require_once("header.php");
-require_once("Classes/getAccounts.php");
+
 
 //LOADS PERSISTENT DATA
 
@@ -96,7 +96,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						foreach($existingAccounts as $account){
 						echo "<tr>";
 						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
-						echo "<td><input type="."checkbox". " name=showAccount"."/>"."</td>";
+						echo "<td><input type="."checkbox". " name=showAccount"."onClick=filter()"."/>"."</td>";
 						echo "</tr>";
 						}
 				?>
