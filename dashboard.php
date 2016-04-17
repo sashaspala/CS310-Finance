@@ -69,6 +69,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 
 							}
 						}	
+						getString =  "bl";
 
 						alert(getString);
 
