@@ -56,6 +56,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 				<table class="table table-hover" id="AccountsTable">
 				<script type="text/javascript">
 					function filter(){
+						alert("blah");
 						console.log('enters');
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
@@ -97,7 +98,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						foreach($existingAccounts as $account){
 						echo "<tr>";
 						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
-						echo "<td><input type="."checkbox". " name=showAccount"."onClick=alert('blah')"."/>"."</td>";
+						echo "<td><input type="."checkbox". " name=showAccount"."onClick =" ."filter()"." />"."</td>";
 						echo "</tr>";
 						}
 				?>
