@@ -15,11 +15,11 @@ foreach ($accountList as $item) {
 }
 
 //get transactions
-foreach ($accounts as $item) {
-	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),$_SESSION['userID']);
-	array_merge($transactions, $accountTrans);
-	# code...
-}
+// foreach ($accounts as $item) {
+// 	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),$_SESSION['userID']);
+// 	array_merge($transactions, $accountTrans);
+// 	# code...
+// }
 
 // //echo transactions
 
