@@ -6,13 +6,13 @@ $accountList = explode("-", $accountsString);
 $accounts = array();
 $transactions = array();
 
-//get array of accounts
-// foreach ($accountList as $item) {
+get array of accounts
+foreach ($accountList as $item) {
 
-// 	$account = DataManager::getInstance()->getAccount($item, $_SESSION['userID']);
-// 	array_push($accounts, $account);
-// 	# code...
-// }
+	$account = DataManager::getInstance()->getAccount($item, $_SESSION['userID']);
+	array_push($accounts, $account);
+	# code...
+}
 
 // //get transactions
 // foreach ($accounts as $item) {
