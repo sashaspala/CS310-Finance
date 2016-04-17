@@ -63,15 +63,19 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						var getString;
 
 						//alert(getString);
-						alert(checkedAccounts.length);
-					// 	for(var i =0; i<checkedAccounts.length; i++){
-					// 		if(checkedAccounts[i].checked){
-					// 			var currentRow = $(checkedAccounts[i]).closest('tr');
-					// 			var accountName = currentRow.cells[0].innerText;
-					// 			getString = getString.concat(accountName,"-");
+						//alert(checkedAccounts.length);
+						for(var i =0; i<checkedAccounts.length; i++){
+							if(checkedAccounts[i].checked){
+								alert("yes");
+								// var currentRow = $(checkedAccounts[i]).closest('tr');
+								// var accountName = currentRow.cells[0].innerText;
+								// getString = getString.concat(accountName,"-");
 
-					// 		}
-					// 	}	
+							}
+							else{
+								alert("no");
+							}
+						}	
 
 
 					// 	alert(getString);
