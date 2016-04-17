@@ -8,7 +8,7 @@ $transactions = array();
 
 //get array of accounts
 foreach ($accountList as $item) {
-
+	header('Location: '. $item); 
 	$account = DataManager::getInstance()->getAccount($item, $_SESSION['userID']);
 	array_push($accounts, $account);
 	# code...
@@ -17,7 +17,7 @@ foreach ($accountList as $item) {
 //get transactions
 foreach ($accounts as $item) {
 	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),$_SESSION['userID']);
-	//array_merge($transactions, $accountTrans);
+	array_merge($transactions, $accountTrans);
 	# code...
 }
 
