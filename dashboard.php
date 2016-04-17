@@ -49,7 +49,6 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
-<<<<<<< HEAD
 				<h2>Accounts</h2> 
 				<table class="table table-hover" id="AccountsTable">
 				<script type="text/javascript">
@@ -116,7 +115,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 			<div class="well" style="background-color:#FFFFFF">
 <!-- <<<<<<< HEAD -->
-				<div class="input-group date" data-provide="datepicker">
+				<!-- <div class="input-group date" data-provide="datepicker">
 				    <input type="text" class="form-control">
 				    <div class="input-group-addon">
 				        <span class="glyphicon glyphicon-th"></span>
@@ -139,15 +138,15 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 				 </script>
 
  				<p> Date: <input type="text" id="datepicker"></p>
- 				<p> asdasda sdasda sdasd as </p>
+ 				<p> asdasda sdasda sdasd as </p> -->
 				
 
-
-<!-- =======
+<!-- 
+======= -->
 				<h2>Transactions</h2>
 				<p>Start Date: <input type="text" id="datepicker" name = "startDate"></p>
 				<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
->>>>>>> origin -->
+<!-- >>>>>>> origin -->
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
