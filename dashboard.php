@@ -61,29 +61,32 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString;
-						for(var i =0; i<checkedAccounts.length; i++){
-							if(checkedAccounts[i].checked){
-								var currentRow = $(checkedAccounts[i]).closest('tr');
-								var accountName = currentRow.cells[0].innerText;
-								getString = getString.concat(accountName,"-");
-
-							}
-						}	
-						getString =  "bl";
-
-						alert(getString);
-
-						if(window.XMLHttpRequest) {
-           				var	request = new XMLHttpRequest();
-						request.onreadystatechange = function() {
-			            if (request.readyState == 4 && request.status == 200) {
-			                document.getElementById("transactions").innerHTML = xmlhttp.responseText;
-			            	}
-			        	};
 
 
-			        	request.open("GET","getAccounts.php?accounts="+getString,true);
-        				request.send();
+						alert(checkedAccounts.length);
+						// for(var i =0; i<checkedAccounts.length; i++){
+						// 	if(checkedAccounts[i].checked){
+						// 		var currentRow = $(checkedAccounts[i]).closest('tr');
+						// 		var accountName = currentRow.cells[0].innerText;
+						// 		getString = getString.concat(accountName,"-");
+
+						// 	}
+						// }	
+
+
+						// alert(getString);
+
+						// if(window.XMLHttpRequest) {
+      //      				var	request = new XMLHttpRequest();
+						// request.onreadystatechange = function() {
+			   //          if (request.readyState == 4 && request.status == 200) {
+			   //              document.getElementById("transactions").innerHTML = xmlhttp.responseText;
+			   //          	}
+			   //      	};
+
+
+			   //      	request.open("GET","getAccounts.php?accounts="+getString,true);
+      //   				request.send();
 					}
 
 				}
