@@ -1,8 +1,6 @@
 <?php
 
-require_once("Classes/DataManager.php");
-session_start();
-$accountsString= $_REQUEST["accounts"];
+$accountsString = $_REQUEST["accounts"];
 $accountList = explode("-", $accountsString);
 
 $accounts = array();
