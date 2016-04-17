@@ -67,7 +67,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 								getString = getString.concat(accountName,"-");
 
 							}
-					}
+						}	
 
 						if(window.XMLHttpRequest) {
            				var	request = new XMLHttpRequest();
@@ -97,7 +97,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						foreach($existingAccounts as $account){
 						echo "<tr>";
 						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
-						echo "<td><input type="."checkbox". " name=showAccount"."onClick=filter()"."/>"."</td>";
+						echo "<td><input type="."checkbox". " name=showAccount"."onClick=alert('blah')"."/>"."</td>";
 						echo "</tr>";
 						}
 				?>
