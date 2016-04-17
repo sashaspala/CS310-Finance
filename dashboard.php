@@ -67,8 +67,8 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						for(var i =0; i<checkedAccounts.length; i++){
 							if(checkedAccounts[i].checked){
 								//alert("yes");
-								 //var currentRow = $(checkedAccounts[i]).closest('tr');
-								 //alert(currentRow.cells.length);
+								 var currentRow = $(checkedAccounts[i]).closest('tr');
+								 alert(currentRow.cells.length);
 								 //var accountName = currentRow.cells[0].innerText;
 								// getString = getString.concat(accountName,"-");
 
@@ -108,7 +108,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 // 					<?php
 // >>>>>>> origin
 					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
-					 $rowID 
+					 
 						foreach($existingAccounts as $account){
 						echo "<tr>";
 						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
