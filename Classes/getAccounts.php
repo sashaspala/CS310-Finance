@@ -1,6 +1,6 @@
 <?php
 
-//  require_once("DataManager.php");
+  require_once("DataManager.php");
 //
 // $accountsString = "TestAccountName7";
 // $accountList = explode("-", $accountsString);
