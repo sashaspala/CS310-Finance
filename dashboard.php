@@ -72,7 +72,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 								 var accountName = $(currentRow).children()[0].innerText;
 
 
-								getString.concat(accountName,"-");
+								getString = accountName;
 								
 								alert(getString);
 
