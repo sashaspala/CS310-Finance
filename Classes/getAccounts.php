@@ -4,8 +4,8 @@
 $accountsString = $_GET["accounts"];
 rtrim($accountsString, '-');
 
-// $accountList = explode('-', $accountsString);
-//
+$accountList = explode('-', $accountsString);
+
 // echo json_encode($accountList);
 //
 //  $accounts = array();
@@ -58,6 +58,6 @@ rtrim($accountsString, '-');
 //
 // echo "</tbody>";
 // echo "</table>";
-//
+
 
 ?>
