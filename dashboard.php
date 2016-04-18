@@ -1,4 +1,4 @@
-<?php
+ad<?php
 
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
@@ -38,17 +38,17 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 	    	<form action="csvhandler.php" method = "post" enctype="mulipart/form-data">
 
 	    	 <!-- <span class="btn btn-default btn-file"> -->
-			    Upload CSV <input type="file" accept=".csv" id="csvUpload" name="csvfilename">
+			    Upload CSV <input type="file" accept=".csv" id="csvChooser" name="csvfilename">
 			<!-- </span> -->
-			<input type="submit" value= "Upload">
+			<input type="submit" id="csvSubmit" value= "Upload">
 			</form>
-			<form action="logoutHandler.php" method = "GET">
-	    		<button type="submit" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
-	    	</form>
 
 	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?>
 		</div>
 	</nav>
+	<form action="logoutHandler.php" method = "GET">
+	    		<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
+	    	</form>
 	<div class="container-fluid">
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -114,8 +114,8 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 				?>
 				</table>
 				<div class="account-btn">
-					<button type="button" class="btn btn-success">Add</button>
-					<button type="button" class="btn btn-danger">Remove</button>
+					<button type="button" id="addAccount" class="btn btn-success">Add</button>
+					<button type="button" id="removeAccount" class="btn btn-danger">Remove</button>
 				</div>
 			</div>
 		</div>
