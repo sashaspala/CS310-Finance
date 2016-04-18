@@ -88,7 +88,9 @@ $_SESSION['balanceSheet'] = $balanceSheet;
            				var	request = new XMLHttpRequest();
 						request.onreadystatechange = function() {
 			            if (request.readyState == 4 && request.status == 200) {
-			                document.getElementById("transactions").innerHTML = xmlhttp.responseText;
+
+			            	alert(xmlhttp.responseText);
+			                //document.getElementById("transactions").innerHTML = xmlhttp.responseText;
 			            	}
 			        	};
 
