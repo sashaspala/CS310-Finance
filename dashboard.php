@@ -64,6 +64,9 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 						//alert(getString);
 						//alert(checkedAccounts.length);
+
+						var accountFound = false;
+
 						for(var i =0; i<checkedAccounts.length; i++){
 							if(checkedAccounts[i].checked){
 								//alert("yes");
@@ -71,14 +74,16 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 								 var accountName = $(currentRow).children()[0].innerText;
 
+								 accountFound = true;
 
 								getString += accountName + "-";
 								//alert(getString);
 
 							}
-							else{
-								$("#ajaxtable").html(" ");
-							}
+						}
+
+						if (!accountFound) {
+							$("#ajaxtable").html(" ");
 						}
 
 
