@@ -2,11 +2,11 @@
  require_once("DataManager.php");
 
 $accountsString = $_GET["accounts"];
-rtrim($accountsString, '-');
+$accountsString = substr($accountsString, 0, -1); 
 
 $accountList = explode('-', $accountsString);
 
-echo ($accountsString); 
+echo ($accountsString);
 //
 //  $accounts = array();
 //  $transactions = array();
