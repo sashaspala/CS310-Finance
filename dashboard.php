@@ -88,6 +88,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 					var getURL = "getAccounts.php?accounts=" + getString;
 
 					$.ajax({url: getURL, success: function(result){
+						alert("b");
 						var table = document.getElementById("transactions");
 						$(table).html("result");
 
