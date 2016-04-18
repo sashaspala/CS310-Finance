@@ -13,6 +13,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 //TODO FIX BALANCESHEET
 $balanceSheet = new BalanceSheet($accounts);
 $_SESSION['balanceSheet'] = $balanceSheet;
+$_SESSION['dataManager'] = DataManager::getInstance(); 
 
 ?>
 <head>

@@ -1,8 +1,8 @@
 <?php
 
-require_once("Classes/User.php");
-require_once("Classes/Account.php");
-require_once("Classes/Transaction.php");
+require_once("User.php");
+require_once("Account.php");
+require_once("Transaction.php");
 
 //$accountTrans = DataManager::getInstance()->getTransactionsForAccount(1, 1);
 // DataManager::getInstance()->addAccount('test',1);
