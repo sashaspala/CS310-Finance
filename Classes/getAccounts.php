@@ -1,9 +1,9 @@
 <?php
  require_once("DataManager.php");
 
-$accountsString = "TestAccountName7";
+$accountsString = "TestAccountName7-";
 
-$accountList = explode("-", $accountsString);
+$accountList = explode('-', $accountsString);
 
  $accounts = array();
  $transactions = array();

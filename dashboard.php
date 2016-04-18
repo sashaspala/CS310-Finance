@@ -58,7 +58,6 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 				<script type="text/javascript">
 					function filter(){
 
-						$("#ajaxtable").html("");
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString = "";
@@ -78,7 +77,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 							}
 							else{
-								//alert("no");
+								$("#ajaxtable").html("");
 							}
 						}
 
