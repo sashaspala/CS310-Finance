@@ -3,14 +3,14 @@
 
 class Transaction {
 
-	private $transactionDate;//String
-	private $amount;//double
-	private $category;//String
-	private $name;//String
-	private $principal; //The other party involved in the transaction (String)
-	private $transactionID; //Int
-	private $Accounts_accountID;
-	private $Accounts_Users_userID;//git
+	public $transactionDate;//String
+	public $amount;//double
+	public $category;//String
+	public $name;//String
+	public $principal; //The other party involved in the transaction (String)
+	public $transactionID; //Int
+	public $Accounts_accountID;
+	public $Accounts_Users_userID;//git
 
 	function __construct($date=null,$amount=null,$category=null,$name=null, $principal=null,
 							$transactionID = null, $accountID = null, $userID = null) {

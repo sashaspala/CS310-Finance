@@ -4,9 +4,8 @@ require_once("Classes/User.php");
 require_once("Classes/Account.php");
 require_once("Classes/Transaction.php");
 
-$account = DataManager::getInstance()->getAccount("TestAccountName7", 1);
 $accountTrans = DataManager::getInstance()->getTransactionsForAccount(1, 1);
-echo 'done'; 
+echo json_encode($accountTrans);
 // DataManager::getInstance()->addAccount('test',1);
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
 
