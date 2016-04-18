@@ -82,7 +82,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						}	
 
 
-					// 	alert(getString);
+					alert(getString);
 					//ajax request
 
 
