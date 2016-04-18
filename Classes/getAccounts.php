@@ -1,5 +1,5 @@
 <?php
-
+ header('Location: '. "bls");
 
 $accountsString = $_GET["accounts"];
 $accountList = explode("-", $accountsString);
