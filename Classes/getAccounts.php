@@ -8,6 +8,8 @@ $accounts = array();
 $transactions = array();
 
 //get array of accounts
+
+echo json_encode($accountList); 
 foreach ($accountList as $item) {
 	$account = DataManager::getInstance()->getAccount($item, 1);
 	array_push($accounts, $account);
