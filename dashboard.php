@@ -96,6 +96,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 
 
 			        	request.open("GET","getAccounts.php?accounts="+getString,true);
+			        	alert("b");
         				request.send();
 					}
 
