@@ -77,25 +77,25 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 
 							}
 							else{
-								alert("no");
+								//alert("no");
 							}
 						}	
 
 
 					// 	alert(getString);
 
-					// 	if(window.XMLHttpRequest) {
-     //       				var	request = new XMLHttpRequest();
-					// 	request.onreadystatechange = function() {
-			  //           if (request.readyState == 4 && request.status == 200) {
-			  //               document.getElementById("transactions").innerHTML = xmlhttp.responseText;
-			  //           	}
-			  //       	};
+						if(window.XMLHttpRequest) {
+           				var	request = new XMLHttpRequest();
+						request.onreadystatechange = function() {
+			            if (request.readyState == 4 && request.status == 200) {
+			                document.getElementById("transactions").innerHTML = xmlhttp.responseText;
+			            	}
+			        	};
 
 
-			  //       	request.open("GET","getAccounts.php?accounts="+getString,true);
-     //    				request.send();
-					// }
+			        	request.open("GET","getAccounts.php?accounts="+getString,true);
+        				request.send();
+					}
 
 				}
 
