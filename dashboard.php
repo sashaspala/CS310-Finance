@@ -85,7 +85,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 					//ajax request
 					alert (getString); 
 
-					$.get("getAccounts.php", { accounts : getString }).done(function(data) {
+					$.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
 						
 						console.log(data); 
 						$("#ajaxtable").html(data);
