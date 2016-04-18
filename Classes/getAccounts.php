@@ -23,43 +23,44 @@ foreach ($accounts as $item) {
 	}
 }
 
+echo "<p>Hi</p>";
 
-//echo transactions
-echo "<table id='transactions' class='table table-bordered table-hover sortable'>
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Amount</th>
-							<th>Date</th>
-						</tr>
-					</thead>
-					<tbody>";
-
-echo "<thead>";
-echo"<tr>";
-echo		"<th>Name</th>";
-echo		"<th>Type</th>";
-echo	"<th>Amount</th>";
-echo "<th>Date</th>";
-echo "</tr>";
-echo "</thead>";
-echo "<tbody>";
-
-foreach ($transactions as $item) {
-
-	echo "<tr>";
-	echo "<td>" . $item->getName() . "</td>";
-    echo "<td>" . $item->getCategory(). "</td>";
-    echo "<td>" . $item->getAmount() . "</td>";
-    echo "<td>" . $item->getDate() . "</td>";
-    echo "<tr>";
-
-	# code...
-}
-
-echo "</tbody>";
-echo "</table>";
+// //echo transactions
+// echo "<table id='transactions' class='table table-bordered table-hover sortable'>
+// 					<thead>
+// 						<tr>
+// 							<th>Name</th>
+// 							<th>Type</th>
+// 							<th>Amount</th>
+// 							<th>Date</th>
+// 						</tr>
+// 					</thead>
+// 					<tbody>";
+//
+// echo "<thead>";
+// echo"<tr>";
+// echo		"<th>Name</th>";
+// echo		"<th>Type</th>";
+// echo	"<th>Amount</th>";
+// echo "<th>Date</th>";
+// echo "</tr>";
+// echo "</thead>";
+// echo "<tbody>";
+//
+// foreach ($transactions as $item) {
+//
+// 	echo "<tr>";
+// 	echo "<td>" . $item->getName() . "</td>";
+//     echo "<td>" . $item->getCategory(). "</td>";
+//     echo "<td>" . $item->getAmount() . "</td>";
+//     echo "<td>" . $item->getDate() . "</td>";
+//     echo "<tr>";
+//
+// 	# code...
+// }
+//
+// echo "</tbody>";
+// echo "</table>";
 
 
 ?>
