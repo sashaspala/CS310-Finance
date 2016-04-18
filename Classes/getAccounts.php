@@ -1,7 +1,7 @@
 <?php
 
-echo "<script type='text/javascript'>alert('ladida');</script>";
-$accountsString = $_REQUEST["accounts"];
+
+$accountsString = $_GET["accounts"];
 $accountList = explode("-", $accountsString);
 
 $accounts = array();
