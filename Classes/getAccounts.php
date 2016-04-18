@@ -1,5 +1,5 @@
 <?php
-
+ require_once("DataManager.php");
 
 $accountsString = $_GET["accounts"];
 $accountList = explode("-", $accountsString);
