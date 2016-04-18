@@ -10,8 +10,6 @@ $transactions = array();
 //get array of accounts
 
 foreach ($accountList as $item) {
-	echo ($item);
-	
 	$account = DataManager::getInstance()->getAccount($item, 1);
 	array_push($accounts, $account);
 	# code...
@@ -19,6 +17,8 @@ foreach ($accountList as $item) {
 
 //get transactions
 foreach ($accounts as $item) {
+	echo ('getting ID'); 
+	echo ($item->getID);
 	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),1);
 	array_merge($transactions, $accountTrans);
 	# code...
