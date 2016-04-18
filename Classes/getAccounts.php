@@ -6,8 +6,6 @@ $accountsString = substr($accountsString, 0, -1);
 
 $accountList = explode('-', $accountsString);
 
-
-
  $accounts = array();
  $transactions = array();
 
