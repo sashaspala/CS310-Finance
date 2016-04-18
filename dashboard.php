@@ -85,17 +85,30 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 					// 	alert(getString);
 					//ajax request
 
-					var getURL = "getAccounts.php?accounts=" + getString;
 
-					
-
-					$.ajax({url: getURL, success: function(result){
-						alert("b");
+					$.get("getAccounts.php", {accounts: getString }, function(result) {
 						var table = document.getElementById("transactions");
 						$(table).html("result");
+					});
+					
+
+					//  $.ajax({
+					//     type: 'get',
+					//     url: 'getAccounts.php',
+					//     data: "accounts="+ getString,
+					//     dataType: 'json',
+					//     success: function(response) {
+					//     //here I'd like back the php query
+					//   }
+
+
+					// $.get("getAccounts.php", {accounts: getString }function(result){
+					// 	alert("b");
+					// 	var table = document.getElementById("transactions");
+					// 	$(table).html("result");
 
        				 
-    				}});
+    	// 			}});
 
 
 
