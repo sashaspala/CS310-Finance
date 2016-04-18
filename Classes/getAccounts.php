@@ -1,7 +1,7 @@
 <?php
  require_once("DataManager.php");
 
-$accountsString = $_GET["accounts"];
+$accountsString = "TestAccountName7";
 $accountList = explode("-", $accountsString);
 
 $accounts = array();
@@ -9,7 +9,7 @@ $transactions = array();
 
 //get array of accounts
 foreach ($accountList as $item) {
-	$account = DataManager::getInstance()->getAccount($item, $_SESSION['userID']);
+	$account = DataManager::getInstance()->getAccount($item, 1);
 	array_push($accounts, $account);
 	# code...
 }
@@ -63,7 +63,7 @@ echo "</tbody>";
 
 // for (var $accountIndex=0;$accountIndex<count($accountList);$accountIndex++ ){}
 // 	for (var $transactionIndex =0; $transactionIndex< count($transactlist) ; $transactionIndex++){
-// 		var $tempTransaction = DataManager::getInstance()->getAccountByName($accountList[$accountIndex]);//change account name made 
+// 		var $tempTransaction = DataManager::getInstance()->getAccountByName($accountList[$accountIndex]);//change account name made
 // 		echo "<tr>";
 // 			echo "<td>" . $tempTransaction->getName() . "</td>";
 // 			echo "<td>" . $tempTransaction->getCategory() . "</td>";
