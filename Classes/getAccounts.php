@@ -6,7 +6,7 @@ rtrim($accountsString, '-');
 
 $accountList = explode('-', $accountsString);
 
-// echo json_encode($accountList);
+echo json_encode($accountList);
 //
 //  $accounts = array();
 //  $transactions = array();
