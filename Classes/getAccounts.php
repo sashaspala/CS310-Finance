@@ -1,7 +1,6 @@
 <?php
  
- header('Location: bls');
-
+echo 'here'; 
 
 // $accountsString = $_GET["accounts"];
 // $accountList = explode("-", $accountsString);
