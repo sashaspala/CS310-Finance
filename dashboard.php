@@ -73,7 +73,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 
 
 								getString += accountName + "-";
-								alert(getString);
+								//alert(getString);
 
 							}
 							else{
