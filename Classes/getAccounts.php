@@ -1,64 +1,63 @@
 <?php
- 
-echo 'here'; 
 
-// $accountsString = $_GET["accounts"];
-// $accountList = explode("-", $accountsString);
 
-// $accounts = array();
-// $transactions = array();
+$accountsString = $_GET["accounts"];
+$accountList = explode("-", $accountsString);
 
-// //get array of accounts
-// foreach ($accountList as $item) {
-// 	$account = DataManager::getInstance()->getAccount($item, $_SESSION['userID']);
-// 	array_push($accounts, $account);
-// 	# code...
-// }
+$accounts = array();
+$transactions = array();
 
-// //get transactions
-// foreach ($accounts as $item) {
-// 	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),$_SESSION['userID']);
-// 	array_merge($transactions, $accountTrans);
-// 	# code...
-// }
+//get array of accounts
+foreach ($accountList as $item) {
+	$account = DataManager::getInstance()->getAccount($item, $_SESSION['userID']);
+	array_push($accounts, $account);
+	# code...
+}
 
-// //echo transactions
-// echo "<table id='transactions' class='table table-bordered table-hover sortable'>
-// 					<thead>
-// 						<tr>
-// 							<th>Name</th>
-// 							<th>Type</th>
-// 							<th>Amount</th>
-// 							<th>Date</th>
-// 						</tr>
-// 					</thead>
-// 					<tbody>";
+//get transactions
+foreach ($accounts as $item) {
+	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),$_SESSION['userID']);
+	array_merge($transactions, $accountTrans);
+	# code...
+}
 
-// echo "<thead>";
-// echo"<tr>";
-// echo		"<th>Name</th>";
-// echo		"<th>Type</th>";
-// echo	"<th>Amount</th>";
-// echo "<th>Date</th>";
-// echo "</tr>";
-// echo "</thead>";
-// echo "<tbody>";
+//echo transactions
+echo "<table id='transactions' class='table table-bordered table-hover sortable'>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Amount</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>";
 
-// foreach ($transactions as $item) {
+echo "<thead>";
+echo"<tr>";
+echo		"<th>Name</th>";
+echo		"<th>Type</th>";
+echo	"<th>Amount</th>";
+echo "<th>Date</th>";
+echo "</tr>";
+echo "</thead>";
+echo "<tbody>";
 
-// 	echo "<tr>";
-// 	echo "<td>" . $item->getName() . "</td>";
-//     echo "<td>" . $item->getCategory(). "</td>";
-//     echo "<td>" . $item->getAmount() . "</td>";
-//     echo "<td>" . $item->getDate() . "</td>";
-//     echo "<tr>";
+foreach ($transactions as $item) {
 
-// 	# code...
-// }
+	echo "<tr>";
+	echo "<td>" . $item->getName() . "</td>";
+    echo "<td>" . $item->getCategory(). "</td>";
+    echo "<td>" . $item->getAmount() . "</td>";
+    echo "<td>" . $item->getDate() . "</td>";
+    echo "<tr>";
 
-// echo "</tbody>";
+	# code...
+}
 
-// 				echo "</table>";
+echo "</tbody>";
+
+				echo "</table>";
 
 
 
