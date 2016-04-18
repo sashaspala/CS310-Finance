@@ -60,7 +60,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
-						var getString;
+						var getString = "";
 
 						//alert(getString);
 						//alert(checkedAccounts.length);
@@ -82,7 +82,6 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						}	
 
 
-					alert(getString);
 					//ajax request
 
 
