@@ -82,9 +82,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 							}
 						}
 
-						if (!accountFound) {
-							$("#ajaxtable").html(" ");
-						}
+
 
 
 					//ajax request
