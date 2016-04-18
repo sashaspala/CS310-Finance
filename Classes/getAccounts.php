@@ -25,26 +25,6 @@ foreach ($accounts as $item) {
 
 
 //echo transactions
-echo "<table id='transactions' class='table table-bordered table-hover sortable'>
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Amount</th>
-							<th>Date</th>
-						</tr>
-					</thead>
-					<tbody>";
-
-echo "<thead>";
-echo"<tr>";
-echo		"<th>Name</th>";
-echo		"<th>Type</th>";
-echo	"<th>Amount</th>";
-echo "<th>Date</th>";
-echo "</tr>";
-echo "</thead>";
-echo "<tbody>";
 
 foreach ($transactions as $item) {
 
@@ -59,7 +39,6 @@ foreach ($transactions as $item) {
 }
 
 echo "</tbody>";
-echo "</table>";
 
 
 ?>
