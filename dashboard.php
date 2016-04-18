@@ -88,7 +88,9 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 
 					$.get("getAccounts.php", {accounts: getString }, function(result) {
 
-						alert(result);
+						
+					$("#ajaxtable").html(result);
+
 						// var table = document.getElementById("transactions");
 						// $(table).html("result");
 					});
@@ -204,6 +206,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 				<p>Start Date: <input type="text" id="datepicker" name = "startDate"></p>
 				<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
 <!-- >>>>>>> origin -->
+	<div id=ajaxtable>
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
@@ -240,6 +243,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 					</tr> -->
 					</tbody>
 				</table>
+				</div>
 			</div>
 		</div>
 	</div>
