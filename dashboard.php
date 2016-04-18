@@ -77,7 +77,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 							}
 							else{
-								$("#ajaxtable").html("");
+								$("#ajaxtable").html(" ");
 							}
 						}
 
