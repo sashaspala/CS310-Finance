@@ -1,5 +1,6 @@
 <?php
 
+echo "<script type='text/javascript'>alert('ladida');</script>";
 $accountsString = $_REQUEST["accounts"];
 $accountList = explode("-", $accountsString);
 
