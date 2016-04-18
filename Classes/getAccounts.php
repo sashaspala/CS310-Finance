@@ -1,7 +1,7 @@
 <?php
  require_once("DataManager.php");
 
-$accountsString ="la-di-da";
+$accountsString ="-la-di-da";
 
 $accountList = explode('-', $accountsString);
 
