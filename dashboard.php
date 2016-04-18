@@ -56,8 +56,8 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 				<table class="table table-hover" id="AccountsTable">
 				<script type="text/javascript">
 					function filter(){
-						
-						
+
+
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString = "";
@@ -79,21 +79,21 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 							else{
 								//alert("no");
 							}
-						}	
+						}
 
 
 					//ajax request
-					alert (getString); 
+					alert (getString);
 
 					$.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
-						
-						 
+
+						console.log('finished');  
 						$("#ajaxtable").html(data);
 
 						// var table = document.getElementById("transactions");
 						// $(table).html("result");
 					});
-					
+
 
 					//  $.ajax({
 					//     type: 'get',
@@ -110,7 +110,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 					// 	var table = document.getElementById("transactions");
 					// 	$(table).html("result");
 
-       				 
+
     	// 			}});
 
 
@@ -145,7 +145,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 // 					<?php
 // >>>>>>> origin
 					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
-					 
+
 						foreach($existingAccounts as $account){
 						echo "<tr>";
 						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
