@@ -94,49 +94,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						// $(table).html("result");
 					});
 
-
-					//  $.ajax({
-					//     type: 'get',
-					//     url: 'getAccounts.php',
-					//     data: "accounts="+ getString,
-					//     dataType: 'json',
-					//     success: function(response) {
-					//     //here I'd like back the php query
-					//   }
-
-
-					// $.get("getAccounts.php", {accounts: getString }function(result){
-					// 	alert("b");
-					// 	var table = document.getElementById("transactions");
-					// 	$(table).html("result");
-
-
-    	// 			}});
-
-
-
-					// 	if(window.XMLHttpRequest) {
-     //       				var	request = new XMLHttpRequest();
-					// 	request.onreadystatechange = function() {
-			  //           if (request.readyState == 4 && request.status == 200) {
-
-			  //           	alert(request.responseText);
-			  //               document.getElementById("transactions").innerHTML = request.responseText;
-			  //           	}
-			  //       	};
-
-
-			  //       	request.open("GET","getAccounts.php?accounts="+getString,true);
-			  //       	//alert("b");
-     //    				request.send();
-					// }
-
 				}
-
-
-
-
-
 				</script>
 				<?php
 // =======
