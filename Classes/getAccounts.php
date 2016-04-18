@@ -17,12 +17,11 @@ foreach ($accountList as $item) {
 
 //get transactions
 foreach ($accounts as $item) {
-	echo ('getting ID');
-	echo ($item->getID());
 	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),1);
 	array_merge($transactions, $accountTrans);
 	# code...
 }
+echo json_encode($transactions); 
 
 //echo transactions
 echo "<table id='transactions' class='table table-bordered table-hover sortable'>
