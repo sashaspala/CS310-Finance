@@ -207,7 +207,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 				<p>Start Date: <input type="text" id="datepicker" name = "startDate"></p>
 				<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
 <!-- >>>>>>> origin -->
-	<div id=ajaxtable>
+	<!-- <div id=ajaxtable> -->
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
@@ -244,7 +244,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					</tr>
 					</tbody>
 				</table>
-				</div>
+				<!-- </div> -->
 			</div>
 		</div>
 	</div>
