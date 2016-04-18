@@ -218,7 +218,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						</tr>
 					</thead>
 					<tbody>
-					<!-- <tr>
+					<tr>
 						<td>trying</td>
 						<td>2</td>
 						<td>4.0</td>
@@ -241,7 +241,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						<td>-7</td>
 						<td>7.3</td>
 						<td>08/12/1986</td>
-					</tr> -->
+					</tr>
 					</tbody>
 				</table>
 				</div>
