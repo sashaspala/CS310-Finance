@@ -23,7 +23,6 @@ foreach ($accounts as $item) {
 	}
 }
 
-echo ("Transactions new: " . json_encode($transactions));
 
 //echo transactions
 echo "<table id='transactions' class='table table-bordered table-hover sortable'>
