@@ -87,8 +87,10 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 
 
 					$.get("getAccounts.php", {accounts: getString }, function(result) {
-						var table = document.getElementById("transactions");
-						$(table).html("result");
+
+						alert(result);
+						// var table = document.getElementById("transactions");
+						// $(table).html("result");
 					});
 					
 
