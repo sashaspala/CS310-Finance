@@ -89,7 +89,7 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						request.onreadystatechange = function() {
 			            if (request.readyState == 4 && request.status == 200) {
 
-			            	//alert(xmlhttp.responseText);
+			            	alert(request.responseText);
 			                document.getElementById("transactions").innerHTML = request.responseText;
 			            	}
 			        	};
