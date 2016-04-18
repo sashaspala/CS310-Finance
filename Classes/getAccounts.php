@@ -1,11 +1,12 @@
 <?php
- require_once("DataManager.php");
 
-$accountsString = "TestAccountName7";
-$accountList = explode("-", $accountsString);
-
-$accounts = array();
-$transactions = array();
+//  require_once("DataManager.php");
+//
+// $accountsString = "TestAccountName7";
+// $accountList = explode("-", $accountsString);
+//
+// $accounts = array();
+// $transactions = array();
 
 //get array of accounts
 
