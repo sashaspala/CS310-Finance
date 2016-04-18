@@ -1,5 +1,5 @@
 <?php
- header('Location: '. "bls");
+ //header('Location: '. "bls");
 
 $accountsString = $_GET["accounts"];
 $accountList = explode("-", $accountsString);
@@ -9,7 +9,7 @@ $transactions = array();
 
 //get array of accounts
 foreach ($accountList as $item) {
-	header('Location: '. $item); 
+	//header('Location: '. $item); 
 	$account = DataManager::getInstance()->getAccount($item, $_SESSION['userID']);
 	array_push($accounts, $account);
 	# code...

@@ -83,22 +83,34 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 
 
 					// 	alert(getString);
+					//ajax request
 
-						if(window.XMLHttpRequest) {
-           				var	request = new XMLHttpRequest();
-						request.onreadystatechange = function() {
-			            if (request.readyState == 4 && request.status == 200) {
+					var getURL = "getAccounts.php?accounts=" + getString;
 
-			            	alert(request.responseText);
-			                document.getElementById("transactions").innerHTML = request.responseText;
-			            	}
-			        	};
+					$.ajax({url: getURL, success: function(result){
+						var table = document.getElementById("transactions");
+						$(table).html("result");
+
+       				 
+    				}});
 
 
-			        	request.open("GET","getAccounts.php?accounts="+getString,true);
-			        	//alert("b");
-        				request.send();
-					}
+
+					// 	if(window.XMLHttpRequest) {
+     //       				var	request = new XMLHttpRequest();
+					// 	request.onreadystatechange = function() {
+			  //           if (request.readyState == 4 && request.status == 200) {
+
+			  //           	alert(request.responseText);
+			  //               document.getElementById("transactions").innerHTML = request.responseText;
+			  //           	}
+			  //       	};
+
+
+			  //       	request.open("GET","getAccounts.php?accounts="+getString,true);
+			  //       	//alert("b");
+     //    				request.send();
+					// }
 
 				}
 
