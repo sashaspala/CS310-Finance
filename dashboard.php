@@ -13,7 +13,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 //TODO FIX BALANCESHEET
 $balanceSheet = new BalanceSheet($accounts);
 $_SESSION['balanceSheet'] = $balanceSheet;
-$_SESSION['dataManager'] = DataManager::getInstance(); 
+$_SESSION['dataManager'] = DataManager::getInstance();
 
 ?>
 <head>
@@ -58,7 +58,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 				<script type="text/javascript">
 					function filter(){
 
-
+						$("#ajaxtable").html("");
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString = "";
@@ -86,8 +86,6 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					//ajax request
 
 					$.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
-
-						console.log('finished');
 						$("#ajaxtable").html(data);
 
 						// var table = document.getElementById("transactions");
