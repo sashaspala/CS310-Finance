@@ -77,64 +77,26 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 								//alert(getString);
 
 							}
-							else{
-								//alert("no");
-							}
+						}
+
+						if(getString != ""){
+							 $.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
+								console.log('finished');
+								$("#ajaxtable").html(data);
+								});
+
+
+						}
+						else
+						{
+							$("#ajaxtable").html("<table id='transactions' class='table table-bordered table-hover sortable'><thead><tr><th>Name</th><th>Type</th><th>Amount</th><th>Date</th></tr></thead><tbody></tbody></table>");
 						}
 
 
 					//ajax request
 
-					$.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
-
-						console.log('finished');
-						$("#ajaxtable").html(data);
-
-						// var table = document.getElementById("transactions");
-						// $(table).html("result");
-					});
-
-
-					//  $.ajax({
-					//     type: 'get',
-					//     url: 'getAccounts.php',
-					//     data: "accounts="+ getString,
-					//     dataType: 'json',
-					//     success: function(response) {
-					//     //here I'd like back the php query
-					//   }
-
-
-					// $.get("getAccounts.php", {accounts: getString }function(result){
-					// 	alert("b");
-					// 	var table = document.getElementById("transactions");
-					// 	$(table).html("result");
-
-
-    	// 			}});
-
-
-
-					// 	if(window.XMLHttpRequest) {
-     //       				var	request = new XMLHttpRequest();
-					// 	request.onreadystatechange = function() {
-			  //           if (request.readyState == 4 && request.status == 200) {
-
-			  //           	alert(request.responseText);
-			  //               document.getElementById("transactions").innerHTML = request.responseText;
-			  //           	}
-			  //       	};
-
-
-			  //       	request.open("GET","getAccounts.php?accounts="+getString,true);
-			  //       	//alert("b");
-     //    				request.send();
-					// }
-
+					
 				}
-
-
-
 
 
 				</script>
