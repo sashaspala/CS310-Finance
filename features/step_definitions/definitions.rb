@@ -8,9 +8,9 @@ end
 
 Given /^I am logged in$/ do 
 	visit '/login.php'
-	fill_in('email', :with => "test")
-	fill_in('password', :with => "password")
-	click_button('loginbutton')
+	fill_in('email', :with => "swag@swag.com")
+	fill_in('password', :with => "swag")
+	click_button('loginButton')
 end
 
 Given /^I searched the (.*?) stock$/ do |stock|
@@ -24,6 +24,10 @@ end
 
 When /^I press (.*?)$/ do |button|
 	click_button(button)
+end
+
+When /^I choose the special button (.*?)$/ do |button|
+	click_on(button)
 end
 
 When /^I click (.*?)$/ do |link|
@@ -51,4 +55,8 @@ end
 
 Then /^(.*?) should load$/ do |elementName|
 	page.should have_text(elementName)
+end
+
+Then /^(.*?) should have (.*?) rows$/ do |elementName, size|
+	page.should have_selector(elementName, :count => size)
 end

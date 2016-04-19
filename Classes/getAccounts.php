@@ -1,13 +1,16 @@
 <?php
  require_once("DataManager.php");
 
-$accountsString = "TestAccountName7";
-$accountList = explode("-", $accountsString);
+$accountsString = $_GET["accounts"];
+$accountsString = substr($accountsString, 0, -1);
 
-$accounts = array();
-$transactions = array();
+$accountList = explode('-', $accountsString);
 
-//get array of accounts
+ $accounts = array();
+ $transactions = array();
+
+// //get array of accounts
+//
 
 foreach ($accountList as $item) {
 	$account = DataManager::getInstance()->getAccount($item, 1);
@@ -25,19 +28,12 @@ foreach ($accounts as $item) {
 
 
 //echo transactions
-echo "<table id='transactions' class='table table-bordered table-hover sortable'>
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Amount</th>
-							<th>Date</th>
-						</tr>
-					</thead>
-					<tbody>";
+echo "<table id='transactions' class='table table-bordered table-hover sortable'>";
+
+echo "<tbody>";
 
 echo "<thead>";
-echo"<tr>";
+echo "<tr>";
 echo		"<th>Name</th>";
 echo		"<th>Type</th>";
 echo	"<th>Amount</th>";

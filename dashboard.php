@@ -1,4 +1,4 @@
-<?php
+ad<?php
 
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
@@ -13,7 +13,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 //TODO FIX BALANCESHEET
 $balanceSheet = new BalanceSheet($accounts);
 $_SESSION['balanceSheet'] = $balanceSheet;
-$_SESSION['dataManager'] = DataManager::getInstance(); 
+$_SESSION['dataManager'] = DataManager::getInstance();
 
 ?>
 <head>
@@ -38,17 +38,17 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 	    	<form action="csvhandler.php" method = "post" enctype="mulipart/form-data">
 
 	    	 <!-- <span class="btn btn-default btn-file"> -->
-			    Upload CSV <input type="file" accept=".csv" id="csvUpload" name="csvfilename">
+			    Upload CSV <input type="file" accept=".csv" id="csvChooser" name="csvfilename">
 			<!-- </span> -->
-			<input type="submit" value= "Upload">
+			<input type="submit" id="csvSubmit" value= "Upload">
 			</form>
-			<form action="logoutHandler.php" method = "GET">
-	    		<button type="submit" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
-	    	</form>
 
 	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?>
 		</div>
 	</nav>
+	<form action="logoutHandler.php" method = "GET">
+	    		<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
+	    	</form>
 	<div class="container-fluid">
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -58,13 +58,15 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 				<script type="text/javascript">
 					function filter(){
 
-
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString = "";
 
 						//alert(getString);
 						//alert(checkedAccounts.length);
+
+						var accountFound = false;
+
 						for(var i =0; i<checkedAccounts.length; i++){
 							if(checkedAccounts[i].checked){
 								//alert("yes");
@@ -72,6 +74,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 								 var accountName = $(currentRow).children()[0].innerText;
 
+								 accountFound = true;
 
 								getString += accountName + "-";
 								//alert(getString);
@@ -79,6 +82,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 							}
 						}
 
+// <<<<<<< HEAD
 						if(getString != ""){
 							 $.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
 								console.log('finished');
@@ -99,6 +103,22 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 				}
 
 
+// =======
+// 						if (!accountFound) {
+// 							console.log("nothing checked"); 
+// 						}
+// 					//ajax request
+
+// 					$.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
+// 						console.log(data);
+// 						$("#ajaxtable").html(data);
+
+// 						// var table = document.getElementById("transactions");
+// 						// $(table).html("result");
+// 					});
+
+// 				}
+// >>>>>>> 25e5ee2e54612e4ba8e4bc3507fba5f6edd98023
 				</script>
 				<?php
 // =======
@@ -117,8 +137,8 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 				?>
 				</table>
 				<div class="account-btn">
-					<button type="button" class="btn btn-success">Add</button>
-					<button type="button" class="btn btn-danger">Remove</button>
+					<button type="button" id="addAccount" class="btn btn-success">Add</button>
+					<button type="button" id="removeAccount" class="btn btn-danger">Remove</button>
 				</div>
 			</div>
 		</div>
@@ -178,7 +198,9 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						</tr>
 					</thead>
 					<tbody>
-					<!-- <tr>
+
+						<!-- <p>hello</p>
+					<tr>
 						<td>trying</td>
 						<td>2</td>
 						<td>4.0</td>
