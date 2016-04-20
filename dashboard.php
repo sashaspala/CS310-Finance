@@ -45,10 +45,11 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?>
 		</div>
-	</nav>
-	<form action="logoutHandler.php" method = "GET">
+			<form action="logoutHandler.php" method = "GET">
 	    		<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
 	    	</form>
+
+	</nav>
 	<div class="container-fluid">
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
