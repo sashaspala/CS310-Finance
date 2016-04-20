@@ -1,9 +1,10 @@
-<?php
+ad<?php
 
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
 require_once("header.php");
+
 
 //LOADS PERSISTENT DATA
 
@@ -12,11 +13,12 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 //TODO FIX BALANCESHEET
 $balanceSheet = new BalanceSheet($accounts);
 $_SESSION['balanceSheet'] = $balanceSheet;
+$_SESSION['dataManager'] = DataManager::getInstance();
 
 ?>
 <head>
 	<link rel="stylesheet"   type="text/css" href="styles.css">
-	<!-- Script for date Picker 
+	<!-- Script for date Picker
 	datepicker represents start date
 	datepicker 2 represents end date
 	 -->
@@ -36,35 +38,108 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 	    	<form action="csvhandler.php" method = "post" enctype="mulipart/form-data">
 
 	    	 <!-- <span class="btn btn-default btn-file"> -->
-			    Upload CSV <input type="file" accept=".csv" id="csvUpload" name="csvfilename">
+			    Upload CSV <input type="file" accept=".csv" id="csvChooser" name="csvfilename">
 			<!-- </span> -->
-			<input type="submit" value= "Upload">
+			<input type="submit" id="csvSubmit" value= "Upload">
 			</form>
-			<form action="logoutHandler.php" method = "GET">
-	    		<button type="submit" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
-	    	</form>
+
 	    	<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?>
 		</div>
+			<form action="logoutHandler.php" method = "GET">
+	    		<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
+	    	</form>
+
 	</nav>
 	<div class="container-fluid">
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
 				<h2>Accounts</h2>
-				<table class="table table-hover">
-					<?php
+				<table class="table table-hover" id="AccountsTable">
+				<script type="text/javascript">
+					function filter(){
+
+						var accountTable = document.getElementById("AccountsTable");
+						var checkedAccounts = accountTable.getElementsByTagName("input");
+						var getString = "";
+
+						//alert(getString);
+						//alert(checkedAccounts.length);
+
+						var accountFound = false;
+
+						for(var i =0; i<checkedAccounts.length; i++){
+							if(checkedAccounts[i].checked){
+								//alert("yes");
+								 var currentRow = $(checkedAccounts[i]).closest('tr');
+
+								 var accountName = $(currentRow).children()[0].innerText;
+
+								 accountFound = true;
+
+								getString += accountName + "-";
+								//alert(getString);
+
+							}
+						}
+
+// <<<<<<< HEAD
+						if(getString != ""){
+							 $.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
+								console.log('finished');
+								$("#ajaxtable").html(data);
+								});
+
+
+						}
+						else
+						{
+							$("#ajaxtable").html("<table id='transactions' class='table table-bordered table-hover sortable'><thead><tr><th>Name</th><th>Type</th><th>Amount</th><th>Date</th></tr></thead><tbody></tbody></table>");
+						}
+
+
+					//ajax request
+
+					
+				}
+
+
+// =======
+// 						if (!accountFound) {
+// 							console.log("nothing checked"); 
+// 						}
+// 					//ajax request
+
+// 					$.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
+// 						console.log(data);
+// 						$("#ajaxtable").html(data);
+
+// 						// var table = document.getElementById("transactions");
+// 						// $(table).html("result");
+// 					});
+
+// 				}
+// >>>>>>> 25e5ee2e54612e4ba8e4bc3507fba5f6edd98023
+				</script>
+				<?php
+// =======
+// 				<h2>Accounts</h2>
+// 				<table class="table table-hover">
+// 					<?php
+// >>>>>>> origin
 					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
+
 						foreach($existingAccounts as $account){
 						echo "<tr>";
-						echo "<td>" . $account->getAccountName() . "</td>";
-						echo "<td><input type="."checkbox". " name=showAccount"."/></td>";
+						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
+						echo "<td><input type="."checkbox". " name=showAccount "."onClick =" ."filter()"." />"."</td>";
 						echo "</tr>";
 						}
 				?>
 				</table>
 				<div class="account-btn">
-					<button type="button" class="btn btn-success">Add</button>
-					<button type="button" class="btn btn-danger">Remove</button>
+					<button type="button" id="addAccount" class="btn btn-success">Add</button>
+					<button type="button" id="removeAccount" class="btn btn-danger">Remove</button>
 				</div>
 			</div>
 		</div>
@@ -73,15 +148,47 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
+
 		</div>
 		</div>
 
 		<div class="row" style="margin:0px auto;float:none;">
 		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 			<div class="well" style="background-color:#FFFFFF">
+<!-- <<<<<<< HEAD -->
+				<!-- <div class="input-group date" data-provide="datepicker">
+				    <input type="text" class="form-control">
+				    <div class="input-group-addon">
+				        <span class="glyphicon glyphicon-th"></span>
+				    </div>
+				</div>
+
+
+
+
+
+
+
+
+				<h2>Transactions</h2>
+
+				<script>
+				  $(function() {
+				    $( "#datepicker" ).datepicker();
+				  });
+				 </script>
+
+ 				<p> Date: <input type="text" id="datepicker"></p>
+ 				<p> asdasda sdasda sdasd as </p> -->
+
+
+<!--
+======= -->
 				<h2>Transactions</h2>
 				<p>Start Date: <input type="text" id="datepicker" name = "startDate"></p>
 				<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
+<!-- >>>>>>> origin -->
+	<div id=ajaxtable>
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
@@ -92,6 +199,8 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						</tr>
 					</thead>
 					<tbody>
+
+						<!-- <p>hello</p>
 					<tr>
 						<td>trying</td>
 						<td>2</td>
@@ -115,9 +224,10 @@ $_SESSION['balanceSheet'] = $balanceSheet;
 						<td>-7</td>
 						<td>7.3</td>
 						<td>08/12/1986</td>
-					</tr>
+					</tr> -->
 					</tbody>
 				</table>
+				</div>
 			</div>
 		</div>
 	</div>
