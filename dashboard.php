@@ -228,7 +228,9 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 			</div>
 		</div>
 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-			Test
+			<div class="well" style="background-color:#FFFFFF">
+				Test
+			</div>
 		</div>
 	</div>
 	</div>
