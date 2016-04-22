@@ -149,8 +149,8 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		</div>
 		</div>
 
-		<div class="row row-flex" style="margin:0px auto;float:none;">
-		<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-flex">
+		<div class="row" style="margin:0px auto;float:none;">
+		<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
 <!-- <<<<<<< HEAD -->
 				<!-- <div class="input-group date" data-provide="datepicker">
@@ -227,9 +227,15 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 col-flex">
+		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
-				Test
+				<h2>Budget</h2>
+				<div style="float:left">
+					<h3>Monthly Budget: $xxx</h3>
+				</div>
+				<div style="float:right">
+					<h3>Budget Progress: <span class="budget-data">+$xxx</span></h3>
+				</div>
 			</div>
 		</div>
 	</div>
