@@ -51,3 +51,14 @@ table.sortable thead {
     position: absolute;
     bottom: 15px;
 }
+
+.row-flex {
+  display: flex; /* equal height of the children */
+}
+
+.col-flex {
+  flex: 1; /* additionally, equal width */
+  
+  padding: 1em;
+  border: solid;
+}
