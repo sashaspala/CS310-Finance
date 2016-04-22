@@ -46,11 +46,10 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 	    		</form>
 			</form>
 		</div>
-
 	</nav>
 	<div class="container-fluid">
 		<div class="row row-margin" style="float:none;">
-		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+		<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
 				<h2>Accounts</h2>
 				<table class="table table-hover" id="AccountsTable">
@@ -142,7 +141,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 			</div>
 		</div>
 
-		<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
@@ -151,7 +150,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		</div>
 
 		<div class="row" style="margin:0px auto;float:none;">
-		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+		<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
 <!-- <<<<<<< HEAD -->
 				<!-- <div class="input-group date" data-provide="datepicker">
