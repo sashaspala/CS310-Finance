@@ -33,16 +33,16 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 </head>
 
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top navbar-header">
+	<nav class="navbar navbar-default navbar-fixed-top navbar">
 		<div class="container-fluid">
 	    	<form action="csvhandler.php" method = "post" enctype="mulipart/form-data">
-		    	<span class="btn btn-default btn-file" data-toggle="collapse">
-				    Select CSV <input type="file" accept=".csv" id="csvChooser" name="csvfilename" data-toggle="collapse">
+		    	<span class="btn btn-default btn-file">
+				    Select CSV <input type="file" accept=".csv" id="csvChooser" name="csvfilename">
 				</span>
-				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file" data-toggle="collapse">
+				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file">
 				<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?>
 				<form action="logoutHandler.php" method = "GET">
-	    			<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px" data-toggle="collapse">Logout</button>
+	    			<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
 	    		</form>
 			</form>
 		</div>
