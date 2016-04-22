@@ -230,12 +230,8 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Budget</h2>
-				<div style="float:left">
 					<h3>Monthly Budget: $xxx</h3>
-				</div>
-				<div style="float:right">
 					<h3>Budget Progress: <span class="budget-data">+$xxx</span></h3>
-				</div>
 			</div>
 		</div>
 	</div>
