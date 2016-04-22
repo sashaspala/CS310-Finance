@@ -51,3 +51,7 @@ table.sortable thead {
     position: absolute;
     bottom: 15px;
 }
+
+.budget-data {
+    color: #00FF00;
+}
