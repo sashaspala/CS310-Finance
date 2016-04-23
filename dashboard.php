@@ -9,8 +9,7 @@ require_once("header.php");
 //LOADS PERSISTENT DATA
 
 $accounts = DataManager::getInstance()->getAccountsForUser(1);
-
-echo json_encode($accounts[0]->getTransactions();
+echo (count($accounts[0]->getTransactions());
 //TODO FIX BALANCESHEET
 $balanceSheet = new BalanceSheet($accounts);
 $_SESSION['balanceSheet'] = $balanceSheet;
