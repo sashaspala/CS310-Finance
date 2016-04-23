@@ -7,7 +7,7 @@ class Account {
 	private $Users_userID; //int
     private $sum;//
     private $transactions;//array transactions
-
+    private $netValues; //array of ints representing the net value of the account at different times
 	function __construct($name = null, $accountID = null , $userID = null){
 		if($name != null) 
 			$this->name = $name;
@@ -18,6 +18,13 @@ class Account {
 
 		//echo 'Constructed Account with ' . $this->name; 
         $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
+		$this->netValues = array();
+		if(count($this->transactions>0)){
+			array_push($this->netValues, ($this->transactions)[0]->getAmmount());
+			for ($index =1; $index<count($this->transactions); $index++){
+				array_push($this->netValues, ($this->netValues)[$index-1] + (($this->transactions)[$index])->getAmmount();
+			}	
+		}
 	}
 
 	function getID(){
