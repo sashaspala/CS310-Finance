@@ -18,9 +18,13 @@ class Account {
 
 		//echo 'Constructed Account with ' . $this->name; 
         $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
+		
+        
 		$this->netValues = array();
 		if(count($this->transactions>0)){
-			echo json_encode($this->transactions);
+
+			//TODO need to fix the below commented code
+
 			// array_push($this->netValues, $this->transactions[0]->getAmount());
 			// for ($index =1; $index<count($this->transactions); $index++){
 			// 	array_push($this->netValues, $this->netValues[$index-1] + $this->transactions[$index]->getAmount();
@@ -66,6 +70,10 @@ class Account {
 
 	function addTransactions($transaction){
 		array_push($this->transactions, $transaction);
+	}
+
+	function getNetValues() {
+		return $this->netValues;
 	}
 
 }

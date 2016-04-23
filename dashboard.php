@@ -9,7 +9,7 @@ require_once("header.php");
 //LOADS PERSISTENT DATA
 
 $accounts = DataManager::getInstance()->getAccountsForUser(1);
-// echo (count($accounts[0]->getTransactions());
+
 //TODO FIX BALANCESHEET
 $balanceSheet = new BalanceSheet($accounts);
 $_SESSION['balanceSheet'] = $balanceSheet;
@@ -180,10 +180,15 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 
 <!--
-======= -->
+======= -->    
+				
 				<h2>Transactions</h2>
-				<p>Start Date: <input type="text" id="datepicker" name = "startDate"></p>
-				<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
+				<form class="form-recalculate-graph" action='datePickerhandler.php' method='post' accept-charset='UTF-8'>
+					<p>Start Date: <input type="text" id="datepicker" name = "startDate"></p>
+					<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
+					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
+					<button  class="btn btn-lg btn-primary btn-block" type="submit" id="dateButton" name = "dateSubmit">Re-Calculate</button>
+		      	</form>
 <!-- >>>>>>> origin -->
 	<div id=ajaxtable>
 				<table id="transactions" class="table table-bordered table-hover sortable">
