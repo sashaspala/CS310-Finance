@@ -8,6 +8,7 @@ class Account {
     private $sum;//
     private $transactions;//array transactions
     private $netValues; //array of ints representing the net value of the account at different times
+	private $dataPoints;
 	function __construct($name = null, $accountID = null , $userID = null){
 		if($name != null) 
 			$this->name = $name;
@@ -19,9 +20,9 @@ class Account {
 		//echo 'Constructed Account with ' . $this->name; 
         $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 		
-        
+        $this->dataPoints=array();
 		$this->netValues = array();
-		if(count($this->transactions>0)){
+		if(count($this->transactions)>0){
 
 			//TODO need to fix the below commented code
 
@@ -74,6 +75,32 @@ class Account {
 
 	function getNetValues() {
 		return $this->netValues;
+	}
+
+	function calculateDataPoint($startDate, $endDate, $numOfPoints){
+		$startIndex=0;
+		$endIndex=count($this->transactions);
+		for ($index =0; $index<count($this->transactions); $index++){
+			if($this->transactions[$index]->getDate()>=$startDate){
+				$startIndex=$index;
+				break;
+			}
+		}
+		for ($index =0; $index<count($this->transactions); $index++){
+			if($this->transactions[$index]->getDate()<=$endDate){
+				$endIndex=$index;
+				break;
+			}
+		}		
+
+		for($index=0; $index<$numOfPoints;$index++){
+
+		}
+
+
+		
+
+
 	}
 
 }
