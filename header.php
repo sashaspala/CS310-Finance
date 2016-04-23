@@ -13,7 +13,7 @@
         <script src="https://code.highcharts.com/highcharts.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
 		<script src="sorttable.js"></script>
-
+<!-- The below code is for date picker (hopefully) -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
