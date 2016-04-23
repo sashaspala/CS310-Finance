@@ -19,12 +19,12 @@ class Account {
 		//echo 'Constructed Account with ' . $this->name; 
         $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 		$this->netValues = array();
-		// if(count($this->transactions>0)){
-		// 	array_push($this->netValues, ($this->transactions)[0]->getAmmount());
-		// 	// for ($index =1; $index<count($this->transactions); $index++){
-		// 	// 	array_push($this->netValues, ($this->netValues)[$index-1] + (($this->transactions)[$index])->getAmmount();
-		// 	// }	
-		// }
+		if(count($this->transactions>0)){
+			// array_push($this->netValues, ($this->transactions)[0]->getAmmount());
+			// for ($index =1; $index<count($this->transactions); $index++){
+			// 	array_push($this->netValues, ($this->netValues)[$index-1] + (($this->transactions)[$index])->getAmmount();
+			// }	
+		}
 	}
 
 	function getID(){
