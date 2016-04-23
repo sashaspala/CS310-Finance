@@ -28,7 +28,8 @@ class Account {
 
 			array_push($this->netValues, $this->transactions[0]->getAmount());
 			for ($index =1; $index<count($this->transactions); $index++){
-				array_push($this->netValues, $this->netValues[$index-1] + $this->transactions[$index]->getAmount();
+				//I THINK THIS LINE DOES NOT WORK CURRENTLY BECAUSE OF THE SAMPLE DATA
+				// array_push($this->netValues, $this->netValues[$index-1] + $this->transactions[$index]->getAmount();
 			}	
 		}
 	}
