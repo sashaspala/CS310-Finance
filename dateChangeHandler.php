@@ -4,6 +4,7 @@
 	
 	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
 
+		echo "HEY";
 		$start = strtotime($_POST['startDate']);
 		$end = strtotime($_POST['endDate']);
 
@@ -13,7 +14,8 @@
 		
 
 	}
+	echo "HEUY NP"
 
-	header('Location: dashboard.php');
-	exit();
+	// header('Location: dashboard.php');
+	// exit();
 ?>
