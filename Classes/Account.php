@@ -28,7 +28,7 @@ class Account {
 
 			array_push($this->netValues, $this->transactions[0]->getAmount());
 			for ($index =1; $index<count($this->transactions); $index++){
-			// 	array_push($this->netValues, $this->netValues[$index-1] + $this->transactions[$index]->getAmount();
+				array_push($this->netValues, $this->netValues[$index-1] + $this->transactions[$index]->getAmount();
 			}	
 		}
 	}
