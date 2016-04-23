@@ -16,6 +16,6 @@
 	}
 	echo "HEUY NP"
 
-	header('Location: dashboard.php');
-	exit();
+	// header('Location: dashboard.php');
+	// exit();
 ?>
