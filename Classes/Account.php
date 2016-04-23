@@ -20,7 +20,7 @@ class Account {
         $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 		$this->netValues = array();
 		if(count($this->transactions>0)){
-			echo json_encode($this->transactions)
+			echo json_encode($this->transactions);
 			// array_push($this->netValues, $this->transactions[0]->getAmount());
 			// for ($index =1; $index<count($this->transactions); $index++){
 			// 	array_push($this->netValues, $this->netValues[$index-1] + $this->transactions[$index]->getAmount();
