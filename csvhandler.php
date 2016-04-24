@@ -14,8 +14,8 @@
 		$line++;
 	 	// CREATES AN ACCOUNT IN DB
 		// DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots gczvxcvzxcvzx of stuff", "Ralphxzcvxcvzxcs",1,2);
-		$account=DataManager::getInstance()->addAccount($accountName,1);
-		if($i==1)echo $numOfAccount;
+		$account=DataManager::getInstance()->addAccount($accountName,$_SESSION['userID']);
+		if($i==0){echo $numOfAccount;}
 		for($j=0;$j<$numOfTransactions;$j++){
 				$transactionName=$data[$line][0];
 				$transactionPrincipal=$data[$line][1];
