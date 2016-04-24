@@ -8,7 +8,7 @@
 	$numOfAccount=$data[$line][0];
 	$line++;
 	for($i = 0; $i <$numOfAccount;$i++){
-		echo $i;
+		echo $numOfAccount;
 		$accountName=$data[$line][0];
 		$numOfTransactions=$data[$line][1];
 		$line++;
@@ -33,7 +33,7 @@
 
 		$line++;
 	// 	// ADD ACCOUNT TO BALLANCESHEET LOCALLY
-		echo $i;
+		
 		$_SESSION['balanceSheet']->addAccount($account);
 	}
 	header('Location: dashboard.php');
