@@ -93,8 +93,15 @@ class Account {
 				break;
 			}
 		}		
-
+		$netValuesIndex=$startIndex;
+		$currDate=$startDate;
 		for($index=0; $index<$numOfPoints;$index++){
+			if($currDate>$this->transactions[$netValuesIndex]->getDate()){
+				$netValuesIndex++;
+			}
+			array_push($this->dataPoints, $this->netValues[$netValuesIndex]);
+			$currDate = strtotime("+1 day", $currDate);
+
 
 		}
 
