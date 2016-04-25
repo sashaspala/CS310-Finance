@@ -298,7 +298,7 @@ class DataManager {
 
 		$categories = array();
 		foreach($transactions as $transaction) {
-			if(!array_key_exists($transaction->getCategory(), $categories)) {
+			if(!in_array($transaction->getCategory(), $categories)) {
 				$categories[] = $transaction->getCategory();
 			}
 		}
