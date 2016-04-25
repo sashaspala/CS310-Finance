@@ -39,12 +39,12 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		    	<span class="btn btn-default btn-file">
 				    Select CSV <input type="file" accept=".csv" id="csvChooser" name="csvfilename">
 				</span>
-				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file">
+				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file"> 
 				<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?>
-				<form action="logoutHandler.php" method = "GET">
-	    			<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
-	    		</form>
 			</form>
+			<form action="logoutHandler.php" method = "GET">
+	    		<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
+	    	</form>
 		</div>
 	</nav>
 	<div class="container-fluid">
