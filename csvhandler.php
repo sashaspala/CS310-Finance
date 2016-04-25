@@ -10,15 +10,16 @@
 	
 	for($i = 0; $i <$numOfAccount; $i++){
 		$accountName=$data[$line][0];
+		echo $accountName;
 		$numOfTransactions=$data[$line][1];
 		$line++;
 	 	// CREATES AN ACCOUNT IN DB
 		// DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots gczvxcvzxcvzx of stuff", "Ralphxzcvxcvzxcs",1,2);
 		$account=DataManager::getInstance()->addAccount($accountName,1);
-		if($i == 0) echo $numOfAccount;
+
+		///if($i == 0) echo $numOfAccount;
 
 		for($j = 0; $j < $numOfTransactions; $j++){
-			echo $numOfTransactions;
 			$transactionName=$data[$line][0];
 			$transactionPrincipal=$data[$line][1];
 			$transactionDate=$data[$line][2];
