@@ -293,7 +293,7 @@ class DataManager {
 		}
 
 		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_Users_userID = :userID');
-		$stmt->execute(array('userID' => $userID);
+		$stmt->execute(array('userID' => $userID));
 		$transactions = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
 
 		$categories = array();
