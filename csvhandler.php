@@ -9,8 +9,8 @@
 	$line++;
 	
 	for($i = 0; $i <$numOfAccount; $i++){
+		echo "Got here again";
 		$accountName=$data[$line][0];
-		echo $accountName;
 		$numOfTransactions=$data[$line][1];
 		$line++;
 	 	// CREATES AN ACCOUNT IN DB
