@@ -11,6 +11,10 @@
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
+		//if the difference is < 30 do in days
+		// > 30 do in months
+		// > 365 do in years
+
 		
 
 	}
