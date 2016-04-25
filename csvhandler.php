@@ -8,12 +8,14 @@
 	$numOfAccount=$data[$line][0];
 	$line++;
 	for($i = 0; $i <$numOfAccount;$i++){
+		
 		$accountName=$data[$line][0];
 		$numOfTransactions=$data[$line][1];
 		$line++;
 	 	// CREATES AN ACCOUNT IN DB
 		// DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots gczvxcvzxcvzx of stuff", "Ralphxzcvxcvzxcs",1,2);
-		$account=DataManager::getInstance()->addAccount($accountName,1);
+		$account=DataManager::getInstance()->addAccount($accountName,$_SESSION['userID']);
+		if($i==0){echo $numOfAccount;}
 		for($j=0;$j<$numOfTransactions;$j++){
 				$transactionName=$data[$line][0];
 				$transactionPrincipal=$data[$line][1];
@@ -32,8 +34,8 @@
 
 		$line++;
 	// 	// ADD ACCOUNT TO BALLANCESHEET LOCALLY
-
-		$_SESSION['balanceSheet']->addAccount($account);
+		
+		 $_SESSION['balanceSheet']->addAccount($account);
 	}
 	header('Location: dashboard.php');
 	exit();

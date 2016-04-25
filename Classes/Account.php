@@ -8,6 +8,7 @@ class Account {
     private $sum;//
     private $transactions;//array transactions
     private $netValues; //array of ints representing the net value of the account at different times
+	private $dataPoints;
 	function __construct($name = null, $accountID = null , $userID = null){
 		if($name != null) 
 			$this->name = $name;
@@ -19,16 +20,17 @@ class Account {
 		//echo 'Constructed Account with ' . $this->name; 
         $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 		
-        
+        $this->dataPoints=array();
 		$this->netValues = array();
-		if(count($this->transactions>0)){
+		if(count($this->transactions)>0){
 
 			//TODO need to fix the below commented code
 
-			// array_push($this->netValues, $this->transactions[0]->getAmount());
-			// for ($index =1; $index<count($this->transactions); $index++){
-			// 	array_push($this->netValues, $this->netValues[$index-1] + $this->transactions[$index]->getAmount();
-			// }	
+			array_push($this->netValues, $this->transactions[0]->getAmount());
+			for ($index =1; $index<count($this->transactions); $index++){
+				//I THINK THIS LINE DOES NOT WORK CURRENTLY BECAUSE OF THE SAMPLE DATA
+				// array_push($this->netValues, $this->netValues[$index-1] + $this->transactions[$index]->getAmount();
+			}	
 		}
 	}
 
@@ -74,6 +76,39 @@ class Account {
 
 	function getNetValues() {
 		return $this->netValues;
+	}
+
+	function calculateDataPoint($startDate, $endDate, $numOfPoints){
+		$startIndex=0;
+		$endIndex=count($this->transactions);
+		for ($index =0; $index<count($this->transactions); $index++){
+			if($this->transactions[$index]->getDate()>=$startDate){
+				$startIndex=$index;
+				break;
+			}
+		}
+		for ($index =0; $index<count($this->transactions); $index++){
+			if($this->transactions[$index]->getDate()<=$endDate){
+				$endIndex=$index;
+				break;
+			}
+		}		
+		$netValuesIndex=$startIndex;
+		$currDate=$startDate;
+		for($index=0; $index<$numOfPoints;$index++){
+			if($currDate>$this->transactions[$netValuesIndex]->getDate()){
+				$netValuesIndex++;
+			}
+			array_push($this->dataPoints, $this->netValues[$netValuesIndex]);
+			$currDate = strtotime("+1 day", $currDate);
+
+
+		}
+
+
+		
+
+
 	}
 
 }
