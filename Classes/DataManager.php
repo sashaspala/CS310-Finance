@@ -280,6 +280,34 @@ class DataManager {
 
 
 	/**
+	 * Goes through the list of transactions for a user to find the list of different transactions categories
+	 * 
+	 * @param int $userID - the userID for which the transactions categories need to be generated
+	 * @return String[] categories- an array of strings that contain the categories found
+	 *
+	 */
+
+	function findCategoriesForUser($userID=null) {
+		if ($userID == null) {
+			$userID = $this->currentLoggedInUserID;
+		}
+
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_Users_userID = :userID');
+		$stmt->execute(array('userID' => $userID);
+		$transactions = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
+
+		$categories = array();
+		foreach($transactions as $transaction) {
+			if(!array_key_exists($transaction->getCategory(), $categories)) {
+				$categories[] = $transaction->getCategory();
+			}
+		}
+
+		return $categories;
+	}
+
+
+	/**
 	* Executes a statement and returns the error string, if any
 	* @param Statement The SQL statement to execute. Must have parameters bound to variables
 	* @param Bool True if the execute was successful, False otherwise
