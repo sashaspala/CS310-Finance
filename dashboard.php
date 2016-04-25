@@ -143,7 +143,14 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
-				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto">
+					
+
+
+
+
+
+				</div>
 			</div>
 
 		</div>
