@@ -150,17 +150,17 @@ class DataManager {
 	* Adds an account to the database
 	* @param string name The name associated with the account
 	* @param int userID The ID for the user who owns the account
-	* @return Account The new account that was created, with the ID specified if no errors, null otherwise;
+	* @return Account The new account that was created, with the ID specified if no errors
 	*/
 
 	function addAccount ($name, $userID) {
 		//Check if the account name already exists in the database
 		$stmt = $this->_db->prepare('SELECT * FROM Accounts WHERE name = :name AND Users_userID = :userID');
 		$stmt->execute(array('name'=>$name, 'userID'=>$userID));
-		$results = $stmt->fetch();
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Account");
 		if($results[0]) {
 			//echo "An account of that name already exists in database\n";
-			return null;
+			return $results[0];
 		}
 
 		$stmt = $this->_db->prepare('INSERT INTO Accounts (name, Users_userID)
