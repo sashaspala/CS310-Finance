@@ -143,7 +143,7 @@ class DataManager {
 	*
 	*/
 	function logout() {
-		$this->currentLoggedInUserID = null;
+		unset($this->currentLoggedInUserID);
 	}
 
 	/**
