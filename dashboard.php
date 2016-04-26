@@ -246,7 +246,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					<select>
 						<option selected="selected">Budgets</option>
 					  		<?php
-					  			$categories = DataManager::getInstance()->findCategoriesForUser();
+					  			$categories = DataManager::getInstance()->findCategoriesForUser(1);
 					  			echo sizeof($categories);
 					    		foreach($categories as $name) { ?>
 						      	<option value="<?php echo $name['name'] ?>"><?php echo $name['name'] ?></option>
