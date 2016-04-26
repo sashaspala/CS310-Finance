@@ -242,10 +242,12 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Budget</h2>
 				<form class="form-select-budget" action='selectBudget.php' method='post' accept-charset='UTF-8'>
+					<p>Select a budget to view: </p>
 					<select>
-						<option selected="selected">Choose one</option>
+						<option selected="selected">Budgets</option>
 					  		<?php
 					  			$categories = DataManager::getInstance()->findCategoriesForUser();
+					  			echo sizeof($categories);
 					    		foreach($categories as $name) { ?>
 						      	<option value="<?php echo $name['name'] ?>"><?php echo $name['name'] ?></option>
 						  		<?php
