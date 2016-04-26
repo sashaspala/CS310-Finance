@@ -6,7 +6,7 @@
 	require_once("Classes/DataManager.php");
 
 	if(isset($_POST['budgets'])){
-	// 	$budget = $_POST['budgets'];
+		$budget = $_POST['budgets'];
 
 	// 	 switch ($select1) {
 	// 	 	case 'Food':
