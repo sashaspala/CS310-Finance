@@ -241,7 +241,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Budgets</h2>
-				<form class="form-select-budget" action="#" method='post' accept-charset='UTF-8'>
+				<form class="form-select-budget" action='selectBudget.php' method='post' target='budgetInfo' accept-charset='UTF-8'>
 					<div class="combo-box">
 					<p><font size="3">Select a budget to view:</font>
 					<select name="budgets">
@@ -257,25 +257,8 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					</p>
 					</div>
 		      	</form>
-		      	<div>
-					<?php
-						if(isset($_POST['budgetSubmit'])){
-							$budget = $_POST['budgets'];
-
-							switch ($budget) {
-							 	// case "Food":
-							 	// 	echo "<h2>Total budget: $300.00</h2>"
-							 	// 	break;
-							 	// case "Education":
-							 	// 	echo "<h2>Total budget: $500.00</h2>"
-							 	// 	break;
-							 	default:
-							 		echo "<p>ERROR!</p>";
-							 		break;
-							}
-						}
-					?>
-				</div>
+		      	<iframe name="budgetInfo">
+				</iframe>
 			</div>
 		</div>
 	</div>
