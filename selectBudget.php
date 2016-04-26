@@ -12,7 +12,7 @@
 	 	switch ($budget) {
 	 		case "Food":
 	 			// echo "<h2>Total budget: $300.00</h2>"
-	 			// break;
+	 			break;
 	 	// 	case "Education":
 	 	// 		echo "<h2>Total budget: $500.00</h2>"
 	 	// 		break;
