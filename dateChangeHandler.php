@@ -2,15 +2,27 @@
 	require_once("Classes/DataManager.php");
 	require_once("Classes/BalanceSheet.php"); 
 	
+	if(!session_id()) {
+   		session_start();
+	}
+
 	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
 
-		if( is_string($_POST['startDate'])){echo "IT IS STRING";}
+		//THE PARAMETERS AS PASSED IN AS STRING
 		
 		$start = strtotime($_POST['startDate']);
 		$end = strtotime($_POST['endDate']);
 
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
+
+
+		$accountList=$_SESSION['balanceSheet']->getAccounts();
+
+
+		for ($index=0; $index<count($accountList); $index++){
+			$accountList[$index]->calculateDataPoint($start, $end, $days);
+		}
 
 		//if the difference is < 30 do in days
 		// > 30 do in months
