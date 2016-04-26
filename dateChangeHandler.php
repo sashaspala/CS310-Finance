@@ -4,8 +4,7 @@
 	
 	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
 
-		echo $_POST['startDate'];
-		echo $_POST['endDate'];
+		if( is_string($_POST['startDate'])){echo "IT IS STRING"}
 		
 		$start = strtotime($_POST['startDate']);
 		$end = strtotime($_POST['endDate']);
