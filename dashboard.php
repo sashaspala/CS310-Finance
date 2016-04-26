@@ -247,9 +247,9 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					  		<?php
 					  			$categories = DataManager::getInstance()->findCategoriesForUser();
 					    		foreach($categories as $name) { ?>
-					      		<option value="<?= $name['name'] ?>"><?= $name['name'] ?></option>
-					  			<?php
-					    	} ?>
+						      	<option value="<?php echo $name['name'] ?>"><?php echo $name['name'] ?></option>
+						  		<?php
+						    } ?>
 					</select>
 		      	</form>
 			</div>
