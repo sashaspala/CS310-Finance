@@ -244,10 +244,10 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 				<form class="form-select-budget" action='selectBudget.php' method='post' accept-charset='UTF-8'>
 					<select>
 				  		<?php 
-						 	$categories = DataManager::getInstance()->findCategoriesForUser();
-						 	foreach($categories as $name) {
-						 		echo "<option value=\"" $name['name'] "\">" $name['name'] "</option>";
-						 	}
+						 	// $categories = DataManager::getInstance()->findCategoriesForUser();
+						 	// foreach($categories as $name) {
+						 	// 	echo "<option value=\"" $name['name'] "\">" $name['name'] "</option>";
+						 	// }
 						?>
 					</select>
 		      		</form>
