@@ -18,8 +18,8 @@
 		}
 
 	 	switch ($budget) {
-	 		// case: 'Select a budget':
-	 		// 	break;
+	 		case: 'Select a budget':
+	 			break;
 	 		case 'Food': ?>
 	 			<h3>Food</h3>
 	 			<h4>Total budget: $300.00</h4>
