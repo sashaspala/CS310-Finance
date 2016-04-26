@@ -253,12 +253,12 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						  		<?php
 						    } ?>
 					</select>
+					Set Budget Amount: $
+  					<input type="number" name="budgetAmount" min="0">
 					<input type="submit" id="bugdetSubmit" name="bugdetSubmit" value= "View" class="btn btn btn-warning">
 					</p>
 					</div>
 		      	</form>
-		      	<!-- <iframe name="budgetInfo">
-				</iframe> -->
 			</div>
 		</div>
 	</div>
