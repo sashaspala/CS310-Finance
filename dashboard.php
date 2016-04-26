@@ -253,6 +253,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						  		<?php
 						    } ?>
 					</select>
+					<input type="submit" id="bugdetSubmit" value= "Budget" class="btn btn-default btn-file"> 
 					</p>
 		      	</form>
 			</div>
