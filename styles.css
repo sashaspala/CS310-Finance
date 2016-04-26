@@ -57,6 +57,6 @@ table.sortable thead {
 }
 
 .combo-box select {
-    border: 1px solid #CCC
-    height: 10px;
+    border: 1px solid #CCC;
+    height: 20px;
 }
