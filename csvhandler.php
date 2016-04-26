@@ -1,6 +1,11 @@
 <?php 
 	require_once("Classes/DataManager.php");
 	require_once("Classes/BalanceSheet.php"); 
+
+	if(!session_id()) {
+   		session_start();
+	}
+
 	$myFilePath=$_FILES["csvfilename"]["name"];
 	$file= file_get_contents("sampleCSV.csv");
 	$data = array_map("str_getcsv",preg_split('/\r*\n+|\r+/',$file));
