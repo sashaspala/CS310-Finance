@@ -245,7 +245,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					<div class="combo-box">
 					<p><font size="3">Select a budget to view:</font>
 					<select>
-						<option selected="selected">Budgets</option>
+						<option selected="selected">Select a budget</option>
 					  		<?php
 					  			$categories = DataManager::getInstance()->findCategoriesForUser(1);
 					  			echo sizeof($categories);
