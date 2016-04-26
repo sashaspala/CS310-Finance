@@ -259,16 +259,16 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					</p>
 					</div>
 					<script type="text/javascript">
-						$('#create').submit(function() { // catch the form's submit event
-						    $.ajax({ // create an AJAX call...
-						        data: $(this).serialize(), // get the form data
-						        type: $(this).attr('method'), // GET or POST
-						        url: $(this).attr('action'), // the file to call
-						        success: function(response) { // on success..
-						            $('#budgetInfo').html(response); // update the DIV
+						$('#create').submit(function() {
+						    $.ajax({
+						        data: $(this).serialize(),
+						        type: $(this).attr('method'),
+						        url: $(this).attr('action'),
+						        success: function(response) {
+						            $('#budgetInfo').html(response);
 						        }
 						    });
-						    return false; // cancel original event to prevent form submitting
+						    return false;
 						});
 					</script>
 					<div id="budgetInfo"></div>

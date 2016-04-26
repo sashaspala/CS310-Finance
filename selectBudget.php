@@ -10,10 +10,12 @@
 
 	 	switch ($budget) {
 	 		case 'Food':
-	 			echo 'Total budget: $300.00';
+	 			echo '<h2>Food</h2>'
+	 			echo '<h3>Total budget: $300.00</h3>';
 	 			break;
 	 		case 'Education':
-	 			echo 'Total budget: $500.00';
+	 			echo '<h2>Education</h2>'
+	 			echo '<h3>Total budget: $500.00</h3>';
 	 			break;
 	 		default:
 	 			echo 'ERROR!';
