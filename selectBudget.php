@@ -2,6 +2,12 @@
 
 	require_once("Classes/DataManager.php");
 
+	<form id="setBudget" class="form-set-budget" action='setBudget.php' method='post' accept-charset='UTF-8'>
+	<font size="3">Set Budget Amount: $</font>
+	<input type="number" name="budgetAmount" min="0" max="9999" style="width:50px;margin-right:10px">
+	<input type="submit" id="bugdetSubmit" name="bugdetSubmit" value= "Set Budget" class="btn btn-info">
+	</form>
+
 	if(isset($_POST['budgets'])){
 		$budget = $_POST['budgets'];
 
