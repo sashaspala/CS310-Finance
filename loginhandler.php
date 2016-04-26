@@ -9,7 +9,7 @@
 
 	if (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['password'])) {
 
-		$user = DataManager::getInstance()->loginUser($_POST['email'], $_POST['password']);
+		$user = DataManager::getInstance()->loginUser($_POST['email'], md5($_POST['password']));
 
 
 		if(is_null($user)) {
