@@ -8,9 +8,7 @@
 	$numOfAccount=$data[$line][0];
 	$line++;
 	
-	echo "Account number is ".$numOfAccount."\n";
-	for($i = 0; $i <$numOfAccount; $i++){
-		echo $i."\n";
+	for($i = 0; $i < $numOfAccount; $i++){
 		$accountName=$data[$line][0];
 		$numOfTransactions=$data[$line][1];
 		$line++;
@@ -35,6 +33,7 @@
 			}
 			$line++;
 		}
+		echo "I got here!";
 
 		//$line++;
 	 	// ADD ACCOUNT TO BALANCESHEET LOCALLY
