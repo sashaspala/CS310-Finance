@@ -254,7 +254,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						    } ?>
 					</select>
 					<font size="3">Set Budget Amount: $</font>
-  					<input type="number" name="budgetAmount" min="0" style="width:50px;margin-right:10px">
+  					<input type="number" name="budgetAmount" min="0" max="9999" style="width:50px;margin-right:10px">
 					<input type="submit" id="bugdetSubmit" name="bugdetSubmit" value= "View" class="btn btn btn-warning">
 					</p>
 					</div>
