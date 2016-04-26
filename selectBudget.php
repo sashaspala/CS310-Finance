@@ -5,8 +5,6 @@
 	if(isset($_POST['budgets'])){
 		$budget = $_POST['budgets'];
 
-		echo $budget;
-
 		if($budget != 'Select a budget') {
 			?>
 			<form id="setBudget" class="form-set-budget" action='setBudget.php' method='post' accept-charset='UTF-8'>
