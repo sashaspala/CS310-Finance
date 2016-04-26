@@ -57,5 +57,5 @@ table.sortable thead {
 }
 
 .combo-box select {
-    line-height: 20px;
+    border: 1px solid #CCC
 }
