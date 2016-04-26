@@ -256,26 +256,26 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					<input type="submit" id="bugdetSubmit" name="bugdetSubmit" value= "View" class="btn btn btn-warning">
 					</p>
 					</div>
-					<div>
-						<?php
-							if(isset($_POST['budgetSubmit'])){
-								$budget = $_POST['budgets'];
-
-								 switch ($budget) {
-								 	// case "Food":
-								 	// 	echo "<h2>Total budget: $300.00</h2>"
-								 	// 	break;
-								 	// case "Education":
-								 	// 	echo "<h2>Total budget: $500.00</h2>"
-								 	// 	break;
-								 	default:
-								 		echo "<p>ERROR!</p>";
-								 		break;
-								 }
-							}
-						?>
-					</div>
 		      	</form>
+		      	<div>
+					<?php
+						if(isset($_POST['budgetSubmit'])){
+							$budget = $_POST['budgets'];
+
+							switch ($budget) {
+							 	// case "Food":
+							 	// 	echo "<h2>Total budget: $300.00</h2>"
+							 	// 	break;
+							 	// case "Education":
+							 	// 	echo "<h2>Total budget: $500.00</h2>"
+							 	// 	break;
+							 	default:
+							 		echo "<p>ERROR!</p>";
+							 		break;
+							}
+						}
+					?>
+				</div>
 			</div>
 		</div>
 	</div>
