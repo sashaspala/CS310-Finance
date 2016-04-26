@@ -250,7 +250,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					  			$categories = DataManager::getInstance()->findCategoriesForUser(1);
 					  			echo sizeof($categories);
 					    		foreach($categories as $name) { ?>
-						      	<option value="<?php echo $name['name'] ?>"><?php echo $name['name'] ?></option>
+						      	<option value="<?php echo $name ?>"><?php echo $name ?></option>
 						  		<?php
 						    } ?>
 					</select>
