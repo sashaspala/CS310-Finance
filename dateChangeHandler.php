@@ -4,7 +4,9 @@
 	
 	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
 
-		echo "HEY";
+		echo $_POST['startDate'];
+		echo $_POST['endDate'];
+		
 		$start = strtotime($_POST['startDate']);
 		$end = strtotime($_POST['endDate']);
 
