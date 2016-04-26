@@ -9,9 +9,9 @@
 		$budget = $_POST['budgets'];
 
 		 switch ($budget) {
-		 	case 'Food':
+		 	case "Food":
 		 		echo "<h2>Total budget: $300.00</h2>"
-		 	case 'Education':
+		 	case "Education":
 		 		echo "<h2>Total budget: $500.00</h2>"
 		 	default:
 		 		echo "<p>ERROR!</p>";
