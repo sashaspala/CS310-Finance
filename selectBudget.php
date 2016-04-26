@@ -1,7 +1,4 @@
 <?php
-	
-	ini_set('display_errors', 'On');
-	error_reporting(E_ALL);
 
 	require_once("Classes/DataManager.php");
 
@@ -9,13 +6,15 @@
 		$budget = $_POST['budgets'];
 
 	 	switch ($budget) {
-	 		case 'Food':
-	 			echo '<h2>Food</h2>'
-	 			echo '<h3>Total budget: $300.00</h3>';
+	 		case 'Food': ?>
+	 			<h2>Food</h2>
+	 			<h3>Total budget: $300.00</h3>
+	 			<?php
 	 			break;
-	 		case 'Education':
-	 			echo '<h2>Education</h2>'
-	 			echo '<h3>Total budget: $500.00</h3>';
+	 		case 'Education': ?>
+	 			<h2>Education</h2>
+	 			<h3>Total budget: $500.00</h3>
+	 			<?php
 	 			break;
 	 		default:
 	 			echo 'ERROR!';
