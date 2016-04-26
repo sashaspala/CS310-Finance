@@ -258,7 +258,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					</div>
 					<div>
 						<?php
-							if(isset($_POST['budgets']) && isset($_POST['budgetSubmit'])){
+							if(isset($_POST['budgetSubmit'])){
 								$budget = $_POST['budgets'];
 
 								 switch ($budget) {
