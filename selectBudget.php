@@ -11,13 +11,13 @@
 		echo $budget;
 	 	switch ($budget) {
 	 		case "Food":
-	 			// echo "<h2>Total budget: $300.00</h2>"
+	 			echo "Total budget: $300.00"
 	 			break;
-	 	// 	case "Education":
-	 	// 		echo "<h2>Total budget: $500.00</h2>"
-	 	// 		break;
+	 		case "Education":
+	 			echo "Total budget: $500.00"
+	 			break;
 	 		default:
-	 			echo "<p>ERROR!</p>";
+	 			echo "ERROR!";
 	 			break;
 	 	}
 	}
