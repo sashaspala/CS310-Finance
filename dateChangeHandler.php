@@ -16,6 +16,7 @@
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
+		$_SESSION['balanceSheet']->getAccounts();
 
 		// $accountList=$_SESSION['balanceSheet']->getAccounts();
 
