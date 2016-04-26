@@ -7,13 +7,13 @@
 
 	 	switch ($budget) {
 	 		case 'Food': ?>
-	 			<h2>Food</h2>
-	 			<h3>Total budget: $300.00</h3>
+	 			<h3>Food</h3>
+	 			<h4>Total budget: $300.00</h4>
 	 			<?php
 	 			break;
 	 		case 'Education': ?>
-	 			<h2>Education</h2>
-	 			<h3>Total budget: $500.00</h3>
+	 			<h3>Education</h3>
+	 			<h4>Total budget: $500.00</h4>
 	 			<?php
 	 			break;
 	 		default:
