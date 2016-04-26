@@ -241,7 +241,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Budgets</h2>
-				<form class="form-select-budget" action='selectBudget.php' method='post' accept-charset='UTF-8'>
+				<form id="create" class="form-select-budget" action='selectBudget.php' method='post' accept-charset='UTF-8'>
 					<div class="combo-box">
 					<p><font size="3">Select a budget to view:</font>
 					<select name="budgets">
@@ -258,6 +258,20 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					<input type="submit" id="bugdetSubmit" name="bugdetSubmit" value= "View" class="btn btn btn-warning">
 					</p>
 					</div>
+					<script type="text/javascript">
+						$('#create').submit(function() { // catch the form's submit event
+						    $.ajax({ // create an AJAX call...
+						        data: $(this).serialize(), // get the form data
+						        type: $(this).attr('method'), // GET or POST
+						        url: $(this).attr('action'), // the file to call
+						        success: function(response) { // on success..
+						            $('#budgetInfo').html(response); // update the DIV
+						        }
+						    });
+						    return false; // cancel original event to prevent form submitting
+						});
+					</script>
+					<div id="budgetInfo"></div>
 		      	</form>
 			</div>
 		</div>
