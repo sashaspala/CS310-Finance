@@ -20,9 +20,9 @@
 		$accountList=$_SESSION['balanceSheet']->getAccounts();
 
 
-		for ($index=0; $index<count($accountList); $index++){
-			// $accountList[$index]->calculateDataPoint($start, $end, $days);
-		}
+		// for ($index=0; $index<count($accountList); $index++){
+		// 	// $accountList[$index]->calculateDataPoint($start, $end, $days);
+		// }
 
 		//if the difference is < 30 do in days
 		// > 30 do in months
