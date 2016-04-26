@@ -5,7 +5,9 @@
 	if(isset($_POST['budgets'])){
 		$budget = $_POST['budgets'];
 
-		if($budget != 'Select a budget') {
+		$defaultText = 'Select a budget';
+
+		if($budget !== $defaultText) {
 			?>
 			<form id="setBudget" class="form-set-budget" action='setBudget.php' method='post' accept-charset='UTF-8'>
 			<font size="3">Set Budget Amount: $</font>
@@ -16,7 +18,7 @@
 		}
 
 	 	switch ($budget) {
-	 		case: 'Select a budget' :
+	 		case: 'Select a budget':
 	 			break;
 	 		case 'Food': ?>
 	 			<h3>Food</h3>
