@@ -8,7 +8,7 @@
 	if(isset($_POST['budgets'])){
 		$budget = $_POST['budgets'];
 
-		echo .$budget;
+		// echo .$budget;
 		 // switch ($budget) {
 		 // 	case "Food":
 		 // 		echo "<h2>Total budget: $300.00</h2>"
