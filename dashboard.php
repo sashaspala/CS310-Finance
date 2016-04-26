@@ -254,8 +254,8 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						  		<?php
 						    } ?>
 					</select>
-					</p>
 					<input type="submit" id="bugdetSubmit" value= "View" class="btn btn btn-warning">
+					</p>
 					</div>
 		      	</form>
 			</div>
