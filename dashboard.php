@@ -241,7 +241,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Budgets</h2>
-				<form class="form-select-budget" action='selectBudget.php' method='post' target='budgetInfo' accept-charset='UTF-8'>
+				<form class="form-select-budget" action='selectBudget.php' method='post' accept-charset='UTF-8'>
 					<div class="combo-box">
 					<p><font size="3">Select a budget to view:</font>
 					<select name="budgets">
@@ -257,8 +257,8 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					</p>
 					</div>
 		      	</form>
-		      	<iframe name="budgetInfo">
-				</iframe>
+		      	<!-- <iframe name="budgetInfo">
+				</iframe> -->
 			</div>
 		</div>
 	</div>
