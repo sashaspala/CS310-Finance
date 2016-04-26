@@ -242,7 +242,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 			<div class="well" style="background-color:#FFFFFF">
 				<h2>Budget</h2>
 				<form class="form-select-budget" action='selectBudget.php' method='post' accept-charset='UTF-8'>
-					<p>Select a budget to view: </p>
+					<p>Select a budget to view:
 					<select>
 						<option selected="selected">Budgets</option>
 					  		<?php
@@ -253,6 +253,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						  		<?php
 						    } ?>
 					</select>
+					</p>
 		      	</form>
 			</div>
 		</div>
