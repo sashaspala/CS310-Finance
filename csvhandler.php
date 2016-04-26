@@ -36,8 +36,7 @@
 		//$line++;
 	 	// ADD ACCOUNT TO BALANCESHEET LOCALLY
 		// $_SESSION['balanceSheet']->addAccount($account);
-		echo $i;
-		echo $numOfAccounts;
+		$_SESSION['balanceSheet']->addAccount($account);
 	}
 	header('Location: dashboard.php');
 	exit();
