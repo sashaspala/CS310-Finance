@@ -243,7 +243,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 				<h2>Budgets</h2>
 				<form class="form-select-budget" action='selectBudget.php' method='post' accept-charset='UTF-8'>
 					<div class="combo-box">
-					<p>Select a budget to view:
+					<p><font size="6">Select a budget to view:></font>
 					<select>
 						<option selected="selected">Budgets</option>
 					  		<?php
