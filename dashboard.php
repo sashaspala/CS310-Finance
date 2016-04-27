@@ -183,6 +183,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 					<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
 					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
 					<button  class="btn btn-lg btn-primary btn-block" type="submit" id="dateButton" name = "dateSubmit">Re-Calculate</button>
+		      	
 		      	</form>
 			</div>
 
@@ -310,9 +311,6 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
     });
 });
 
-$(function() {
-    $( "#datepicker" ).datepicker();
-});
 
 
 
