@@ -14,9 +14,10 @@
 
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
-		if(is_null($_SESSION['test'])){echo "it is null";}
-    else {
-      echo $_SESSION['test'];
+		
+		$balanceSheet = DataManager::getInstance()->balanceSheet; 
+
+		echo json_encode($balanceSheet->getAccounts()); 
     }
 
 

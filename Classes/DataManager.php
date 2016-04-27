@@ -46,6 +46,7 @@ class DataManager {
 	}
 	public $currentLoggedInUserID; // ID for the currently logged in user
 	private $_db; //database connection
+	public $balanceSheet; 
 
 	function __construct() {
 

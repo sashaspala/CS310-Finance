@@ -17,9 +17,9 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 if($_SESSION['balanceSheet']==null){
 	$balanceSheet = new BalanceSheet($accounts);
 	$_SESSION['balanceSheet'] = $balanceSheet;
+	DataManager::getInstance()->balanceSheet = $balanceSheet; 
 }
-$_SESSION['dataManager'] = DataManager::getInstance();
-$_SESSION['test']="STRIGN";
+
 //session_write_close();
 ?>
 <head>
