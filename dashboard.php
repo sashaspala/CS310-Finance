@@ -1,13 +1,14 @@
 <?php
-
+// if(!session_id()) {
+   session_start();
+// }
+header('Location' . strval(session_id())); 
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
 require_once("header.php");
 
-if(!session_id()) {
-   session_start();
-}
+
 
 //LOADS PERSISTENT DATA
 
@@ -19,7 +20,8 @@ if($_SESSION['balanceSheet']==null){
 	$_SESSION['balanceSheet'] = $balanceSheet;
 }
 $_SESSION['dataManager'] = DataManager::getInstance();
-
+$_SESSION['test']="STRIGN";
+//session_write_close();
 ?>
 <head>
 	<link rel="stylesheet"   type="text/css" href="styles.css">
@@ -44,7 +46,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		    	<span class="btn btn-default btn-file">
 				    Select CSV <input type="file" accept=".csv" id="csvChooser" name="csvfilename">
 				</span>
-				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file"> 
+				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file">
 			</form>
 			<form action="logoutHandler.php" method = "GET" class="navbar-right">
 				<p class="navbar-text" style="margin-right:10px">Signed in as <?php echo $_SESSION['userFullName']?> </p>
@@ -65,7 +67,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString = "";
 
-						
+
 
 						var accountFound = false;
 
@@ -101,7 +103,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 					//ajax request
 
-					
+
 				}
 
 				</script>
@@ -126,7 +128,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto">
-					
+
 
 
 
@@ -141,7 +143,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		<div class="row" style="margin:0px auto;float:none;">
 		<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
-				
+
 				<h2>Transactions</h2>
 				<form class="form-recalculate-graph" action='dateChangeHandler.php' method='post' accept-charset='UTF-8'>
 					<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
@@ -219,6 +221,62 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		</div>
 	</div>
 	</div>
-	<script src="graph.js"></script>
+	<script type="text/javascript">
+
+	$(function () {
+    $('#graph').highcharts({
+        title: {
+            text: 'Finances',
+            x: -20 //center
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'March']
+        },
+        yAxis: {
+            title: {
+                text: 'Amount in $'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valuePrefix: '$'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Liabilities',
+            data: [7.0, 6.9, 9.5]
+        }, {
+            name: 'Assets',
+            data: [-0.2, 0.8, 5.7]
+        }, {
+            name: 'Net Worth',
+            data: [-0.9, 0.6, 3.5]
+        }, {
+            name: 'Account 1', //this should update automatically from some function call
+            data: [3.9, 4.2, 5.7]
+        }]
+    });
+});
+
+$(function() {
+    $( "#datepicker" ).datepicker();
+});
+
+
+
+
+
+
+
+	</script>
 </body>
 </html>
