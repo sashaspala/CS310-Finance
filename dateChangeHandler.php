@@ -7,7 +7,7 @@
 
   $balanceSheet = DataManager::getInstance()->balanceSheet;
   //echo "Hyup";
-	if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
+	//if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
 		//echo "nope \n";
 		//THE PARAMETERS AS PASSED IN AS STRING
 
@@ -41,7 +41,7 @@
 		}
 
 		echo json_encode($dataPoints);
-  }
+  //}
 
 
 		
