@@ -6,9 +6,9 @@
 	require_once("Classes/BalanceSheet.php");
 
   $balanceSheet = DataManager::getInstance()->balanceSheet;
-  printf "Hyup";
+  echo "Hyup";
 	if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
-		printf "nope \n";
+		echo "nope \n";
 		//THE PARAMETERS AS PASSED IN AS STRING
 
 		$start = strtotime($_POST['startDate']);
