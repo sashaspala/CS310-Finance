@@ -86,7 +86,6 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							 $.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
 								console.log('finished');
 								$("#ajaxtable").html(data);
-								$.bootstrapSortable(true);
 								});
 
 
@@ -185,10 +184,17 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
 		      		<script type="text/javascript">
 					function reCalculate(){
-						alert("here"); 
+						alert("here1");
+
+						var startDate = $( "#datepicker1" ).datepicker( "getDate" );
+						var endDate = $( "#datepicker2" ).datepicker( "getDate" );
+						alert(startDate); 
+						alert("here2");
 					 	$.get("dateChangeHandler.php", {
-						 	accounts : getString }).done(function(data) {
-							$("#AccountTable").html(data);
+						 	startDate: ,
+						 	endDate:  
+						 }).done(function(data) {
+							//$("#AccountTable").html(data); NEED TO FIX THIS PART
 						});
 					}
 					</script>
@@ -208,7 +214,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 				<h2>Transactions</h2>
 <!-- >>>>>>> origin -->
-	<div id=ajaxtable1>
+	<div id=ajaxtable>
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
@@ -218,8 +224,11 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							<th>Date</th>
 						</tr>
 					</thead>
+
 					<tbody id=ajaxtable>
 					
+
+
 
 					</tbody>
 				</table>
