@@ -66,6 +66,7 @@
 			 				$total += $transaction->getAmount();
 			 			}
 			 			$num_as_int = (int)$food[$month];
+			 			$budget_total = $num_as_int - $total;
 			 			
 		 			break;
 		 		case 'Education': ?>
