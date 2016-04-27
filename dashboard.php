@@ -44,10 +44,11 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 				</span>
 				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file"> 
 			</form>
-			<form action="logoutHandler.php" method = "GET" class="navbar-right" style="margin-right:5%">
+			<form action="logoutHandler.php" method = "GET" class="navbar-right">
 				<p class="navbar-text" style="margin-right:10px">Signed in as <?php echo $_SESSION['userFullName']?> </p>
 	    		<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
 	    	</form>
+	    	<div class="navbar-right" style="width:2%"></div>
 		</div>
 	</nav>
 	<div class="container-fluid">
