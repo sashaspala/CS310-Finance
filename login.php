@@ -1,29 +1,19 @@
 <?php
-	//if(!session_id()) {
+	if(!session_id()) {
 		session_start();
-	//}
+	}
 
 	require_once("header.php");
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
-	// unset($_SESSION['timeout']);
-	// unset($_SESSION['userID']);
+	var_dump($_SESSION);
 
-	echo "asdasdasdasdasdas";
-	if (!isset($_SESSION['timeout']))
-	{
-		echo "settign";
-		$_SESSION['timeout'] = time();
-	}
-	echo isset($_SESSION['timeout']);
-	//echo isset($_SESSION['userID']);
 
-	//echo "<div> $_SESSION['timeout']</div>";
-
-	// if  ($_SESSION['timeout'] != 0)
-	// 	header('timeout.php');
+	
 ?>	
+
+
 
 
 <head>
