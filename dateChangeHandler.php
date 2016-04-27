@@ -3,7 +3,6 @@
    		session_start();
 	// }
 
-  echo $_SESSION['userID'];  
 	require_once("Classes/DataManager.php");
 	require_once("Classes/BalanceSheet.php");
 
@@ -16,9 +15,9 @@
 
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
-		if(is_null($_SESSION['balanceSheet'])){echo "it is null";}
+		if(is_null($_SESSION['test'])){echo "it is null";}
     else {
-      echo "it is okay";
+      echo $_SESSION['test']; 
     }
 
 
