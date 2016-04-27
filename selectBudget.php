@@ -67,6 +67,7 @@
 			 			}
 			 			$num_as_int = (int)$food[$month];
 			 			$budget_total = $num_as_int - $total;
+			 			if($budget_total < 0) { ?> <font color = "FF0000"> <?php }
 			 			
 		 			break;
 		 		case 'Education': ?>
