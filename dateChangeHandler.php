@@ -18,7 +18,7 @@
 		$balanceSheet = DataManager::getInstance()->balanceSheet;
 
 		echo json_encode($balanceSheet->getAccounts());
-    }
+  }
 
 
 		// $_SESSION['balanceSheet']->getAccounts();
