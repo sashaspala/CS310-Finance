@@ -218,13 +218,8 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							<th>Date</th>
 						</tr>
 					</thead>
-					<tbody>
-					<div id=ajaxtable>
-
-
-
-
-					</div>
+					<tbody id=ajaxtable>
+					
 
 					</tbody>
 				</table>
