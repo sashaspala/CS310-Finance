@@ -11,7 +11,7 @@ date_default_timezone_set('America/Los_Angeles');
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
 
-DataManager::getInstance()->removeAccount('BankOfAmerica2', 1); 
+DataManager::getInstance()->removeAccount('Bank Of America2', 1);
 
 // $testManager
 // $newAccount = $testManager->getAccount('Credit `Card2', 2);
@@ -388,7 +388,7 @@ class DataManager {
 	function executeStatement($statement) {
 		try {
 			$statement->execute();
-			//echo "Success\n";
+			echo "Success\n";
 			return true;
 		} catch(PDOException $error) {
 			echo $error->getMessage()."\n";
