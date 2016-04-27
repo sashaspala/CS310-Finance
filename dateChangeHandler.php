@@ -34,12 +34,15 @@
 		$dataPoints= $accountList[0]->getDataPoints();
 		echo 'DATAPOINTS: '; 
 		echo json_encode($dataPoints);
-
-		//echo "BallZZZ".count($dataPoints);
-		for($i=0;$i<count($dataPoints);$i++){
-			echo "BALLSSS".$i;
-			$dataPoints[$i];
-		}
+		echo '<br>';
+		// //echo "BallZZZ".count($dataPoints);
+		// for($i=0;$i<count($dataPoints);$i++){
+		// 	echo "BALLSSS".$i;
+		// 	$dataPoints[$i];
+		// }
+		echo 'ACCOUNTLIST: '; 
+		echo json_encode($accountList);
+		echo '<br>';
 		// echo json_encode($accountList);
   }
 

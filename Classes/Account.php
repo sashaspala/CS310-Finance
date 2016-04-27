@@ -137,8 +137,8 @@ class Account {
 			// echo 'Iteration2 '.$index."<br>";
 
 		}
-
-	echo 'Iteration2';
+		
+	
 
 	}
 	function getDataPoints(){
