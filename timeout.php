@@ -18,5 +18,7 @@
 	session_unset();
 	session_destroy();
 
-	header('Location: login.php');
+	$URL="http://google.com/";
+	echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
+	echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
 ?>
