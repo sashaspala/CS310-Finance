@@ -131,6 +131,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							}
 						}
 					//ajax request
+
 					return $nameArray
 				}
 				</script>
@@ -140,7 +141,9 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 					<button type="button" id="removeAccount" class="btn btn-danger">Remove</button>
 				</div>
 				<?php
+					echo "POSTING REMOVE ACCOUNT";
 					if(isset($_POST['removeAccount'])){
+						echo "<td><input=\"checkbox\" name=checkboxFilter() onClick=\"return false\"/></td>";
 						DataManager::removeAccount(checkboxFilter(), 1);
 					}
 				?>
