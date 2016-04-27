@@ -2,6 +2,9 @@
 
 	require_once("Classes/DataManager.php");
 
+	define("FOOD", "300.00");
+	define("EDUCATION", "500.00");
+
 	if(isset($_POST['budgets']) && isset($_POST['months'])){
 		$budget = $_POST['budgets'];
 		$month = $_POST['months'];
