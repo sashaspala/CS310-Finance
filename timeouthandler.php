@@ -5,10 +5,10 @@
 
 	require_once("Classes/DataManager.php");
 
-	while ($_SESSION['timeout'] + 2 * 60<> time())
-	{
-		echo "";
-	}
+	// while ($_SESSION['timeout'] + 2 * 60<> time())
+	// {
+	// 	echo "";
+	// }
 
 	session_unset();
 	session_destroy();
