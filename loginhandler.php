@@ -3,7 +3,6 @@
 		session_start();
 	}
 
-
 	require_once("Classes/DataManager.php");
 
 	if (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['password'])) {
