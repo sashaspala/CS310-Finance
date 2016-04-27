@@ -116,13 +116,13 @@ class Account {
 			if($currDate>strtotime($this->transactions[$netValuesIndex]->getDate())){
 				$netValuesIndex++;
 			}
-			array_push($this->dataPoints, 1]);//$this->netValues[$netValuesIndex]);
+			// array_push($this->dataPoints, 1]);//$this->netValues[$netValuesIndex]);
 			$currDate = strtotime("+1 day", $currDate);
 			echo date('d-m-Y',$currDate);
 
 		}
 
-		 echo var_dump($this->netValues);
+		 // echo var_dump($this->netValues);
 
 
 	}
