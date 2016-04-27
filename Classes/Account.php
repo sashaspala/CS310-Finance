@@ -122,10 +122,10 @@ class Account {
 		// echo $endIndex."<br>"; 
 		$netValuesIndex=$startIndex;
 		$currDate=$startDate;
-		echo 'number of points '. $numOfPoints;
+		echo 'number of points '. $numOfPoints.'<br>';
 		for($index=0; $index<$numOfPoints;$index++){//because we need that many points
-			echo 'Iteration 1 '.$index;
-			echo "current date is";
+			echo 'Iteration '.$index;
+			echo " current date is ";
 			echo date('d-m-Y',$currDate)."<br>";
 			if($currDate>strtotime($this->transactions[$netValuesIndex]->getDate())){
 				$netValuesIndex++;
