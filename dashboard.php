@@ -192,7 +192,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 						 	endDate: EndDate
 						 }).done(function(data) {
 							
-							// for (var i )
+						 	console.log(data); 
 							$('#graph').highcharts({
 							        title: {
 							            text: 'Finances',
