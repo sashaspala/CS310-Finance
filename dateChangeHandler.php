@@ -21,7 +21,14 @@
 		for ($index=0; $index<count($accountList); $index++){
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
 		}
-		echo json_encode($accountList);
+
+
+
+		$dataPoints= $accountList[0]->getDataPoints();
+		for($i=0;$i<$i;$i++){
+			$dataPoints[$i];
+		}
+		// echo json_encode($accountList);
   }
 
 
