@@ -4,6 +4,8 @@
 	}
 	require_once("Classes/DataManager.php");
 
+	header('Location : blah.php');
+
 $accountsString = $_GET["accounts"];
 $accountsString = substr($accountsString, 0, -1);
 
