@@ -5,7 +5,9 @@
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
-//require_once("header.php");
+require_once("header.php");
+
+
 
 //LOADS PERSISTENT DATA
 
@@ -15,8 +17,11 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 if($_SESSION['balanceSheet']==null){
 	$balanceSheet = new BalanceSheet($accounts);
 	$_SESSION['balanceSheet'] = $balanceSheet;
-//	DataManager::getInstance()->balanceSheet = $balanceSheet;
+	DataManager::getInstance()->balanceSheet = $balanceSheet;
 }
+
+$_SESSION['dataManager'] = DataManager::getInstance();
+$_SESSION['test']="STRIGN";
 
 //session_write_close();
 ?>
