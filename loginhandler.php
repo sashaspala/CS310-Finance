@@ -10,16 +10,30 @@
 	if (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['password'])) {
 
 		$user = DataManager::getInstance()->loginUser($_POST['email'], md5($_POST['password']));
+		$failed_attempts = 4;
 
+		echo '<div class="my_class">';
+		echo $failed_attempts;
+		echo '</div>';
+
+		// if($failed_attempts > 3) {
+		// 	echo "
+		// 		<script>
+		// 		document.getElementById("timeout").style.display = "block";
+		// 		</script>
+		// 		";
+		// }
 
 		if(is_null($user)) {
 			echo '<p class="bg-danger">'.'done'.'</p>';
 			header('Location: login.php');
+			$failed_attempts += 1;
 			exit();
 		}
 		else if(is_null($user->getUserID())) {
 			echo '<p class="bg-danger">'.'done'.'</p>';
 			header('Location: login.php');
+			$failed_attempts += 1;
 			exit();
 		} 
 
