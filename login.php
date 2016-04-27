@@ -14,6 +14,7 @@
 		$_SESSION['timeout'] = time();
 	}
 	echo isset($_SESSION['timeout']);
+	echo isset($_SESSION['userID']);
 
 	//echo "<div> $_SESSION['timeout']</div>";
 
