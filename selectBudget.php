@@ -61,15 +61,12 @@
 		 			<h4>Total budget: $<?php echo $food[$month] ?>.00</h4>
 		 			<?php
 		 				$transactions = DataManager::getInstance()->getTransactionsForMonth($month);
-		 				// $total = 0;
-			 			// foreach($transactions as $transaction) {
-			 			// 	$total += $transaction->getAmount();
-			 			// }
-			 			// $num_as_int = (int)$food[$month];
-			 			// $budget_total = $num_as_int - $total;
-			 			// if($budget_total < 0) { ?> <font color = "FF0000"> <?php }
-			 			// else { ?> <font color = "00FF00"> }
-			 			// <h4>Leftover budget: $<?php echo $budget_total ?>.00</h4></font> <?php
+		 				$total = 0;
+			 			foreach($transactions as $transaction) {
+			 				$total += $transaction->getAmount();
+			 			}
+			 			$num_as_int = (int)$food[$month];
+			 			
 		 			break;
 		 		case 'Education': ?>
 		 			<h3>Education</h3>
