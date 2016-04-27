@@ -219,7 +219,6 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		</div>
 	</div>
 	</div>
-	<script src="graph.js"></script>
 	<script type="text/javascript">
 
 	$(function () {
