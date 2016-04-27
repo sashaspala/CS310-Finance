@@ -21,7 +21,7 @@ if($_SESSION['balanceSheet']==null){
 }
 $_SESSION['dataManager'] = DataManager::getInstance();
 $_SESSION['test']="STRIGN";
-session_write_close(); 
+//session_write_close(); 
 ?>
 <head>
 	<link rel="stylesheet"   type="text/css" href="styles.css">
