@@ -88,7 +88,7 @@ class Account {
 			// 	//I THINK THIS LINE DOES NOT WORK CURRENTLY BECAUSE OF THE SAMPLE DATA
 				$prev_Sum= $this->netValues[0]+$this->transactions[$index]->getAmount();
 				echo "string "+$prev_Sum+"<br>";
-			// 	array_push($this->netValues, $prev_Sum;
+				array_push($this->netValues, $prev_Sum);
 			}
 		}
 
