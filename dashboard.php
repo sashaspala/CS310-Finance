@@ -208,7 +208,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 				<h2>Transactions</h2>
 <!-- >>>>>>> origin -->
-	<div id=ajaxtable>
+	<div id=ajaxtable1>
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
@@ -219,6 +219,12 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 						</tr>
 					</thead>
 					<tbody>
+					<div id=ajaxtable>
+
+
+
+
+					</div>
 
 					</tbody>
 				</table>
