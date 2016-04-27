@@ -7,6 +7,9 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
+	while ($_SESSION['timeout'] + 5 > time())
+	{}
+
 	session_unset();
 	session_destroy();
 	#$_SESSION['timeout'] = 0;
