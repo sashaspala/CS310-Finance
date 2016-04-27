@@ -187,6 +187,11 @@ class DataManager {
 	* @param int userID The ID for the user who owns the account
 	*/
 	function removeAccount ($name, $userID) {
+
+		$accountID = self::getAccount($name, $userID)->getID();
+		$transactionDeleteStatement = $this->_db->prepare('DELETE FROM Transactions WHERE Accounts_accountID = :accountID');
+		$transactionDeleteStatement->bindParam(':accountID', $accountID);
+		$this->executeStatement($transactionDeleteStatement); 
 		$statement = $this->_db->prepare('DELETE FROM Accounts WHERE name = :name AND Users_userID = :userID');
 
 		$statement->bindParam(':name', $name);
