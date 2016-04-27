@@ -15,7 +15,7 @@ $accountList = explode('-', $accountsString);
 
 foreach ($accountList as $item) {
 
-	DataManager::removeAccount($item, 1);
+	#DataManager::removeAccount($item, 1);
 	# code...
 }
 
