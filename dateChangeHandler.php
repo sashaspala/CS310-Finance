@@ -27,6 +27,7 @@
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
 			//echo "god";
 		}
+		 var_dump($accountList);
 
 		//echo "Drogon";
 		$dataPoints= $accountList[0]->getDataPoints();
