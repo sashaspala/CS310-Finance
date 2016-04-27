@@ -14,10 +14,10 @@ require_once("header.php");
 $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 //TODO FIX BALANCESHEET
-// if($_SESSION['balanceSheet']==null){
-// 	$balanceSheet = new BalanceSheet($accounts);
-// 	$_SESSION['balanceSheet'] = $balanceSheet;
-// }
+if($_SESSION['balanceSheet']==null){
+	$balanceSheet = new BalanceSheet($accounts);
+	$_SESSION['balanceSheet'] = $balanceSheet;
+}
 // $_SESSION['dataManager'] = DataManager::getInstance();
 //session_write_close();
 ?>
@@ -105,7 +105,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 				}
 
 				</script>
-				
+
 				</table>
 				<div class="account-btn">
 					<button type="button" id="addAccount" class="btn btn-success">Add</button>
