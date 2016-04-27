@@ -5,7 +5,8 @@
 
 	if !(isset($_SESSION['timeout']))
 	{
-		$_SESSION['timeout'] = 0;
+		echo "asdasd";
+		//$_SESSION['timeout'] = 0;
 	}
 
 	echo "<div> hello</div>";
