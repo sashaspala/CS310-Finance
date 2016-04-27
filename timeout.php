@@ -18,7 +18,7 @@
 		background-color:rgba(0,20,160,0.8);
 		color:white; padding-top:20%; text-align:center;'
 		>
-		<h1>Sorry, you've logged in unsuccessfully too many times.<br>Try again in two minutes.</h2>
+		<h1>Sorry, you've logged in unsuccessfully too many times.<br>Try again in 30 seconds.</h2>
 		</div>
 		";
 
