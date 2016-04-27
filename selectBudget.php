@@ -41,13 +41,11 @@
 			<form id="setBudget" class="form-set-budget" method='post' accept-charset='UTF-8'>
 			<font size="3">Set Budget Amount: $</font>
 			<input type="number" name="budgetAmount" min="0" max="9999" style="width:50px;margin-right:10px">
-			<input type="submit" id="bugdetSubmit" name="bugdetSubmit" value= "Set Budget" class="btn btn-info">
+			<input type="submit" id="bugdetSet" name="bugdetSet" value= "Set Budget" class="btn btn-info">
 			</form>
 			<?php
-			if(isset($_POST['budgetSubmit'])) {
-				if($budget == 'Food') $food[$month] = $_POST['budgetAmount'];
-				else if($budget == 'Education') $education[$month] = $_POST['budgetAmount'];
-			}
+			if($budget == 'Food') $food[$month] = $_POST['budgetAmount'];
+			else if($budget == 'Education') $education[$month] = $_POST['budgetAmount'];
 		}
 
 		if($month != 'Select a month') {
