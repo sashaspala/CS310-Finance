@@ -53,8 +53,8 @@ foreach ($transactions as $item) {
 	# code...
 }
 
-echo "</tbody>";
-echo "</table>";
+// echo "</tbody>";
+// echo "</table>";
 
 
 ?>
