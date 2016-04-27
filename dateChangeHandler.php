@@ -5,8 +5,6 @@
 	require_once("Classes/DataManager.php");
 	require_once("Classes/BalanceSheet.php");
 
-	echo session_id(); 
-
 	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
 
 		//THE PARAMETERS AS PASSED IN AS STRING

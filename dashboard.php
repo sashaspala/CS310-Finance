@@ -3,7 +3,6 @@
    session_start();
 // }
 
-echo session_id();
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
