@@ -192,6 +192,14 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 						 	endDate: EndDate
 						 }).done(function(data) {
 							alert(data);
+
+							// var seriesData = []; 
+							if(data==[{"name":"HSBC","data":[33,33,33,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54]}]){
+								alert('same');
+							}else {
+								alert('diff');
+							}
+							// for (var i )
 							$('#graph').highcharts({
 							        title: {
 							            text: 'Finances',
@@ -219,7 +227,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							            verticalAlign: 'middle',
 							            borderWidth: 0
 							        },
-							        series: data
+							        series: [{"name":"HSBC","data":[33,33,33,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54]}]
 							    });
 
 
