@@ -29,21 +29,15 @@
 			//echo "god";
 		}
 		// var_dump($accountList);
-
-		//echo "Drogon";
-		$dataPoints= $accountList[0]->getDataPoints();
-		echo 'DATAPOINTS: '; 
+		$returnValue=array();
+		for ($index=0; $index<count($accountList);$index++){}
+			$dataPoints= $accountList[$index]->getDataPoints();
+			$returnValue[]=[
+				'name ':$accountList[$index]->getName();
+				'data ':$dataPoints;
+			]
+		}
 		echo json_encode($dataPoints);
-		echo '<br>';
-		// //echo "BallZZZ".count($dataPoints);
-		// for($i=0;$i<count($dataPoints);$i++){
-		// 	echo "BALLSSS".$i;
-		// 	$dataPoints[$i];
-		// }
-		echo 'ACCOUNTLIST: '; 
-		echo json_encode($accountList);
-		echo '<br>';
-		// echo json_encode($accountList);
   }
 
 
@@ -56,8 +50,7 @@
 
 
 	//}
-	echo "HEUY NP"
-
+	
 	// header('Location: dashboard.php');
 	// exit();
 ?>
