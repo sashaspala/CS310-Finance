@@ -8,7 +8,7 @@
   $balanceSheet = DataManager::getInstance()->balanceSheet;
   echo "Hyup";
 	if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
-		echo "nope";
+		echo "nope \n";
 		//THE PARAMETERS AS PASSED IN AS STRING
 
 		$start = strtotime($_POST['startDate']);
@@ -19,7 +19,7 @@
 
 		$accountList=$balanceSheet->getAccounts();
 		for ($index=0; $index<count($accountList); $index++){
-			echo "".$index."\n";
+			echo " hi".$index."\n";
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
 		}
 
