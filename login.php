@@ -7,12 +7,16 @@
 	ini_set('display_errors', 1);
 
 	require_once("header.php");
+
+	echo '<div class="my_class">';
+	echo "HELLO";
+	echo '</div>';
 ?>	
 <head>
     <link href="login.css" rel="stylesheet">
 </head>
 	<body>
-		<div class="timeout">
+		<div class="timeout" id="timeout">
 			<h1>Sorry, you've logged in unsuccessfully too many times.<br>Try again in two minutes.</h1>
 		</div>
 		<div class="container">
