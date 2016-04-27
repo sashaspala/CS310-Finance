@@ -3,20 +3,16 @@
 		session_start();
 	}
 
-	if !(isset($_SESSION['timeout']))
+	require_once("header.php");
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+
+	if (!isset($_SESSION['timeout']))
 	{
-		echo "asdasd";
 		//$_SESSION['timeout'] = 0;
 	}
 
 	echo "<div> hello</div>";
-
-	// error_reporting(E_ALL);
-	// ini_set('display_errors', 1);
-
-	require_once("header.php");
-
-
 
 	// if  ($_SESSION['timeout'] != 0)
 	// 	header('timeout.php');
