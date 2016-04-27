@@ -5,6 +5,10 @@
 	require_once("Classes/DataManager.php");
 	require_once("Classes/BalanceSheet.php");
 
+  $balanceSheet = DataManager::getInstance()->balanceSheet;
+
+  echo json_encode($balanceSheet->getAccounts());
+  
 	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
 
 		//THE PARAMETERS AS PASSED IN AS STRING
@@ -15,9 +19,7 @@
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
-		$balanceSheet = DataManager::getInstance()->balanceSheet;
 
-		echo json_encode($balanceSheet->getAccounts());
   }
 
 
