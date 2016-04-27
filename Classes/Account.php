@@ -130,7 +130,7 @@ class Account {
 			// echo date('d-m-Y',$currDate)."<br>";
 			if($currDate == strtotime($this->transactions[$netValuesIndex]->getDate()) ){
 				// echo 'reached here <br>';
-				if ($netValuesIndex < count($this->netValues)) { 
+				if ($netValuesIndex < count($this->netValues) - 1) { 
 					$netValuesIndex++;
 				}
 			}
