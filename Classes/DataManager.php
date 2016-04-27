@@ -401,15 +401,19 @@ class DataManager {
 
 	function getTransactionsForMonth($month) {
 		$accounts = self::getAccountsForUser(1);
-
+		$results = array();
 		foreach ($accounts as $account) {
 			$transactions = self::getTransactionsForAccount($account->getID(), 1);
 
 			foreach($transactions as $transaction) {
 				$date = $transaction->transactionDate;
-				echo date("F", strtotime($date));
+				if(date("F", strtotime($date)) === $month) {
+					$results[] = $transaction;
+				}
 			}
 		}
+
+		return $results; 
 	}
 }
 
