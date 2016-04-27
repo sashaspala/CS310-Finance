@@ -74,9 +74,9 @@ class Account {
 		array_push($this->transactions, $transaction);
 	}
 
-	function getNetValues() {
-		return $this->netValues;
-	}
+	// function getNetValues() {
+	// 	return $this->netValues;
+	// }
 
 	public function calculateDataPoint($startDate, $endDate, $numOfPoints){
 		$startIndex=0;
