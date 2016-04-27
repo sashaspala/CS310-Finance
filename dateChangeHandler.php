@@ -17,10 +17,15 @@
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
+
+		echo "HELPPPPOPPOPPOPO"
 		$accountList=$balanceSheet->getAccounts();
+		echo "121212HELPPPPOPPOPPOPO121212"
 		for ($index=0; $index<count($accountList); $index++){
+
 			echo " hi".$index."\n";
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
+			echo "god"
 		}
 
 
