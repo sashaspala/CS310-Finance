@@ -186,10 +186,10 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 					function reCalculate(){
 						alert("here1");
 
-						var startDate = $( "#datepicker1" ).datepicker( "getDate" );
-						var endDate = $( "#datepicker2" ).datepicker( "getDate" );
-						alert(startDate); 
-						alert("here2");
+						// var startDate = $( "#datepicker1" ).datepicker( "getDate" );
+						// var endDate = $( "#datepicker2" ).datepicker( "getDate" );
+						// alert(startDate); 
+						// alert("here2");
 					 	$.get("dateChangeHandler.php", {
 						 	startDate: ,
 						 	endDate:  
