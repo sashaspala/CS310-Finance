@@ -52,7 +52,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 	<div class="container-fluid">
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-			<div class="well account-div" style="background-color:#FFFFFF;height:440px">
+			<div class="well account-div" style="background-color:#FFFFFF;height:500px">
 				<h2>Accounts</h2>
 				<table class="table table-hover" id="AccountsTable">
 				<script type="text/javascript">
@@ -164,7 +164,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 		</script>
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
-				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto;float:left;">
+				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto">
 
 
 
@@ -172,14 +172,12 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 
 				</div>
-				<div style="float:right">
-					<form class="form-recalculate-graph" action='dateChangeHandler.php' method='post' accept-charset='UTF-8'>
-						<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
-						<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
-						<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
-						<button  class="btn btn-lg btn-primary btn-block" type="submit" id="dateButton" name = "dateSubmit">Re-Calculate</button>
-			      	</form>
-			      </div>
+				<form class="form-recalculate-graph" action='dateChangeHandler.php' method='post' accept-charset='UTF-8'>
+					<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
+					<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
+					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
+					<button  class="btn btn-lg btn-primary btn-block" type="submit" id="dateButton" name = "dateSubmit">Re-Calculate</button>
+		      	</form>
 			</div>
 
 		</div>
