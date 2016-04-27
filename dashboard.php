@@ -191,14 +191,10 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 						 	startDate: StartDate,
 						 	endDate: EndDate
 						 }).done(function(data) {
-							alert(data);
+							alert(typeof(data));
 
-							// var seriesData = []; 
-							if(data==[{"name":"HSBC","data":[45,45,45,66,66,66,66,66,66,66,66,66,66,66,66,66,66,66,66]}]){
-								alert('same');
-							}else {
-								alert('diff');
-							}
+
+							
 							// for (var i )
 							$('#graph').highcharts({
 							        title: {
