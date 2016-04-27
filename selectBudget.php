@@ -79,6 +79,20 @@
 		 			<h3>Education</h3>
 		 			<h4>Total budget: $<?php echo $education[$month] ?>.00</h4>
 		 			<?php
+		 				$transactions = DataManager::getInstance()->getTransactionsForMonth($month);
+		 				$total = 0;
+			 			foreach($transactions as $transaction) {
+			 				$total += $transaction->getAmount();
+			 			}
+			 			$num_as_int = (int)$education[$month];
+			 			$budget_total = $num_as_int - $total;
+			 			if($budget_total < 0) { 
+			 				?> <font color = "FF0000"> <?php 
+			 			}
+			 			else { 
+			 				?> <font color = "00FF00"> <?php
+			 			}
+			 			?><h4>Leftover budget: $<?php echo $budget_total ?>.00</h4></font> <?php
 		 			break;
 		 		default:
 		 			echo 'ERROR!';
