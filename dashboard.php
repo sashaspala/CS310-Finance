@@ -18,7 +18,6 @@ echo "created balanceSheet";
 if($_SESSION['balanceSheet']==null){
 	$balanceSheet = new BalanceSheet($accounts);
 	$_SESSION['balanceSheet'] = $balanceSheet;
-	header('Location: swag.php'); 
 }
 echo "created balanceSheet3";
 $_SESSION['dataManager'] = DataManager::getInstance();
@@ -47,7 +46,7 @@ $_SESSION['test']="STRIGN";
 		    	<span class="btn btn-default btn-file">
 				    Select CSV <input type="file" accept=".csv" id="csvChooser" name="csvfilename">
 				</span>
-				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file"> 
+				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file">
 			</form>
 			<form action="logoutHandler.php" method = "GET" class="navbar-right">
 				<p class="navbar-text" style="margin-right:10px">Signed in as <?php echo $_SESSION['userFullName']?> </p>
@@ -68,7 +67,7 @@ $_SESSION['test']="STRIGN";
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString = "";
 
-						
+
 
 						var accountFound = false;
 
@@ -104,7 +103,7 @@ $_SESSION['test']="STRIGN";
 
 					//ajax request
 
-					
+
 				}
 
 				</script>
@@ -129,7 +128,7 @@ $_SESSION['test']="STRIGN";
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto">
-					
+
 
 
 
@@ -144,7 +143,7 @@ $_SESSION['test']="STRIGN";
 		<div class="row" style="margin:0px auto;float:none;">
 		<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
-				
+
 				<h2>Transactions</h2>
 				<form class="form-recalculate-graph" action='dateChangeHandler.php' method='post' accept-charset='UTF-8'>
 					<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
@@ -271,7 +270,7 @@ $_SESSION['test']="STRIGN";
 $(function() {
     $( "#datepicker" ).datepicker();
 });
-		
+
 
 
 
