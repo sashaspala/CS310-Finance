@@ -5,6 +5,9 @@
 
 	require_once("Classes/DataManager.php");
 
+
+
+
 	if (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['password'])) {
 
 		$user = DataManager::getInstance()->loginUser($_POST['email'], md5($_POST['password']));
