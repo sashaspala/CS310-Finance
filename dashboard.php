@@ -127,25 +127,35 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 								 var currentRow = $(checkedAccounts[i]).closest('tr');
 
 								 var accountName = $(currentRow).children()[0].innerText;
-								 array_push($nameArray, $accountName);
+
+								 getString += accountName + "-";
+								// array_push($nameArray, $accountName);
 							}
+						}
+
+						if(getString != ""){
+							 $.get("removeAccountHandler.php", { accounts : getString }).done(function(data) {
+								$("#AccountTable").html(data);
+								});
+
+
 						}
 					//ajax request
 
-					return $nameArray
+				
 				}
 				</script>
 
 				</table>
 				<div class="account-btn">
-					<button type="submit" id="removeAccount" class="btn btn-danger">Remove</button>
+					<button type="submit" id="removeAccount" onClick="checkboxFilter" class="btn btn-danger">Remove</button>
 				</div>
-				<?php
-					if(isset($_GET['removeAccount'])){
-						echo "<td><input="."checkbox". "name="."checkboxFilter()"." onClick=" ."return false"."/>"."</td>"; 
-						#DataManager::removeAccount(checkboxFilter(), 1);
+				<!-- <?php
+					// if(isset($_GET['removeAccount'])){
+					// 	#echo "<td><input type="."checkbox". "name="."checkboxFilter()"." onClick=" ."return false"."/>"."</td>"; 
+					// 	DataManager::removeAccount(checkboxFilter(), 1);
 					}
-				?>
+				?> -->
 				
 			</div>
 		</div>
