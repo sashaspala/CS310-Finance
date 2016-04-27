@@ -138,7 +138,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 				</table>
 				<div class="account-btn">
-					<button type="submit" id="removeAccount" class="btn btn-danger">Remove</button>
+					<button type="button" id="removeAccount" class="btn btn-danger">Remove</button>
 				</div>
 				<?php
 					if(isset($_GET['removeAccount'])){
