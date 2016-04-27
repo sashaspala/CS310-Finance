@@ -407,7 +407,7 @@ class DataManager {
 
 			foreach($transactions as $transaction) {
 				$date = $transaction->transactionDate;
-				echo date("jS F, Y", strtotime($date));
+				echo date("F", strtotime($date));
 			}
 		}
 	}
