@@ -29,17 +29,17 @@ foreach ($accounts as $item) {
 
 
 //echo transactions
-echo "<table id='transactions' class='table table-bordered table-hover sortable'>";
+// echo "<table id='transactions' class='table table-bordered table-hover sortable'>";
 
-echo "<thead>";
-echo "<tr>";
-echo		"<th>Name</th>";
-echo		"<th>Type</th>";
-echo	"<th>Amount</th>";
-echo "<th>Date</th>";
-echo "</tr>";
-echo "</thead>";
-echo "<tbody>";
+// echo "<thead>";
+// echo "<tr>";
+// echo		"<th>Name</th>";
+// echo		"<th>Type</th>";
+// echo	"<th>Amount</th>";
+// echo "<th>Date</th>";
+// echo "</tr>";
+// echo "</thead>";
+// echo "<tbody>";
 
 foreach ($transactions as $item) {
 
@@ -53,8 +53,8 @@ foreach ($transactions as $item) {
 	# code...
 }
 
-echo "</tbody>";
-echo "</table>";
+// echo "</tbody>";
+// echo "</table>";
 
 
 ?>
