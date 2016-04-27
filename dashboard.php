@@ -219,7 +219,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							            verticalAlign: 'middle',
 							            borderWidth: 0
 							        },
-							        series: data
+							        series: [{"name":"HSBC","data":[33,33,33,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54]}]
 							    });
 
 
@@ -345,7 +345,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
     //         borderWidth: 0
     //     },
     //     series: [{"name":"HSBC","data":[33,54,54]}]
-    //});
+    // });
 	});
 
 $(function() {
