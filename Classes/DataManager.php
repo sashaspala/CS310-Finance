@@ -257,6 +257,7 @@ class DataManager {
 		return $results;
 	}
 
+
 	/**
 	* Finds all the transactions for a month
 	* @param int $month is the month of the date.
@@ -417,6 +418,16 @@ class DataManager {
 
 		return $results;
 	}
+
+	function getTransactionsForUser() {
+		
+		$userID = 1; 
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_Users_userID = :userID ORDER BY transactionDate ASC');
+		$stmt->execute(array('userID' => $userID));
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
+		return $results;
+	}
+
 }
 
 
