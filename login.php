@@ -12,7 +12,7 @@
 		$_SESSION['timeout'] = time();
 	}
 
-	echo "<div> $_SESSION['timeout']</div>";
+	//echo "<div> $_SESSION['timeout']</div>";
 
 	// if  ($_SESSION['timeout'] != 0)
 	// 	header('timeout.php');
