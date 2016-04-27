@@ -190,7 +190,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 						var EndDate = $( "#datepicker2" ).datepicker( "getDate" );
 						alert(startDate); 
 						alert("here2");
-					 	$.get("dateChangeHandler.php") {
+					 	$.get("dateChangeHandler.php", {
 						 	startDate: StartDate,
 						 	endDate: EndDate
 						 }).done(function(data) {
