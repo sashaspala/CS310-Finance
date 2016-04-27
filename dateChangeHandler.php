@@ -32,10 +32,14 @@
 		$returnValue=array();
 		for ($index=0; $index<count($accountList);$index++){
 			$dataPoints= $accountList[$index]->getDataPoints();
-			$returnValue[]=[
+			$temp =[
 				'name ': $accountList[$index]->getName();
 				'data ': $dataPoints;
 			];
+
+			$returnValue[] = $temp; 
+
+
 		}
 		echo json_encode($dataPoints);
   }
