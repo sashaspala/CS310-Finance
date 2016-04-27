@@ -86,6 +86,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							 $.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
 								console.log('finished');
 								$("#ajaxtable").html(data);
+								$.bootstrapSortable(true);
 								});
 
 
@@ -218,31 +219,6 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 						</tr>
 					</thead>
 					<tbody>
-
-					<tr>
-						<td>trying</td>
-						<td>2</td>
-						<td>4.0</td>
-						<td>12/02/2016</td>
-					</tr>
-					<tr>
-						<td>to</td>
-						<td>670</td>
-						<td>2.1</td>
-						<td>05/04/1999</td>
-					</tr>
-					<tr>
-						<td>run</td>
-						<td>-6</td>
-						<td>-1.5</td>
-						<td>06/30/2005</td>
-					</tr>
-					<tr>
-						<td>a test of this</td>
-						<td>-7</td>
-						<td>7.3</td>
-						<td>08/12/1986</td>
-					</tr>
 
 					</tbody>
 				</table>
