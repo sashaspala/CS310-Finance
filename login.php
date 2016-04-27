@@ -3,10 +3,11 @@
 		session_start();
 	}
 
-	// if !(isset($_SESSION['timeout']))
-	// {
-	// 	$_SESSION['timeout'] = 0;
-	// }
+	if !(isset($_SESSION['timeout']))
+	{
+		echo "asdasd";
+		//$_SESSION['timeout'] = 0;
+	}
 
 	echo "<div> hello</div>";
 
