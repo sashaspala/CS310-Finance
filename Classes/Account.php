@@ -81,6 +81,16 @@ class Account {
 	public function calculateDataPoint($startDate, $endDate, $numOfPoints){
 		$startIndex=0;
 		$this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, 1);
+		if(count($this->transactions)>0){
+			array_push($this->netValues, $this->transactions[0]->getAmount());
+			// for ($index =1; $index<count($this->transactions); $index++){
+			// 	//I THINK THIS LINE DOES NOT WORK CURRENTLY BECAUSE OF THE SAMPLE DATA
+			// 	$prev_Sum= $this->netValues[$index-1]+$this->transactions[$index]->getAmount();
+			// 	echo "string "+$prev_Sum+"<br>";
+			// 	array_push($this->netValues, $prev_Sum;
+			// }
+		}
+
 		//echo $this->accountID;
 		//var_dump($this->transactions); 
 		//var_dump($this);
