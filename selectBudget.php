@@ -75,7 +75,7 @@
 		 			<h3>Food</h3>
 		 			<h4>Total budget: $<?php echo $food[$month] ?>.00</h4>
 		 			<?php
-		 			$transactions = DataManager::getInstance()->getTransactionsForMonth($months_to_transactions[$month], 1);
+		 			// $transactions = DataManager::getInstance()->getTransactionsForMonth($months_to_transactions[$month], 1);
 		 			// $total = 0;
 		 			// foreach($transactions as $transaction) {
 		 			// 	$total += $transaction->getAmount();
