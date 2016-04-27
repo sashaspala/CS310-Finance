@@ -19,12 +19,12 @@ foreach ($accountList as $item) {
 
 $existingAccounts = DataManager::getInstance()->balanceSheet->getAccounts();
 
-						// foreach($existingAccounts as $account){
-						// echo "<tr>";
-						// echo "<td headers="."name>" . $account->getAccountName() . "</td>";
-						// echo "<td><input type="."checkbox". " name=showAccount "."onClick =" ."filter()"." />"."</td>";
-						// echo "</tr>";
-						// }
+						foreach($existingAccounts as $account){
+						echo "<tr>";
+						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
+						echo "<td><input type="."checkbox". " name=showAccount "."onClick =" ."filter()"." />"."</td>";
+						echo "</tr>";
+						}
 	#get the account you wanted to remove
 
 	
