@@ -345,8 +345,8 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
     //         borderWidth: 0
     //     },
     //     series: [{"name":"HSBC","data":[33,54,54]}]
-    });
-});
+    //});
+	});
 
 $(function() {
     $( "#datepicker" ).datepicker();
