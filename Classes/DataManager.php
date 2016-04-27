@@ -251,7 +251,7 @@ class DataManager {
 			$userID = $this->currentLoggedInUserID;
 		}
 
-		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_accountID = :accountID AND Accounts_Users_userID = :userID');
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_accountID = :accountID AND Accounts_Users_userID = :userID ORDER BY transactionDate ASC');
 		$stmt->execute(array('userID' => $userID, 'accountID' => $accountID));
 		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
 		return $results;

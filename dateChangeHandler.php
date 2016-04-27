@@ -14,8 +14,6 @@
 		$start = strtotime($_GET['startDate']);
 		$end = strtotime($_GET['endDate']);
 
-		echo $_GET['startDate']; 
-		echo $_GET['endDate']; 
 
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
