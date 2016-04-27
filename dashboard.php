@@ -2,6 +2,8 @@
 // if(!session_id()) {
    session_start();
 // }
+
+echo session_id();
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
@@ -145,7 +147,7 @@ $_SESSION['test']="STRIGN";
 			<div class="well" style="background-color:#FFFFFF">
 
 				<h2>Transactions</h2>
-				<form class="form-recalculate-graph" action='dateChangeHandler.php' method='post' accept-charset='UTF-8'>
+				<form class="form-recalculate-graph" action='dateChangeHandler.php' method='get' accept-charset='UTF-8'>
 					<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
 					<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
 					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
