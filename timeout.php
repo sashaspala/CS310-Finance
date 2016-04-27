@@ -15,10 +15,10 @@
 		z-index:100; 
 		height: 100%; 
 		width:100%; 
-		background-color:rgba(100,80,80,0.8);
+		background-color:rgba(20,20,120,0.8);
 		color:white; padding-top:20%; text-align:center;'
 		>
-		<h1>dsfsdf</h2>
+		<h1>Sorry, you've logged in unsuccessfully too many times.<br>Try again in two minutes.</h2>
 		</div>
 		";
 

@@ -37,9 +37,6 @@
     <link href="login.css" rel="stylesheet">
 </head>
 	<body>
-		<div class="timeout" id="timeout">
-			<h1>Sorry, you've logged in unsuccessfully too many times.<br>Try again in two minutes.</h1>
-		</div>
 		<div class="container">
 			<div class="col-md-4 well" style="margin:40px auto; float:none;background-color: #EFEFEF;" id="textFields">
 		    	<form class="form-signin" action='<?php echo "loginhandler.php" ?>' method='post' accept-charset='UTF-8'>
