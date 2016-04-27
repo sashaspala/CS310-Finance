@@ -13,7 +13,7 @@ require_once("header.php");
 
 $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
-//TODO FIX BALANCESHEE
+//TODO FIX BALANCESHEET
 //session_write_close();
 ?>
 <head>
