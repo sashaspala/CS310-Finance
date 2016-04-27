@@ -80,7 +80,7 @@ class Account {
 	public function calculateDataPoint($startDate, $endDate, $numOfPoints){
 		$startIndex=0;
 		$this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, 1);
-		echo $this->accountID;
+		//echo $this->accountID;
 		//var_dump($this->transactions); 
 		//var_dump($this);
 		$endIndex=count($this->transactions);

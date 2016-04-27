@@ -31,6 +31,7 @@
 
 		//echo "Drogon";
 		$dataPoints= $accountList[0]->getDataPoints();
+		echo 'DATAPOINTS: '; 
 		echo json_encode($dataPoints);
 
 		//echo "BallZZZ".count($dataPoints);
