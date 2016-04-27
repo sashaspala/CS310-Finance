@@ -31,7 +31,7 @@
 
 		echo "Drogon";
 		$dataPoints= $accountList[0]->getDataPoints();
-		echo "BallZZZ";
+		echo "BallZZZ".count($dataPoints);
 		for($i=0;$i<count($dataPoints);$i++){
 			echo "BALLSSS".$i;
 			$dataPoints[$i];
