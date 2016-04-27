@@ -41,7 +41,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 				</span>
 				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file">
 			</form>
-			<form action="logoutHandler.php" method = "GET" class="navbar-right">
+			<form action="logoutHandler.php" method = "get" class="navbar-right">
 				<p class="navbar-text" style="margin-right:10px">Signed in as <?php echo $_SESSION['userFullName']?> </p>
 	    		<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
 	    	</form>
@@ -178,7 +178,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 
 				</div>
-				<form class="form-recalculate-graph" action='dateChangeHandler.php' method='post' accept-charset='UTF-8'>
+				<form class="form-recalculate-graph" id="form-recalculate-graph" action='dateChangeHandler.php' method='get' accept-charset='UTF-8'>
 					<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
 					<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
 					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
