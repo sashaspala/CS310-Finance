@@ -18,7 +18,7 @@
 	session_unset();
 	session_destroy();
 
-	$URL="http://google.com/";
+	$URL="http://52.11.14.115/CS310-Finance/login.php";
 	echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
 	echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
 ?>
