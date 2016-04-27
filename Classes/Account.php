@@ -106,14 +106,14 @@ class Account {
 		}
 
 		unset($index); 
-		echo 'INDICES'; 
-		echo $startIndex; 
-		echo $endIndex."<br>"; 
+		// echo 'INDICES'; 
+		// echo $startIndex; 
+		// echo $endIndex."<br>"; 
 		$netValuesIndex=$startIndex;
 		$currDate=$startDate;
 		for($index=0; $index<$numOfPoints;$index++){//because we need that many points
-			echo "current date is";
-			echo date('d-m-Y',$currDate)."<br>";
+			// echo "current date is";
+			// echo date('d-m-Y',$currDate)."<br>";
 			if($currDate>strtotime($this->transactions[$netValuesIndex]->getDate())){
 				$netValuesIndex++;
 			}
@@ -122,7 +122,7 @@ class Account {
 			
 
 		}
-
+		echo "HEY THEREE ".$this->netValues[0]."<br>";
 		for ($index=0; $index<count($this->netValues);$index++){
 			echo $this->netValues[$index]."<br>";
 		}
