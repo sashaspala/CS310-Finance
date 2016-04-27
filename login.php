@@ -8,10 +8,6 @@
 
 	require_once("header.php");
 
-	echo '<div class="my_class">';
-	echo "HELLO";
-	echo '</div>';
-
 	if  ($_SESSION['timeout'] != 0)
 		header('timeout.php');
 
