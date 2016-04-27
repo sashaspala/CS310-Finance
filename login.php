@@ -9,14 +9,13 @@
 
 	if (!isset($_SESSION['timeout']))
 	{
-		//$_SESSION['timeout'] = 0;
+		$_SESSION['timeout'] = 0;
 	}
 
 	echo "<div> hello</div>";
 
-	// if  ($_SESSION['timeout'] != 0)
-	// 	header('timeout.php');
-
+	if  ($_SESSION['timeout'] != 0)
+		header('timeout.php');
 ?>	
 
 
