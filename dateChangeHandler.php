@@ -11,11 +11,10 @@
 		//echo "nope \n";
 		//THE PARAMETERS AS PASSED IN AS STRING
 
-		$start = strtotime($_GET['startDate']);
-		$end = strtotime($_GET['endDate']);
+		$start = strtotime('04/01/2016');//$_GET['startDate']);
+		$end = strtotime('04/20/2016');//$_GET['endDate']);
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
-				header('Location: ' . date('d-m-Y',$start) . '+++' . date('d-m-Y',$end)); 
 
 		//echo "HELPPPPOPPOPPOPO";
 		$accountList=$balanceSheet->getAccounts();
