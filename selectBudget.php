@@ -56,10 +56,11 @@
 		 			<h3>Food</h3>
 		 			<h4>Total budget: $<?php echo $food[$month] ?>.00</h4>
 		 			<?php
+		 			
 		 			break;
 		 		case 'Education': ?>
 		 			<h3>Education</h3>
-		 			<h4>Total budget: $500.00</h4>
+		 			<h4>Total budget: $<?php echo $food[$month] ?>.00</h4>
 		 			<?php
 		 			break;
 		 		default:
