@@ -13,6 +13,12 @@ Given /^I am logged in$/ do
 	click_button('loginButton')
 end
 
+Given /^that account (.*?) is checked$/ do |accountName|
+	within('AccountsTable', :text => accountName) do
+		find('input.check').set(true)
+	end
+end
+
 Given /^I searched the (.*?) stock$/ do |stock|
 	fill_in('stock', :with => stock)
 	click_button('searchbutton')
@@ -33,6 +39,12 @@ end
 When /^I click (.*?)$/ do |link|
 	click_link(link)
 end
+
+When /^I upload the file (.*?) to (.*?)$/ do |filePath, element|
+	attach_file(element, filePath)
+end
+
+
 
 Then /^I should see page (.*?)$/ do |path|
 	current_url.should == path

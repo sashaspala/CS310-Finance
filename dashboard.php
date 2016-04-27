@@ -54,6 +54,8 @@ $_SESSION['test']="STRIGN";
 	    	</form>
 		</div>
 	</nav>
+
+	<form name="removeAccount" id="removeAccountForm" action="dashboard.php" method=POST>
 	<div class="container-fluid">
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -99,11 +101,7 @@ $_SESSION['test']="STRIGN";
 						{
 							$("#ajaxtable").html("<table id='transactions' class='table table-bordered table-hover sortable'><thead><tr><th>Name</th><th>Type</th><th>Amount</th><th>Date</th></tr></thead><tbody></tbody></table>");
 						}
-
-
 					//ajax request
-
-
 				}
 
 				</script>
@@ -117,14 +115,60 @@ $_SESSION['test']="STRIGN";
 						echo "</tr>";
 						}
 				?>
+
+				<script type="text/javascript">
+				function checkboxFilter(){
+
+						var accountTable = document.getElementById("AccountsTable");
+						var checkedAccounts = accountTable.getElementsByTagName("input");
+						var getString = "";
+
+
+
+						var accountFound = false;
+						$nameArray;
+
+						for(var i =0; i<checkedAccounts.length; i++){
+							if(checkedAccounts[i].checked){
+								//alert("yes");
+								 var currentRow = $(checkedAccounts[i]).closest('tr');
+
+								 var accountName = $(currentRow).children()[0].innerText;
+								 array_push($nameArray, $accountName);
+							}
+						}
+					//ajax request
+					return $nameArray
+				}
+				</script>
+
 				</table>
 				<div class="account-btn">
-					<button type="button" id="addAccount" class="btn btn-success">Add</button>
 					<button type="button" id="removeAccount" class="btn btn-danger">Remove</button>
 				</div>
+				<?php
+					if(isset($_POST['removeAccount'])){
+						DataManager::removeAccount(checkboxFilter(), 1);
+					}
+				?>
+				
 			</div>
 		</div>
+		</form>
 
+		<script type="text/javascript">
+			$('#removeAccountForm').submit(function() {
+				$.ajax({
+					data: $(this).serialize(),
+					type: $(this).attr('method'),
+					url: $(this).attr('action'),
+					success: function(response) {
+						$('#AccountsTable').html(response);
+					}
+				});
+				return false;
+			});
+		</script>
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
 				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto">
