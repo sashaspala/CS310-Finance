@@ -15,12 +15,10 @@ require_once("header.php");
 $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 //TODO FIX BALANCESHEET
-echo "created balanceSheet";
 if($_SESSION['balanceSheet']==null){
 	$balanceSheet = new BalanceSheet($accounts);
 	$_SESSION['balanceSheet'] = $balanceSheet;
 }
-echo "created balanceSheet3";
 $_SESSION['dataManager'] = DataManager::getInstance();
 $_SESSION['test']="STRIGN";
 ?>
