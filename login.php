@@ -7,10 +7,13 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
+	echo "asdasdasdasdasdas";
 	if (!isset($_SESSION['timeout']))
 	{
+		echo "settign";
 		$_SESSION['timeout'] = time();
 	}
+	echo isset($_SESSION['timeout']);
 
 	//echo "<div> $_SESSION['timeout']</div>";
 
