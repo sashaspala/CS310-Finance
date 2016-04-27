@@ -6,9 +6,9 @@
 	require_once("Classes/BalanceSheet.php");
 
   $balanceSheet = DataManager::getInstance()->balanceSheet;
-  echo "Hyup";
+  //echo "Hyup";
 	if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
-		echo "nope \n";
+		//echo "nope \n";
 		//THE PARAMETERS AS PASSED IN AS STRING
 
 		$start = strtotime($_POST['startDate']);
@@ -18,20 +18,23 @@
 		$days = floor($difference / (60*60*24) );
 
 
-		echo "HELPPPPOPPOPPOPO";
+		//echo "HELPPPPOPPOPPOPO";
 		$accountList=$balanceSheet->getAccounts();
-		echo "121212HELPPPPOPPOPPOPO121212";
+		//echo "121212HELPPPPOPPOPPOPO121212";
 		for ($index=0; $index<count($accountList); $index++){
 
-			echo " hi".$index."\n";
+			//echo " hi".$index."\n";
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
-			echo "god";
+			//echo "god";
 		}
+		echo json_encode($accountList);
+		echo 'swag'; 
 
-
-		echo "Drogon";
+		//echo "Drogon";
 		$dataPoints= $accountList[0]->getDataPoints();
-		echo "BallZZZ".count($dataPoints);
+		echo json_encode($dataPoints);
+
+		//echo "BallZZZ".count($dataPoints);
 		for($i=0;$i<count($dataPoints);$i++){
 			echo "BALLSSS".$i;
 			$dataPoints[$i];
