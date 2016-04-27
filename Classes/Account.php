@@ -85,9 +85,7 @@ class Account {
 		if(count($this->transactions)>0){
 			array_push($this->netValues, $this->transactions[0]->getAmount());
 			echo "net value ". $this->netValues[0].'<br>';
-			for ($index =1; $index<count($this->transactions); $index++){
-			// 	//I THINK THIS LINE DOES NOT WORK CURRENTLY BECAUSE OF THE SAMPLE DATA
-				
+			for ($index =1; $index<count($this->transactions); $index++){		
 				$prev_Sum= $this->netValues[$index-1]+$this->transactions[$index]->getAmount();
 				array_push($this->netValues, $prev_Sum);
 				echo "net value at index ".$index." is equal to " .$this->netValues[$index].'<br>';
@@ -124,7 +122,7 @@ class Account {
 		// echo $endIndex."<br>"; 
 		$netValuesIndex=$startIndex;
 		$currDate=$startDate;
-		echo 'number of points '. $numOfPoints.'<br>';
+		echo 'number of points/day in time range is '. $numOfPoints.'<br>';
 		for($index=0; $index<$numOfPoints;$index++){//because we need that many points
 			echo 'Iteration '.$index;
 			echo " current date is ";
@@ -137,12 +135,7 @@ class Account {
 			
 
 		}
-		echo 'HEY THEREE ';//.$this->netValues[0]."<br>";
-		for ($index=0; $index<count($this->netValues);$index++){
-			echo $this->netValues[$index]."<br>";
-		}
-		 // echo var_dump($this->netValues);
-
+	
 
 	}
 	function getDataPoints(){
