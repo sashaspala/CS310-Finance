@@ -7,6 +7,12 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
+	echo "timeout ):";
+	ob_end_flush(); 
+    ob_flush(); 
+    flush(); 
+    ob_start(); 
+
 	while ($_SESSION['timeout'] + 5 > time())
 	{}
 
