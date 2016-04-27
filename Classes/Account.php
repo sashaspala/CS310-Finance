@@ -90,7 +90,7 @@ class Account {
 				
 				$prev_Sum= $this->netValues[$index-1]+$this->transactions[$index]->getAmount();
 				array_push($this->netValues, $prev_Sum);
-				echo "net value ". $this->netValues[$index].'<br>';
+				echo "net value at index "$index." is equal to " .$this->netValues[$index].'<br>';
 			}
 		}
 
