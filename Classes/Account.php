@@ -122,7 +122,7 @@ class Account {
 
 		}
 
-		var_dump($this->dataPoints);
+		 echo var_dump($this->dataPoints);
 
 
 	}
