@@ -6,16 +6,18 @@
 	require_once("header.php");
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
-	//unset($_SESSION);
 	
+	if (!isset($_SESSION['timeout']))
+	{
+		echo "setting timerout";
+		$_SESSION['timeout'] = 0;
+	}
 
-	// session_unset();
-	// session_destroy();
-	
-	var_dump($_SESSION);
-
-
-	
+	echo $_SESSION['timeout'];
+	if ($_SESSION['timeout'] != 0)
+	{
+		header("timeout.php");
+	}
 ?>	
 
 
