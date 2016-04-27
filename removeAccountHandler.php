@@ -1,6 +1,6 @@
 <?php
 	if(!session_id()) {
-		session_start();   
+		session_start();
 	}
 	require_once("Classes/DataManager.php");
 
@@ -15,7 +15,7 @@ echo json_encode($accountList);
 
 foreach ($accountList as $item) {
 
-	#DataManager::removeAccount($item, 1);
+	DataManager::removeAccount($item, 1);
 	# code...
 }
 
@@ -29,5 +29,5 @@ $existingAccounts = DataManager::getInstance()->balanceSheet->getAccounts();
 						}
 	#get the account you wanted to remove
 
-	
+
 ?>
