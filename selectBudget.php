@@ -44,8 +44,12 @@
 			<input type="submit" id="bugdetSet" name="bugdetSet" value= "Set Budget" class="btn btn-info">
 			</form>
 			<?php
-			if($budget == 'Food') if($_POST['budgetAmount'] != null) $food[$month] = $_POST['budgetAmount'];
-			else if($budget == 'Education') if($_POST['budgetAmount'] != null) $education[$month] = $_POST['budgetAmount'];
+			if($budget == 'Food') {
+				if($_POST['budgetAmount'] != null) $food[$month] = $_POST['budgetAmount'];
+			}
+			else if($budget == 'Education') {
+				if($_POST['budgetAmount'] != null) $education[$month] = $_POST['budgetAmount'];
+			}
 		}
 
 		if($month != 'Select a month') {
@@ -56,11 +60,11 @@
 		 			<h3>Food</h3>
 		 			<h4>Total budget: $<?php echo $food[$month] ?>.00</h4>
 		 			<?php
-		 			
+
 		 			break;
 		 		case 'Education': ?>
 		 			<h3>Education</h3>
-		 			<h4>Total budget: $<?php echo $food[$month] ?>.00</h4>
+		 			<h4>Total budget: $<?php echo $education[$month] ?>.00</h4>
 		 			<?php
 		 			break;
 		 		default:
