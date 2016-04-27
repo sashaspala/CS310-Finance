@@ -61,7 +61,7 @@ class DataManager {
 
 			$this->_db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
 			$this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+			$this->balanceSheet = new BalanceSheet(self::getAccountsForUser(1)); 
 		} catch(Exception $e) {
 
 			header('Location: ' . $e->getMessage());
