@@ -7,8 +7,6 @@ require_once("Classes/DataManager.php");
 require_once("Classes/BalanceSheet.php");
 require_once("header.php");
 
-
-
 //LOADS PERSISTENT DATA
 
 $accounts = DataManager::getInstance()->getAccountsForUser(1);
@@ -17,7 +15,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 if($_SESSION['balanceSheet']==null){
 	$balanceSheet = new BalanceSheet($accounts);
 	$_SESSION['balanceSheet'] = $balanceSheet;
-	DataManager::getInstance()->balanceSheet = $balanceSheet; 
+//	DataManager::getInstance()->balanceSheet = $balanceSheet; 
 }
 
 //session_write_close();
