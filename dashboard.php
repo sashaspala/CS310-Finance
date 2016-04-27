@@ -37,7 +37,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top navbar">
-		<div class="container-fluid">
+		<div class="container">
 	    	<form action="csvhandler.php" method = "post" enctype="mulipart/form-data">
 		    	<span class="btn btn-default btn-file">
 				    Select CSV <input type="file" accept=".csv" id="csvChooser" name="csvfilename">
