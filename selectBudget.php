@@ -2,10 +2,11 @@
 
 	require_once("Classes/DataManager.php");
 
-	if(isset($_POST['budgets'])){
+	if(isset($_POST['budgets']) && isset($_POST['months'])){
 		$budget = $_POST['budgets'];
+		$month = $_POST['months'];
 
-		if($budget != 'Select a budget') {
+		if($budget != 'Select a budget' && $month != 'Select a month') {
 			?>
 			<form id="setBudget" class="form-set-budget" action='setBudget.php' method='post' accept-charset='UTF-8'>
 			<font size="3">Set Budget Amount: $</font>

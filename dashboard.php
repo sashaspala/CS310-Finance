@@ -182,7 +182,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						  		<?php
 						    } ?>
 					</select>
-					<select name="month">
+					<select name="months">
 						<option selected="selected">Select a month</option>
 					  	<option value="January">January</option>
 					  	<option value="February">February</option>
