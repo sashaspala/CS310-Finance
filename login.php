@@ -9,8 +9,8 @@
 	//unset($_SESSION);
 	
 
-	session_unset();
-	session_destroy();
+	// session_unset();
+	// session_destroy();
 	
 	var_dump($_SESSION);
 
