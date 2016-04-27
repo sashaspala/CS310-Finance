@@ -198,9 +198,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							            text: 'Finances',
 							            x: -20 //center
 							        },
-							        xAxis: {
-							            categories: ['Jan', 'Feb', 'March','Jan', 'Feb', 'March','Jan', 'Feb', 'March','Jan', 'Feb', 'March','Jan', 'Feb', 'March','Jan', 'Feb', 'March','Jan']
-							        },
+							      
 							        yAxis: {
 							            title: {
 							                text: 'Amount in $'
