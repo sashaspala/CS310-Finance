@@ -1,4 +1,5 @@
 <?php
+session_start(); 
  require_once("DataManager.php");
  require_once("header.php");
 
@@ -21,7 +22,7 @@ foreach ($accountList as $item) {
 
 //get transactions
 foreach ($accounts as $item) {
-	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),1);
+	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),$_SESSION['userID']);
 	foreach($accountTrans as $accountItem) {
 		$transactions[] = $accountItem;
 	}
