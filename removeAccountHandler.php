@@ -15,7 +15,7 @@ echo json_encode($accountList);
 
 foreach ($accountList as $item) {
 
-	#DataManager::removeAccount($item, 1);
+	DataManager::getInstance()->removeAccount($item, 1);
 	# code...
 }
 
