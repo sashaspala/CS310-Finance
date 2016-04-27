@@ -132,7 +132,7 @@ class Account {
 				echo 'reached here <br>';
 				$netValuesIndex++;
 			}
-			// array_push($this->dataPoints, 1]);//$this->netValues[$netValuesIndex]);
+			array_push($this->dataPoints, $this->netValues[$netValuesIndex]);
 			$currDate = strtotime("+1 day", $currDate);
 			echo 'Iteration2 '.$index."<br>";
 
