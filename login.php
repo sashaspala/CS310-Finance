@@ -6,7 +6,7 @@
 	require_once("header.php");
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
-	unset($_SESSION);
+	//unset($_SESSION);
 	var_dump($_SESSION);
 
 
