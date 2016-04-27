@@ -87,7 +87,7 @@ class Account {
 
 		$endIndex=count($this->transactions)-1;
 		for ($index =0; $index<count($this->transactions); $index++){
-			if(strtotime($this->transactions[$index]->getDate()) > $startDate){
+			if(strtotime($this->transactions[$index]->getDate()) >= $startDate){
 				$startIndex=$index;
 				echo 'found start'.$index."<br>"; 
 				break;
@@ -96,8 +96,8 @@ class Account {
 
 		unset($index); 
 
-		for ($index =0; $index<count($this->transactions); $index++){
-			if(strtotime($this->transactions[$index]->getDate()) >= $endDate){
+		for ($index = $endIndex; $index >= 0; $index--){
+			if(strtotime($this->transactions[$index]->getDate()) <= $endDate){
 				$endIndex=$index;
 				echo 'found end'.$index."<br>"; 
 				break;
