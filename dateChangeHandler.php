@@ -18,14 +18,14 @@
 		$days = floor($difference / (60*60*24) );
 
 
-		echo "HELPPPPOPPOPPOPO"
+		echo "HELPPPPOPPOPPOPO";
 		$accountList=$balanceSheet->getAccounts();
-		echo "121212HELPPPPOPPOPPOPO121212"
+		echo "121212HELPPPPOPPOPPOPO121212";
 		for ($index=0; $index<count($accountList); $index++){
 
 			echo " hi".$index."\n";
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
-			echo "god"
+			echo "god";
 		}
 
 
