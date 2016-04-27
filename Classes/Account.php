@@ -81,7 +81,7 @@ class Account {
 		$startIndex=0;
 		$this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, 1);
 		echo $this->accountID;
-		var_dump($this->transactions); 
+		//var_dump($this->transactions); 
 		//var_dump($this);
 		$endIndex=count($this->transactions);
 		for ($index =0; $index<count($this->transactions); $index++){
