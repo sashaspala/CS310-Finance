@@ -109,42 +109,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 						}
 				?>
 
-				<script type="text/javascript">
-				function checkboxFilter(){
-
-						var accountTable = document.getElementById("AccountsTable");
-						var checkedAccounts = accountTable.getElementsByTagName("input");
-						var getString = "";
-
-
-
-						var accountFound = false;
-						$nameArray;
-
-						for(var i =0; i<checkedAccounts.length; i++){
-							if(checkedAccounts[i].checked){
-								//alert("yes");
-								 var currentRow = $(checkedAccounts[i]).closest('tr');
-
-								 var accountName = $(currentRow).children()[0].innerText;
-
-								 getString += accountName + "-";
-								// array_push($nameArray, $accountName);
-							}
-						}
-
-						if(getString != ""){
-							 $.get("removeAccountHandler.php", { accounts : getString }).done(function(data) {
-								$("#AccountTable").html(data);
-								});
-
-
-						}
-					//ajax request
-
 				
-				}
-				</script>
 
 				</table>
 				<div class="account-btn">
