@@ -11,12 +11,12 @@
 		//echo "nope \n";
 		//THE PARAMETERS AS PASSED IN AS STRING
 
-		$start = strtotime($_POST['startDate']);
-		$end = strtotime($_POST['endDate']);
+		$start = strtotime($_GET['startDate']);
+		$end = strtotime($_GET['endDate']);
 
-		echo $_POST['startDate']; 
-		echo $_POST['endDate']; 
-		
+		echo $_GET['startDate']; 
+		echo $_GET['endDate']; 
+
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
