@@ -40,7 +40,7 @@
 
 		}
 
-		echo json_encode($dataPoints);
+		echo json_encode($returnValue);
   }
 
 

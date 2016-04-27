@@ -192,6 +192,37 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 						 	endDate: EndDate
 						 }).done(function(data) {
 							alert(data);
+							$('#graph').highcharts({
+							        title: {
+							            text: 'Finances',
+							            x: -20 //center
+							        },
+							        xAxis: {
+							            categories: ['Jan', 'Feb', 'March']
+							        },
+							        yAxis: {
+							            title: {
+							                text: 'Amount in $'
+							            },
+							            plotLines: [{
+							                value: 0,
+							                width: 1,
+							                color: '#808080'
+							            }]
+							        },
+							        tooltip: {
+							            valuePrefix: '$'
+							        },
+							        legend: {
+							            layout: 'vertical',
+							            align: 'right',
+							            verticalAlign: 'middle',
+							            borderWidth: 0
+							        },
+							        series: data; 
+							    });
+
+
 						});
 					}
 					</script>
