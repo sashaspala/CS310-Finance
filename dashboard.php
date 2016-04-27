@@ -19,7 +19,7 @@ if($_SESSION['balanceSheet']==null){
 	$_SESSION['balanceSheet'] = $balanceSheet;
 }
 $_SESSION['dataManager'] = DataManager::getInstance();
-
+$_SESSION['test']="STRIGN";
 ?>
 <head>
 	<link rel="stylesheet"   type="text/css" href="styles.css">

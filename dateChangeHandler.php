@@ -19,6 +19,9 @@
 		if(is_null($_SESSION['balanceSheet'])){echo "it is null";}
 		$_SESSION['balanceSheet']->getAccounts();
 
+		if(is_null($_SESSION['test'])){echo "it is test null";}
+		$_SESSION['balanceSheet']->getAccounts();
+
 		// $accountList=$_SESSION['balanceSheet']->getAccounts();
 
 
