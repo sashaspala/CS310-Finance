@@ -52,7 +52,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 	<div class="container-fluid">
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-			<div class="well account-div" style="background-color:#FFFFFF;height:556px">
+			<div class="well account-div" style="background-color:#FFFFFF;height:570px">
 				<h2>Accounts</h2>
 				<table class="table table-hover" id="AccountsTable">
 				<script type="text/javascript">
@@ -131,6 +131,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							}
 						}
 					//ajax request
+
 					return $nameArray
 				}
 				</script>
@@ -140,8 +141,11 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 					<button type="button" id="removeAccount" class="btn btn-danger">Remove</button>
 				</div>
 				<?php
+					
 					if(isset($_POST['removeAccount'])){
-						DataManager::removeAccount(checkboxFilter(), 1);
+						echo "POSTING REMOVE ACCOUNT";
+						echo "<td><input=\"checkbox\" name=checkboxFilter() onClick=\"return false\"/></td>";
+						#DataManager::removeAccount(checkboxFilter(), 1);
 					}
 				?>
 				

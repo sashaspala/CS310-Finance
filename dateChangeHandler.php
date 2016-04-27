@@ -6,8 +6,6 @@
 	require_once("Classes/BalanceSheet.php");
 
   $balanceSheet = DataManager::getInstance()->balanceSheet;
-
-  echo json_encode($balanceSheet->getAccounts());
   
 	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
 
