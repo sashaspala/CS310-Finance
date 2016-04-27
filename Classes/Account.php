@@ -87,9 +87,10 @@ class Account {
 			echo "net value ". $this->netValues[0].'<br>';
 			for ($index =1; $index<count($this->transactions); $index++){
 			// 	//I THINK THIS LINE DOES NOT WORK CURRENTLY BECAUSE OF THE SAMPLE DATA
-				echo "net value ". $this->netValues[$index].'<br>';
+				
 				$prev_Sum= $this->netValues[$index-1]+$this->transactions[$index]->getAmount();
 				array_push($this->netValues, $prev_Sum);
+				echo "net value ". $this->netValues[$index].'<br>';
 			}
 		}
 
