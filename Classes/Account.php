@@ -104,13 +104,8 @@ class Account {
 
 
 		}
-
-
-
-
-
 	}
-	function getDataPoint(){
+	function getDataPoints(){
 		return $this->dataPoints;
 	}
 
