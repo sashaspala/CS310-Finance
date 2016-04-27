@@ -1,9 +1,7 @@
 <?php
 // if(!session_id()) {
    session_start();
-   $_SESSION['test'] = 'test string'; 
 // }
-header('Location' . strval(session_id()));
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
@@ -13,7 +11,7 @@ require_once("header.php");
 
 //LOADS PERSISTENT DATA
 
-$accounts = DataManager::getInstance()->getAccountsForUser($_SESSION['userID']);
+$accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 //TODO FIX BALANCESHEET
 if($_SESSION['balanceSheet']==null){
