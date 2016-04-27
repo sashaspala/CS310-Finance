@@ -306,6 +306,57 @@ class DataManager {
 		return $categories;
 	}
 
+	/**
+	 * Create a new budget in the table if it doesn't exist. Otherwise update the existing budget with the new amount
+	 *
+	 * @return True if the budget didn't exist, false if the budget already existed. Null if there is an error
+	 **/
+	function createBudget($amount, $month, $year, $category, $userID=null) {
+		//Check if the budget already exists in the database
+		$stmt = $this->_db->prepare('SELECT * FROM Budgets WHERE month = :month AND year = :year AND category = :category AND Users_userID = :userID');
+		$stmt->bindParam(':month', $month);
+		$stmt->bindParam(':year', $year);
+		$stmt->bindParam(':category', $category);
+		$stmt->bindParam(':userID', $userID);
+
+		$stmt->execute();
+		$results = $stmt->fetch();
+		if($results!=null) {
+
+			$update = $this->_db->prepare('UPDATE Budgets SET amount = :amount WHERE month = :month AND year = :year AND category = :category AND Users_userID = :userID');
+
+			$update->bindParam(':amount', $amount);
+			$update->bindParam(':month', $month);
+			$update->bindParam(':year', $year);
+			$update->bindParam(':category', $category);
+			$update->bindParam(':userID', $userID);
+
+			$update->execute();
+			return false;
+		} 
+
+
+
+
+		$prep = "INSERT INTO Budgets (amount, month, year, category, Users_userID)
+							  VALUES (:amount, :month, :year, :category, :userID)";
+
+		$stmt = $this->_db->prepare($prep);
+
+		$stmt->bindParam(':amount', $amount);
+		$stmt->bindParam(':month', $month);
+		$stmt->bindParam(':year', $year);
+		$stmt->bindParam(':category', $category);
+		$stmt->bindParam(':userID', $userID);
+
+		if($this->executeStatement($stmt)==true) {
+			$budgetID = $this->_db->lastInsertId();
+			return true;
+		} else {
+			return null;
+		}
+	}
+
 
 	/**
 	* Executes a statement and returns the error string, if any
