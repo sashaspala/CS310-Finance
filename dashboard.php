@@ -103,12 +103,12 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 				<?php
 					$existingAccounts = DataManager::getInstance()->balanceSheet->getAccounts();
 
-						// foreach($existingAccounts as $account){
-						// echo "<tr>";
-						// echo "<td headers="."name>" . $account->getAccountName() . "</td>";
-						// echo "<td><input type="."checkbox". " name=showAccount "."onClick =" ."filter()"." />"."</td>";
-						// echo "</tr>";
-						// }
+						foreach($existingAccounts as $account){
+						echo "<tr>";
+						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
+						echo "<td><input type="."checkbox". " name=showAccount "."onClick =" ."filter()"." />"."</td>";
+						echo "</tr>";
+						}
 				?>
 				</table>
 				<div class="account-btn">
