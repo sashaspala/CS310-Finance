@@ -13,11 +13,9 @@
 
 		$start = strtotime($_GET['startDate']);
 		$end = strtotime($_GET['endDate']);
-		echo "1";
-
+		header('Location: here.php'); 
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
-	echo "2";
 
 		//echo "HELPPPPOPPOPPOPO";
 		$accountList=$balanceSheet->getAccounts();
@@ -28,7 +26,6 @@
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
 			//echo "god";
 		}
-			echo "3";
 		// var_dump($accountList);
 		$returnValue=array();
 		for ($index=0; $index<count($accountList);$index++){
@@ -42,7 +39,7 @@
 
 
 		}
-			echo "4";
+
 		echo json_encode($dataPoints);
   }
 
