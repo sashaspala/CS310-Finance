@@ -7,7 +7,7 @@
 
   $balanceSheet = DataManager::getInstance()->balanceSheet;
   
-	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
+	if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
 
 		//THE PARAMETERS AS PASSED IN AS STRING
 
@@ -17,23 +17,14 @@
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
-
+		$accountList=$balanceSheet->getAccounts();
+		// for ($index=0; $index<count($accountList); $index++){
+		// 	$accountList[$index]->calculateDataPoint($start, $end, $days);
+		// }
   }
 
 
-		// $_SESSION['balanceSheet']->getAccounts();
-
-		// if(is_null($_SESSION['test'])){echo "it is test null";} else {
-		// 	echo "it is test correct";
-		// }
-
-
-		// $accountList=$_SESSION['balanceSheet']->getAccounts();
-
-
-		// for ($index=0; $index<count($accountList); $index++){
-		// 	// $accountList[$index]->calculateDataPoint($start, $end, $days);
-		// }
+		
 
 		//if the difference is < 30 do in days
 		// > 30 do in months
