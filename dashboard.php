@@ -317,34 +317,34 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 	<script type="text/javascript">
 
 	$(function () {
-    $('#graph').highcharts({
-        title: {
-            text: 'Finances',
-            x: -20 //center
-        },
-        xAxis: {
-            categories: ['Jan', 'Feb', 'March']
-        },
-        yAxis: {
-            title: {
-                text: 'Amount in $'
-            },
-            plotLines: [{
-                value: 0,
-                width: 1,
-                color: '#808080'
-            }]
-        },
-        tooltip: {
-            valuePrefix: '$'
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
-        },
-        series: [{"name":"HSBC","data":[33,54,54]}]
+    // $('#graph').highcharts({
+    //     title: {
+    //         text: 'Finances',
+    //         x: -20 //center
+    //     },
+    //     xAxis: {
+    //         categories: ['Jan', 'Feb', 'March']
+    //     },
+    //     yAxis: {
+    //         title: {
+    //             text: 'Amount in $'
+    //         },
+    //         plotLines: [{
+    //             value: 0,
+    //             width: 1,
+    //             color: '#808080'
+    //         }]
+    //     },
+    //     tooltip: {
+    //         valuePrefix: '$'
+    //     },
+    //     legend: {
+    //         layout: 'vertical',
+    //         align: 'right',
+    //         verticalAlign: 'middle',
+    //         borderWidth: 0
+    //     },
+    //     series: [{"name":"HSBC","data":[33,54,54]}]
     });
 });
 
