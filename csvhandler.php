@@ -41,9 +41,10 @@
 		//$line++;
 	 	// ADD ACCOUNT TO BALANCESHEET LOCALLY
 		// $_SESSION['balanceSheet']->addAccount($account);
-		$_SESSION['balanceSheet']->addAccount($account);
+		// $_SESSION['balanceSheet']->addAccount($account);
 		$_SESSION['balanceSheet']=null;
+		echo $i;
 	}
-	header('Location: dashboard.php');
-	exit();
+	// header('Location: dashboard.php');
+	// exit();
 ?>
