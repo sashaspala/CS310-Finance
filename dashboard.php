@@ -105,7 +105,7 @@ if($_SESSION['balanceSheet']==null){
 
 				</script>
 				<?php
-				//	$existingAccounts = DataManager::getInstance()->balanceSheet->getAccounts();
+					$existingAccounts = DataManager::getInstance()->balanceSheet->getAccounts();
 
 						// foreach($existingAccounts as $account){
 						// echo "<tr>";
