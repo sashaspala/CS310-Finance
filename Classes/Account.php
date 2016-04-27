@@ -118,7 +118,7 @@ class Account {
 			}
 			array_push($this->dataPoints, $this->netValues[$netValuesIndex]);
 			$currDate = strtotime("+1 day", $currDate);
-
+			echo date('d-m-Y',$currDate);
 
 		}
 
