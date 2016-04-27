@@ -1,16 +1,16 @@
-<?php 
+<?php
 	// if(!session_id()) {
    		session_start();
 	// }
 	require_once("Classes/DataManager.php");
-	require_once("Classes/BalanceSheet.php"); 
-	
-	
+	require_once("Classes/BalanceSheet.php");
+
+	echo session_id(); 
 
 	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
 
 		//THE PARAMETERS AS PASSED IN AS STRING
-		
+
 		$start = strtotime($_POST['startDate']);
 		$end = strtotime($_POST['endDate']);
 
@@ -37,7 +37,7 @@
 		// > 30 do in months
 		// > 365 do in years
 
-		
+
 
 	}
 	echo "HEUY NP"
