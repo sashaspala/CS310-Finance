@@ -1,6 +1,4 @@
 <?php
-session_start();
-
  require_once("DataManager.php");
  require_once("header.php");
 
