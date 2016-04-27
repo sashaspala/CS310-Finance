@@ -111,7 +111,6 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 				<script type="text/javascript">
 				function checkboxFilter(){
-						alert("BLAH FIX ME");
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString = "";
@@ -133,6 +132,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							}
 						}
 
+						alert("BLAH")
 						if(getString != ""){
 							 $.get("removeAccountHandler.php", { accounts : getString }).done(function(data) {
 								$("#AccountTable").html(data);
