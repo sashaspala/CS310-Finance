@@ -13,7 +13,6 @@
 
 		$start = strtotime($_GET['startDate']);
 		$end = strtotime($_GET['endDate']);
-		header('Location: here.php'); 
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
@@ -26,6 +25,8 @@
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
 			//echo "god";
 		}
+				header('Location: here2.php'); 
+
 		// var_dump($accountList);
 		$returnValue=array();
 		for ($index=0; $index<count($accountList);$index++){
