@@ -27,7 +27,7 @@
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
 			//echo "god";
 		}
-		echo json_encode($accountList);
+		 var_dump($accountList);
 		echo 'swag'; 
 
 		//echo "Drogon";
