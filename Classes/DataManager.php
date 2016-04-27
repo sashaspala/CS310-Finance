@@ -7,9 +7,6 @@ require_once("BalanceSheet.php");
 
 date_default_timezone_set('America/Los_Angeles');
 
-
- echo json_encode(DataManager::getInstance()->getTransactionsForMonth('April'));
-
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
