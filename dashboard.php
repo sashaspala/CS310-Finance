@@ -134,9 +134,8 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 
 						if(getString != ""){
-							alert("BLAH");
 							 $.get("removeAccountHandler.php", { 
-							 	accounts : getString }).done(function(data) {
+							 	accounts : getString }).done(function(data) {alert("BLAH");
 								$("#AccountTable").html(data);
 								});
 
