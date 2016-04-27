@@ -2,7 +2,7 @@
 // if(!session_id()) {
    session_start();
 // }
-
+echo session_id(); 
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
@@ -21,7 +21,7 @@ if($_SESSION['balanceSheet']==null){
 }
 $_SESSION['dataManager'] = DataManager::getInstance();
 $_SESSION['test']="STRIGN";
-//session_write_close(); 
+//session_write_close();
 ?>
 <head>
 	<link rel="stylesheet"   type="text/css" href="styles.css">

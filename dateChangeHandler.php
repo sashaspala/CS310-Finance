@@ -2,6 +2,8 @@
 	// if(!session_id()) {
    		session_start();
 	// }
+
+  echo session_id(); 
 	require_once("Classes/DataManager.php");
 	require_once("Classes/BalanceSheet.php");
 
