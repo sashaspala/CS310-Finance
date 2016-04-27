@@ -90,7 +90,7 @@ class Account {
 		for ($index =0; $index<count($this->transactions); $index++){
 			if(strtotime($this->transactions[$index]->getDate()) >= $startDate){
 				$startIndex=$index;
-				echo 'found start'.$index."<br>"; 
+				// echo 'found start'.$index."<br>"; 
 				break;
 			}
 		}
@@ -100,7 +100,7 @@ class Account {
 		for ($index = 0; $index < count($this->transactions); $index++){
 			if(strtotime($this->transactions[$index]->getDate()) > $endDate){
 				$endIndex=$index - 1;
-				echo 'found end'.$index."<br>"; 
+				// echo 'found end'.$index."<br>"; 
 				break;
 			}
 		}
@@ -122,7 +122,7 @@ class Account {
 			
 
 		}
-		echo "HEY THEREE ".$this->netValues[0]."<br>";
+		echo "HEY THEREE ";//.$this->netValues[0]."<br>";
 		for ($index=0; $index<count($this->netValues);$index++){
 			echo $this->netValues[$index]."<br>";
 		}
