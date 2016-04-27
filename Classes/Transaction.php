@@ -10,7 +10,7 @@ class Transaction {
 	public $principal; //The other party involved in the transaction (String)
 	public $transactionID; //Int
 	public $Accounts_accountID;
-	public $Accounts_Users_userID;//git
+	public $Accounts_Users_userID;//gits
 
 	function __construct($date=null,$amount=null,$category=null,$name=null, $principal=null,
 							$transactionID = null, $accountID = null, $userID = null) {
