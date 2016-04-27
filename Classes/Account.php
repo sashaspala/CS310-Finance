@@ -82,7 +82,7 @@ class Account {
 		$this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, 1);
 		echo $this->accountID;
 		var_dump($this->transactions); 
-		var_dump($this);
+		//var_dump($this);
 		$endIndex=count($this->transactions);
 		for ($index =0; $index<count($this->transactions); $index++){
 			if($this->transactions[$index]->getDate()>=$startDate){
