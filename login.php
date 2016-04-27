@@ -3,15 +3,17 @@
 		session_start();
 	}
 
-	// if ($_SESSION['timeout'] == null)
-	// {
-	// 	$_SESSION['timeout'] = 0;
-	// }
+	if !(isset($_SESSION['timeout']))
+	{
+		$_SESSION['timeout'] = 0;
+	}
+
+	echo "<div> hello</div>";
 
 	// error_reporting(E_ALL);
 	// ini_set('display_errors', 1);
 
-	// require_once("header.php");
+	require_once("header.php");
 
 
 
