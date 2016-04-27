@@ -18,9 +18,9 @@
 		$days = floor($difference / (60*60*24) );
 
 		$accountList=$balanceSheet->getAccounts();
-		// for ($index=0; $index<count($accountList); $index++){
-		// 	$accountList[$index]->calculateDataPoint($start, $end, $days);
-		// }
+		for ($index=0; $index<count($accountList); $index++){
+			$accountList[$index]->calculateDataPoint($start, $end, $days);
+		}
   }
 
 
