@@ -106,7 +106,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 				</script>
 				<?php
-				//	$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
+					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
 
 						// foreach($existingAccounts as $account){
 						// echo "<tr>";
