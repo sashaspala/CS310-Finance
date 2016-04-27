@@ -2,7 +2,7 @@
 // if(!session_id()) {
    session_start();
 // }
-header('Location' . session_id()); 
+header('Location' . strval(session_id())); 
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
