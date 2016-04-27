@@ -6,6 +6,9 @@
 
 	require_once("Classes/DataManager.php");
 
+	echo '<div class="my_class">';
+	echo $failed_attempts;
+	echo '</div>';
 
 	if (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['password'])) {
 
