@@ -1,7 +1,7 @@
 <?php
-session_start(); 
  require_once("DataManager.php");
  require_once("header.php");
+ session_start();
 
 $accountsString = $_GET["accounts"];
 $accountsString = substr($accountsString, 0, -1);
