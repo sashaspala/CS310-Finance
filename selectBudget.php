@@ -71,7 +71,7 @@
 			 				?> <font color = "FF0000"> <?php 
 			 			}
 			 			else { 
-			 				?> <font color = "00FF00"> <?php
+			 				?> <font color = "24D330"> <?php
 			 			}
 			 			?><h4>Leftover budget: $<?php echo $budget_total ?>.00</h4></font> <?php
 		 			break;
@@ -90,7 +90,7 @@
 			 				?> <font color = "FF0000"> <?php 
 			 			}
 			 			else { 
-			 				?> <font color = "00FF00"> <?php
+			 				?> <font color = "24D330"> <?php
 			 			}
 			 			?><h4>Leftover budget: $<?php echo $budget_total ?>.00</h4></font> <?php
 		 			break;
