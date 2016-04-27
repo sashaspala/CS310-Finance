@@ -30,12 +30,12 @@
 		}
 		// var_dump($accountList);
 		$returnValue=array();
-		for ($index=0; $index<count($accountList);$index++){}
+		for ($index=0; $index<count($accountList);$index++){
 			$dataPoints= $accountList[$index]->getDataPoints();
 			$returnValue[]=[
-				'name ':$accountList[$index]->getName();
-				'data ':$dataPoints;
-			]
+				'name ': $accountList[$index]->getName();
+				'data ': $dataPoints;
+			];
 		}
 		echo json_encode($dataPoints);
   }
