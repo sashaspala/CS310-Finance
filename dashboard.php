@@ -148,7 +148,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 				</table>
 				<div class="account-btn">
-					<input type="button" id="removeAccount" onClick="checkboxFilter" class="btn btn-danger">Remove</input>
+					<button type="button" id="removeAccount" onClick="checkboxFilter()" class="btn btn-danger">Remove</button>
 				</div>
 			</div>
 		</div>
