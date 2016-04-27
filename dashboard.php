@@ -48,7 +48,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 		</div>
 	</nav>
 
-	<form name="removeAccount" id="removeAccountForm" action="dashboard.php" method=POST>
+	<form name="removeAccountForm" id="removeAccountForm" action="dashboard.php" method=GET>
 	<div class="container-fluid">
 		<div class="row row-margin" style="float:none;">
 		<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -142,9 +142,8 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 				</div>
 				<?php
 					
-					if(isset($_POST['removeAccount'])){
+					if(isset($_GET['removeAccount'])){
 						echo "POSTING REMOVE ACCOUNT";
-						echo "<td><input type="."checkbox". " name=showAccount "."onClick =" ."filter()"." />"."</td>";
 						echo "<td><input="."checkbox". "name="."checkboxFilter()"." onClick=" ."return false"."/>"."</td>"; 
 						#DataManager::removeAccount(checkboxFilter(), 1);
 					}
