@@ -124,6 +124,7 @@ class Account {
 		$currDate=$startDate;
 		// echo 'number of points/day in time range is '. $numOfPoints.'<br>';
 		// echo ' start value'. $this->netValues[$startIndex].'<br>';
+		var_dump($this->transactions); 
 		for($index=0; $index<$numOfPoints;$index++){//because we need that many points
 			// echo 'Iteration1 '.$index;
 			// echo " current date is ";
@@ -137,7 +138,7 @@ class Account {
 			// echo 'Iteration2 '.$index."<br>";
 
 		}
-		
+
 	
 
 	}
