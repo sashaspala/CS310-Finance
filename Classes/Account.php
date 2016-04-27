@@ -128,10 +128,10 @@ class Account {
 			echo 'Iteration1 '.$index;
 			echo " current date is ";
 			echo date('d-m-Y',$currDate)."<br>";
-			// if($currDate>strtotime($this->transactions[$netValuesIndex]->getDate()) ){
-			// 	echo 'reached here <br>'
-			// 	$netValuesIndex++;
-			// }
+			 if($currDate == strtotime($this->transactions[$netValuesIndex]->getDate()) ){
+				echo 'reached here <br>'
+				$netValuesIndex++;
+			}
 			// array_push($this->dataPoints, 1]);//$this->netValues[$netValuesIndex]);
 			$currDate = strtotime("+1 day", $currDate);
 			echo 'Iteration2 '.$index."<br>";
