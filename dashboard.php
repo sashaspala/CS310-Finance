@@ -178,7 +178,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 
 				</div>
-				<form class="form-recalculate-graph" id="form-recalculate-graph" action='Re-Calculate()' method='get' accept-charset='UTF-8'>
+				<form class="form-recalculate-graph" id="form-recalculate-graph" action="javascript:Re-Calculate()" method='get' accept-charset='UTF-8'>
 					<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
 					<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
 					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
