@@ -14,8 +14,8 @@
 
 	echo "<div> hello</div>";
 
-	if  ($_SESSION['timeout'] != 0)
-		header('timeout.php');
+	// if  ($_SESSION['timeout'] != 0)
+	// 	header('timeout.php');
 ?>	
 
 
