@@ -111,7 +111,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 				<script type="text/javascript">
 				function checkboxFilter(){
-
+						alert("BLAH FIX ME");
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString = "";
