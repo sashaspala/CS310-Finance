@@ -1,6 +1,7 @@
 <?php
 // if(!session_id()) {
    session_start();
+   $_SESSION['test'] = 'test string'; 
 // }
 header('Location' . strval(session_id()));
 require_once("Classes/DataManager.php");

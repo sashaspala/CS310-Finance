@@ -251,6 +251,26 @@ class DataManager {
 	}
 
 	/**
+	* Finds all the transactions for a month
+	* @param int $month is the month of the date. 
+	* @param int $userID The user who owns the acccount
+	* @return Transaction[] An array of the transactions for the account. Empty if the account doesn't exist,
+	*          or has no transactions
+	*/
+	function getTransactionsForMonth($month, $userID = null) {
+		if ($userID == null) {
+			$userID = $this->currentLoggedInUserID;
+		}
+
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE $transactionDate LIKE :month  AND Accounts_Users_userID = :userID');
+		$stmt->execute(array('userID' => $userID, 'month' => $month));
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
+		return $results;
+	}
+
+
+
+	/**
 	* Adds a transaction to the database
 	* @return Transaction The newly created transaction
 	*/

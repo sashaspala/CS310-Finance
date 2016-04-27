@@ -1,8 +1,8 @@
 <?php
 	if(!session_id()) {
-		session_start();   
+		session_start();
 	}
-			
+
 
 	require_once("Classes/DataManager.php");
 
@@ -22,25 +22,25 @@
 			echo '<p class="bg-danger">'.'done'.'</p>';
 			header('Location: login.php');
 			$failed_attempts += 1;
-			exit();
+		//	exit();
 		}
 		else if(is_null($user->getUserID())) {
 			echo '<p class="bg-danger">'.'done'.'</p>';
 			header('Location: login.php');
 			$failed_attempts += 1;
-			exit();
-		} 
+		//	exit();
+		}
 
 		$_SESSION['email'] = $_POST['email'];
 		$_SESSION['userID'] = $user->getUserID();
 		$_SESSION['userFullName']= $user->getFirstName() ." ". $user->getLastName();
 		$_SESSION["blah"]= "goesfromlogin";
 		header('Location: dashboard.php');
-		exit();
+	//	exit();
 
 	} else {
 		header('Location: login.php');
 
-		exit();
+	//	exit();
 	}
 ?>
