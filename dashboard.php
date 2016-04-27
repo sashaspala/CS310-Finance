@@ -144,7 +144,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 					echo "POSTING REMOVE ACCOUNT";
 					if(isset($_POST['removeAccount'])){
 						echo "<td><input=\"checkbox\" name=checkboxFilter() onClick=\"return false\"/></td>";
-						DataManager::removeAccount(checkboxFilter(), 1);
+						#DataManager::removeAccount(checkboxFilter(), 1);
 					}
 				?>
 				
