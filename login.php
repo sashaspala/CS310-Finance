@@ -1,23 +1,38 @@
 <?php
-	// if(!session_id()) {
+	if(!session_id()) {
 		session_start();
-	// }
-
-	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
+	}
 
 	require_once("header.php");
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
+	
+	if (!isset($_SESSION['timeout']))
+	{
+		echo "setting timerout";
+		$_SESSION['timeout'] = 0;
+	}
+
+	echo $_SESSION['timeout'];
+	if ($_SESSION['timeout'] != 0)
+	{
+		header("timeout.php");
+	}
 ?>	
+
+
+
+
 <head>
     <link href="login.css" rel="stylesheet">
 </head>
 	<body>
-		<div class="timeout">
+		<div class="timeout" id="timeout">
 			<h1>Sorry, you've logged in unsuccessfully too many times.<br>Try again in two minutes.</h1>
 		</div>
 		<div class="container">
 			<div class="col-md-4 well" style="margin:40px auto; float:none;background-color: #EFEFEF;" id="textFields">
-		    	<form class="form-signin" action='loginhandler.php' method='post' accept-charset='UTF-8'>
+		    	<form class="form-signin" action='<?php echo "loginhandler.php" ?>' method='post' accept-charset='UTF-8'>
 			        <h2 class="form-signin-heading">Sign In</h2>
 			        <label for="inputEmail" class="sr-only">Email</label>
 			        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required autofocus>

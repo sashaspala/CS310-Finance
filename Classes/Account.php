@@ -10,16 +10,16 @@ class Account {
     private $netValues; //array of ints representing the net value of the account at different times
 	private $dataPoints;
 	function __construct($name = null, $accountID = null , $userID = null){
-		if($name != null) 
+		if($name != null)
 			$this->name = $name;
 		if ($accountID != null)
 			$this->accountID = $accountID;
-		if ($userID != null)  
+		if ($userID != null)
 			$this->Users_userID = $userID;
 
-		//echo 'Constructed Account with ' . $this->name; 
-        $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
-		
+		//echo 'Constructed Account with ' . $this->name;
+        //$this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
+
         $this->dataPoints=array();
 		$this->netValues = array();
 		if(count($this->transactions)>0){
@@ -30,7 +30,7 @@ class Account {
 			for ($index =1; $index<count($this->transactions); $index++){
 				//I THINK THIS LINE DOES NOT WORK CURRENTLY BECAUSE OF THE SAMPLE DATA
 				// array_push($this->netValues, $this->netValues[$index-1] + $this->transactions[$index]->getAmount();
-			}	
+			}
 		}
 	}
 
@@ -65,7 +65,7 @@ class Account {
 	}
 
 	function getTransactions(){
-        $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, $_SESSION['userID']); 
+        $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, $_SESSION['userID']);
         echo count($this->transactions);
 		return $this->transactions;
 	}
@@ -92,7 +92,7 @@ class Account {
 				$endIndex=$index;
 				break;
 			}
-		}		
+		}
 		$netValuesIndex=$startIndex;
 		$currDate=$startDate;
 		for($index=0; $index<$numOfPoints;$index++){
@@ -106,7 +106,7 @@ class Account {
 		}
 
 
-		
+
 
 
 	}

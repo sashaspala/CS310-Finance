@@ -2,7 +2,6 @@
 // if(!session_id()) {
    session_start();
 // }
-header('Location' . strval(session_id())); 
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
@@ -15,12 +14,6 @@ require_once("header.php");
 $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 //TODO FIX BALANCESHEET
-if($_SESSION['balanceSheet']==null){
-	$balanceSheet = new BalanceSheet($accounts);
-	$_SESSION['balanceSheet'] = $balanceSheet;
-}
-$_SESSION['dataManager'] = DataManager::getInstance();
-$_SESSION['test']="STRIGN";
 //session_write_close();
 ?>
 <head>
@@ -106,7 +99,7 @@ $_SESSION['test']="STRIGN";
 
 				</script>
 				<?php
-					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
+					$existingAccounts = DataManager::getInstance()->balanceSheet->getAccounts();
 
 						foreach($existingAccounts as $account){
 						echo "<tr>";
