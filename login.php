@@ -1,9 +1,12 @@
 <?php
 	if(!session_id()) {
 		session_start();
-		$_SESSION['timeout'] = time();
 	}
 
+	if ($_SESSION['timeout'] == null)
+	{
+		$_SESSION['timeout'] = time();
+	}
 
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
