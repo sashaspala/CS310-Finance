@@ -186,6 +186,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 		      	
 					<script type="text/javascript">
 					function Re-Calculate(){
+						alert('here'); 
 					 	$.get("dateChangeHandler.php", {
 						 	accounts : getString }).done(function(data) {
 							$("#AccountTable").html(data);
