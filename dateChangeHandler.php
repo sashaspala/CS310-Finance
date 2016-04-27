@@ -33,8 +33,8 @@
 		for ($index=0; $index<count($accountList);$index++){
 			$dataPoints= $accountList[$index]->getDataPoints();
 			$temp =[
-				"name"=> $accountList[$index]->getName();
-				"data"=> $dataPoints;
+				"name"=> $accountList[$index]->getName(),
+				"data"=> $dataPoints,
 			];
 
 			$returnValue[] = $temp; 
