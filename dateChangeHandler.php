@@ -19,6 +19,7 @@
 
 		$accountList=$balanceSheet->getAccounts();
 		for ($index=0; $index<count($accountList); $index++){
+			echo $index;
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
 		}
 
@@ -26,6 +27,7 @@
 
 		$dataPoints= $accountList[0]->getDataPoints();
 		for($i=0;$i<$i;$i++){
+			echo $i.\n;
 			$dataPoints[$i];
 		}
 		// echo json_encode($accountList);
