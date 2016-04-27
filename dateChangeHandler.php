@@ -13,7 +13,8 @@
 
 		$start = strtotime($_POST['startDate']);
 		$end = strtotime($_POST['endDate']);
-
+		echo $start; 
+		echo $end; 
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
