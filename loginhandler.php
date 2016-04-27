@@ -19,13 +19,13 @@
 		echo $failed_attempts;
 		echo '</div>';
 
-		// if($failed_attempts > 3) {
-		// 	echo "
-		// 		<script>
-		// 		document.getElementById("timeout").style.display = "block";
-		// 		</script>
-		// 		";
-		// }
+		if($failed_attempts > 3) {
+			echo "
+				<script>
+				document.getElementById("timeout").style.display = "block";
+				</script>
+				";
+		}
 
 		if(is_null($user)) {
 			echo '<p class="bg-danger">'.'done'.'</p>';
