@@ -118,7 +118,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 
 						var accountFound = false;
-						
+
 
 						for(var i =0; i<checkedAccounts.length; i++){
 							if(checkedAccounts[i].checked){
@@ -134,8 +134,8 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 
 						if(getString != ""){
-							 $.get("removeAccountHandler.php", { 
-							 	accounts : getString }).done(function(data) {alert(data);
+							 $.get("removeAccountHandler.php", {
+							 	accounts : getString }).done(function(data) {
 								$("#AccountTable").html(data);
 								});
 
@@ -143,7 +143,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 						}
 					//ajax request
 
-				
+
 				}
 				</script>
 

@@ -11,8 +11,6 @@ $accountsString = substr($accountsString, 0, -1);
 
 $accountList = explode('-', $accountsString);
 
-echo json_encode($accountList);
-
 foreach ($accountList as $item) {
 
 	DataManager::getInstance()->removeAccount($item, 1);
