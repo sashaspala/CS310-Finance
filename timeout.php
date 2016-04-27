@@ -10,12 +10,13 @@
 	echo "timeout ):";
 	ob_end_flush();  
     flush(); 
-    ob_start(); 
+    
 
 	while ($_SESSION['timeout'] + 5 > time())
 	{}
 
 	session_unset();
 	session_destroy();
-	header("Location: login.php");
+
+	header('Location: login.php');
 ?>
