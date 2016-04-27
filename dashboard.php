@@ -38,14 +38,14 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top navbar">
 		<div class="container-fluid">
-	    	<form action="csvhandler.php" method = "post" enctype="mulipart/form-data">
+	    	<form action="csvhandler.php" method = "post" enctype="mulipart/form-data" class="navbar-left">
 		    	<span class="btn btn-default btn-file">
 				    Select CSV <input type="file" accept=".csv" id="csvChooser" name="csvfilename">
 				</span>
 				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file"> 
-				<p class="navbar-text navbar-right" style="margin-right:10px">Signed in as </p> <?php echo $_SESSION['userFullName']?>
 			</form>
-			<form action="logoutHandler.php" method = "GET">
+			<form action="logoutHandler.php" method = "GET" class="navbar-right">
+				<p class="navbar-text" style="margin-right:10px">Signed in as <?php echo $_SESSION['userFullName']?> </p>
 	    		<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
 	    	</form>
 		</div>
@@ -63,8 +63,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString = "";
 
-						//alert(getString);
-						//alert(checkedAccounts.length);
+						
 
 						var accountFound = false;
 
@@ -83,7 +82,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 							}
 						}
 
-// <<<<<<< HEAD
+
 						if(getString != ""){
 							 $.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
 								console.log('finished');
@@ -103,30 +102,8 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					
 				}
 
-
-// =======
-// 						if (!accountFound) {
-// 							console.log("nothing checked"); 
-// 						}
-// 					//ajax request
-
-// 					$.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
-// 						console.log(data);
-// 						$("#ajaxtable").html(data);
-
-// 						// var table = document.getElementById("transactions");
-// 						// $(table).html("result");
-// 					});
-
-// 				}
-// >>>>>>> 25e5ee2e54612e4ba8e4bc3507fba5f6edd98023
 				</script>
 				<?php
-// =======
-// 				<h2>Accounts</h2>
-// 				<table class="table table-hover">
-// 					<?php
-// >>>>>>> origin
 					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
 
 						foreach($existingAccounts as $account){
@@ -162,31 +139,6 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 		<div class="row" style="margin:0px auto;float:none;">
 		<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
-<!-- <<<<<<< HEAD -->
-				<!-- <div class="input-group date" data-provide="datepicker">
-				    <input type="text" class="form-control">
-				    <div class="input-group-addon">
-				        <span class="glyphicon glyphicon-th"></span>
-				    </div>
-				</div>
-
-
-
-
-
-
-
-
-				<h2>Transactions</h2>
-
-				<script>
-				  $(function() {
-				    $( "#datepicker" ).datepicker();
-				  });
-				 </script>
-
- 				<p> Date: <input type="text" id="datepicker"></p>
- 				<p> asdasda sdasda sdasd as </p> --> 
 				
 				<h2>Transactions</h2>
 				<form class="form-recalculate-graph" action='dateChangeHandler.php' method='post' accept-charset='UTF-8'>
@@ -208,31 +160,6 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 					</thead>
 					<tbody>
 
-						<!-- <p>hello</p>
-					<tr>
-						<td>trying</td>
-						<td>2</td>
-						<td>4.0</td>
-						<td>12/02/2016</td>
-					</tr>
-					<tr>
-						<td>to</td>
-						<td>670</td>
-						<td>2.1</td>
-						<td>05/04/1999</td>
-					</tr>
-					<tr>
-						<td>run</td>
-						<td>-6</td>
-						<td>-1.5</td>
-						<td>06/30/2005</td>
-					</tr>
-					<tr>
-						<td>a test of this</td>
-						<td>-7</td>
-						<td>7.3</td>
-						<td>08/12/1986</td>
-					</tr> -->
 					</tbody>
 				</table>
 				</div>
