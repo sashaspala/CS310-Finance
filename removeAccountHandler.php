@@ -11,10 +11,9 @@ $accountsString = substr($accountsString, 0, -1);
 
 $accountList = explode('-', $accountsString);
 
-header('Location : ' .json_encode($accountList));
+echo json_encode($accountList);
 
 foreach ($accountList as $item) {
-
 
 	#DataManager::removeAccount($item, 1);
 	# code...
