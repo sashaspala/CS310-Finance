@@ -25,7 +25,6 @@
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
 			//echo "god";
 		}
-				header('Location: here2.php'); 
 
 		// var_dump($accountList);
 		$returnValue=array();
@@ -40,6 +39,8 @@
 
 
 		}
+
+				header('Location: here3.php'); 
 
 		echo json_encode($dataPoints);
   }
