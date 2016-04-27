@@ -6,6 +6,11 @@
 
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
+
+	session_unset();
+	session_destroy();
+	#$_SESSION['timeout'] = 0;
+	header("login.php")
 ?>	
 
 timeout ):
