@@ -6,16 +6,23 @@
 	require_once("header.php");
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
-	
+
 	if (!isset($_SESSION['timeout']))
 	{
 		echo "setting timerout";
 		$_SESSION['timeout'] = 0;
 	}
 
-	echo $_SESSION['timeout'];
-	if ($_SESSION['timeout'] != 0)
+	if (!isset($_SESSION['timeout_count']))
 	{
+		$_SESSION['timeout_count'] = 0;
+	}
+
+	echo $_SESSION['timeout_count'];
+
+	if ($_SESSION['timeout_count'] > 3)
+	{
+		$_SESSION['timeout'] = time();
 		header("timeout.php");
 	}
 ?>	
