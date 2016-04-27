@@ -5,8 +5,8 @@ require_once("Account.php");
 require_once("Transaction.php");
 require_once("BalanceSheet.php");
 
-$accountTrans = DataManager::getInstance()->getTransactionsForAccount(1, 1);
- //DataManager::getInstance();
+ DataManager::getInstance()->getTransactionsForMonth('april');
+ 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
@@ -259,16 +259,16 @@ class DataManager {
 	* @return Transaction[] An array of the transactions for the account. Empty if the account doesn't exist,
 	*          or has no transactions
 	*/
-	function getTransactionsForMonth($month, $userID = null) {
-		if ($userID == null) {
-			$userID = $this->currentLoggedInUserID;
-		}
-
-		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE $transactionDate LIKE :month  AND Accounts_Users_userID = :userID');
-		$stmt->execute(array('userID' => $userID, 'month' => $month));
-		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
-		return $results;
-	}
+	// function getTransactionsForMonth($month, $userID = null) {
+	// 	if ($userID == null) {
+	// 		$userID = $this->currentLoggedInUserID;
+	// 	}
+	//
+	// 	$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE $transactionDate LIKE :month  AND Accounts_Users_userID = :userID');
+	// 	$stmt->execute(array('userID' => $userID, 'month' => $month));
+	// 	$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
+	// 	return $results;
+	// }
 
 
 
@@ -393,6 +393,19 @@ class DataManager {
 		} catch(PDOException $error) {
 			echo $error->getMessage()."\n";
 			return false;
+		}
+	}
+
+	function getTransactionsForMonth($month) {
+		$accounts = self::getAccountsForUser(1);
+
+		foreach ($accounts as $account) {
+			$transactions = self::getTransactionsForAccount($account->getID(), 1);
+
+			foreach($transactions as $transaction) {
+				$date = $transaction->transactionDate;
+				echo $date;
+			}
 		}
 	}
 }
