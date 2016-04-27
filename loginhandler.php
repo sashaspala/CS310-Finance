@@ -12,13 +12,17 @@
 		$user = DataManager::getInstance()->loginUser($_POST['email'], md5($_POST['password']));
 		$failed_attempts = 4;
 
-		if($failed_attempts > 3) {
-			echo "
-				<script>
-				document.getElementById("timeout").style.display = "block";
-				</script>
-				";
-		}
+		echo '<div class="my_class">';
+		echo $failed_attempts;
+		echo '</div>';
+
+		// if($failed_attempts > 3) {
+		// 	echo "
+		// 		<script>
+		// 		document.getElementById("timeout").style.display = "block";
+		// 		</script>
+		// 		";
+		// }
 
 		if(is_null($user)) {
 			echo '<p class="bg-danger">'.'done'.'</p>';
