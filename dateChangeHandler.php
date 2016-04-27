@@ -29,10 +29,11 @@
 		}
 
 
-
+		echo "Drogon";
 		$dataPoints= $accountList[0]->getDataPoints();
-		for($i=0;$i<$i;$i++){
-			echo $i."\n";
+		echo "BallZZZ";
+		for($i=0;$i<count($dataPoints);$i++){
+			echo "BALLSSS".$i;
 			$dataPoints[$i];
 		}
 		// echo json_encode($accountList);
