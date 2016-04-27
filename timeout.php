@@ -9,7 +9,6 @@
 
 	echo "<div 
 		style ='
-		display:none;
 		top:0px;
 		left:0px;
 		position:absolute;
