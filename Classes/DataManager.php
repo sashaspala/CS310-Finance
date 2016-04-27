@@ -5,7 +5,7 @@ require_once("Account.php");
 require_once("Transaction.php");
 
 //$accountTrans = DataManager::getInstance()->getTransactionsForAccount(1, 1);
-// DataManager::getInstance()->addAccount('test',1);
+ DataManager::getInstance(); 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
@@ -46,7 +46,7 @@ class DataManager {
 	}
 	public $currentLoggedInUserID; // ID for the currently logged in user
 	private $_db; //database connection
-	public $balanceSheet; 
+	public $balanceSheet;
 
 	function __construct() {
 
@@ -253,7 +253,7 @@ class DataManager {
 
 	/**
 	* Finds all the transactions for a month
-	* @param int $month is the month of the date. 
+	* @param int $month is the month of the date.
 	* @param int $userID The user who owns the acccount
 	* @return Transaction[] An array of the transactions for the account. Empty if the account doesn't exist,
 	*          or has no transactions
@@ -302,7 +302,7 @@ class DataManager {
 
 	/**
 	 * Goes through the list of transactions for a user to find the list of different transactions categories
-	 * 
+	 *
 	 * @param int $userID - the userID for which the transactions categories need to be generated
 	 * @return String[] categories- an array of strings that contain the categories found
 	 *
@@ -354,7 +354,7 @@ class DataManager {
 
 			$update->execute();
 			return false;
-		} 
+		}
 
 
 
