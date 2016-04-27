@@ -1,10 +1,11 @@
 <?php 
+	// if(!session_id()) {
+   		session_start();
+	// }
 	require_once("Classes/DataManager.php");
 	require_once("Classes/BalanceSheet.php"); 
 	
-	if(!session_id()) {
-   		session_start();
-	}
+	
 
 	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
 
