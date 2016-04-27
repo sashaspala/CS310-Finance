@@ -20,7 +20,7 @@ class Account {
         // $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 
         $this->dataPoints=array();
-		$this->netValues = array();
+		$this->netValues=array();
 		if(count($this->transactions)>0){
 
 			//TODO need to fix the below commented code
@@ -116,13 +116,13 @@ class Account {
 			if($currDate>strtotime($this->transactions[$netValuesIndex]->getDate())){
 				$netValuesIndex++;
 			}
-			array_push($this->dataPoints, $this->netValues[$netValuesIndex]);
+			array_push($this->dataPoints, 1]);//$this->netValues[$netValuesIndex]);
 			$currDate = strtotime("+1 day", $currDate);
 			echo date('d-m-Y',$currDate);
 
 		}
 
-		 echo var_dump($this->dataPoints);
+		 echo var_dump($this->netValues);
 
 
 	}
