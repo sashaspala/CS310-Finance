@@ -65,6 +65,7 @@
 			 			foreach($transactions as $transaction) {
 			 				$total += $transaction->getAmount();
 			 			}
+			 			$num_as_int = (int)$food[$month];
 			 			
 		 			break;
 		 		case 'Education': ?>
