@@ -5,12 +5,12 @@
 	require_once("Classes/DataManager.php");
 	require_once("Classes/BalanceSheet.php");
 
-	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
+	if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
 
 		//THE PARAMETERS AS PASSED IN AS STRING
 
-		$start = strtotime($_POST['startDate']);
-		$end = strtotime($_POST['endDate']);
+		$start = strtotime($_GET['startDate']);
+		$end = strtotime($_GET['endDate']);
 
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
