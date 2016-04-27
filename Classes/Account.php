@@ -1,8 +1,5 @@
 <?php
 
-$account = new Account("Bank Of America2", 1, 1); 
-$account->calculateDataPoint('04/01/2016', '04/05/2016', 5); 
-
 class Account {
 	private $name; //String
 	private $accountID; //int
@@ -82,6 +79,7 @@ class Account {
 
 	public function calculateDataPoint($startDate, $endDate, $numOfPoints){
 		$startIndex=0;
+		$this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 		$endIndex=count($this->transactions);
 		for ($index =0; $index<count($this->transactions); $index++){
 			if($this->transactions[$index]->getDate()>=$startDate){
