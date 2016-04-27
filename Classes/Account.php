@@ -83,6 +83,10 @@ class Account {
 		//echo $this->accountID;
 		//var_dump($this->transactions); 
 		//var_dump($this);
+
+		echo $startDate; 
+		echo '<br>'; 
+		echo $endDate; 
 		$endIndex=count($this->transactions)-1;
 		for ($index =0; $index<count($this->transactions); $index++){
 			if(strtotime($this->transactions[$index]->getDate()) < $startDate){
