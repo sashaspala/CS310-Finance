@@ -7,6 +7,11 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 	//unset($_SESSION);
+	
+
+	session_unset();
+	session_destroy();
+	
 	var_dump($_SESSION);
 
 
