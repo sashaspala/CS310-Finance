@@ -7,6 +7,10 @@
 	ini_set('display_errors', 1);
 
 	require_once("header.php");
+
+		echo '<div class="my_class">';
+	echo "HELLO";
+	echo '</div>';
 ?>	
 <head>
     <link href="login.css" rel="stylesheet">
