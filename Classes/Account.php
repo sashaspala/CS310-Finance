@@ -18,7 +18,7 @@ class Account {
 			$this->Users_userID = $userID;
 
 		//echo 'Constructed Account with ' . $this->name;
-        //$this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
+        // $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 
         $this->dataPoints=array();
 		$this->netValues = array();
