@@ -15,7 +15,7 @@
 		z-index:100; 
 		height: 100%; 
 		width:100%; 
-		background-color:rgba(20,20,120,0.8);
+		background-color:rgba(5,20,120,0.8);
 		color:white; padding-top:20%; text-align:center;'
 		>
 		<h1>Sorry, you've logged in unsuccessfully too many times.<br>Try again in two minutes.</h2>
@@ -26,7 +26,7 @@
     flush(); 
     
 
-	while ($_SESSION['timeout'] + 5 > time())
+	while ($_SESSION['timeout'] + 2 * 60 > time())
 	{}
 
 	session_unset();
