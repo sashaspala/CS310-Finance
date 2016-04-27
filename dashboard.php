@@ -194,7 +194,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							alert(data);
 
 							// var seriesData = []; 
-							if(data==[{"name":"HSBC","data":[33,33,33,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54]}]){
+							if(data==[{"name":"HSBC","data":[45,45,45,66,66,66,66,66,66,66,66,66,66,66,66,66,66,66,66]}]){
 								alert('same');
 							}else {
 								alert('diff');
