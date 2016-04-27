@@ -11,7 +11,7 @@ date_default_timezone_set('America/Los_Angeles');
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
 
-DataManager::getInstance()->removeAccount('Chase Credit', 1);
+//DataManager::getInstance()->removeAccount('Chase Credit', 1);
 
 // $testManager
 // $newAccount = $testManager->getAccount('Credit `Card2', 2);
