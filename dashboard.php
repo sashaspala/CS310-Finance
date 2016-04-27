@@ -182,6 +182,21 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 						  		<?php
 						    } ?>
 					</select>
+					<select name="months">
+						<option selected="selected">Select a month</option>
+					  	<option value="January">January</option>
+					  	<option value="February">February</option>
+					  	<option value="March">March</option>
+					  	<option value="April">April</option>
+					  	<option value="May">May</option>
+					  	<option value="June">June</option>
+					  	<option value="July">July</option>
+					  	<option value="August">August</option>
+					  	<option value="September">September</option>
+					  	<option value="October">October</option>
+					  	<option value="November">November</option>
+					  	<option value="December">December</option>
+					</select>
 					<input type="submit" id="bugdetSubmit" name="bugdetSubmit" value= "View" class="btn btn btn-warning">
 					</p>
 					</div>

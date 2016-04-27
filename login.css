@@ -38,3 +38,18 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.timeout {
+  display:none;
+ 
+  top:0px;
+  left:0px;
+  position:absolute;
+  z-index:100;
+  height: 100%;
+  width:100%;  
+  background-color:rgba(100,80,80,0.8);		
+  
+  color:white;
+  padding-top:20%;  
+  text-align:center;
+}
