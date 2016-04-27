@@ -5,7 +5,9 @@
 
 	require_once("Classes/DataManager.php");
 
-	unset($_SESSION);
+	session_unset();
+	session_destroy();
+	//unset($_SESSION);
 	// echo isset($_SESSION['userID']);
 	// echo isset($_SESSION['timeout']);
 	// unset($_SESSION['userID']);
