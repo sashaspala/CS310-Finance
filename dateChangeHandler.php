@@ -13,6 +13,7 @@
 
 		$start = strtotime($_POST['startDate']);
 		$end = strtotime($_POST['endDate']);
+		echo 'testing'; 
 		echo $start; 
 		echo $end; 
 		$difference = $end - $start;
