@@ -18,7 +18,7 @@ class Account {
 			$this->Users_userID = $userID;
 
 		//echo 'Constructed Account with ' . $this->name;
-        $this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
+        //$this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID);
 
         $this->dataPoints=array();
 		$this->netValues = array();
@@ -80,7 +80,7 @@ class Account {
 
 	function calculateDataPoint($startDate, $endDate, $numOfPoints){
 		$startIndex=0;
-		$endIndex=count($this->transactions)-1;
+		$endIndex=count($this->transactions);
 		for ($index =0; $index<count($this->transactions); $index++){
 			if($this->transactions[$index]->getDate()>=$startDate){
 				$startIndex=$index;
