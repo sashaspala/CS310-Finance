@@ -3,7 +3,7 @@
    		session_start();
 	// }
 
-  echo session_id(); 
+  echo $_SESSION['userID'];  
 	require_once("Classes/DataManager.php");
 	require_once("Classes/BalanceSheet.php");
 

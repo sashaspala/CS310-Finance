@@ -1,8 +1,8 @@
 <?php
 	if(!session_id()) {
-		session_start();   
+		session_start();
 	}
-			
+
 
 	require_once("Classes/DataManager.php");
 
@@ -38,7 +38,7 @@
 			header('Location: login.php');
 			$failed_attempts += 1;
 			exit();
-		} 
+		}
 
 		$_SESSION['email'] = $_POST['email'];
 		$_SESSION['userID'] = $user->getUserID();
