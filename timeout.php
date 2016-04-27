@@ -26,7 +26,7 @@
     flush(); 
     
 
-	while ($_SESSION['timeout'] + 2 * 60 > time())
+	while ($_SESSION['timeout'] + 30 > time())
 	{}
 
 	session_unset();
