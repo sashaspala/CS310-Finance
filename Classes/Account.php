@@ -21,17 +21,7 @@ class Account {
 
         $this->dataPoints=array();
 		$this->netValues=array();
-		if(count($this->transactions)>0){
-
-			//TODO need to fix the below commented code
-			array_push($this->netValues, $this->transactions[0]->getAmount());
-			// for ($index =1; $index<count($this->transactions); $index++){
-			// 	//I THINK THIS LINE DOES NOT WORK CURRENTLY BECAUSE OF THE SAMPLE DATA
-			// 	$prev_Sum= $this->netValues[$index-1]+$this->transactions[$index]->getAmount();
-			// 	echo "string "+$prev_Sum+"<br>";
-			// 	array_push($this->netValues, $prev_Sum;
-			// }
-		}
+		
 	}
 
 	function getID(){
@@ -85,7 +75,19 @@ class Account {
 		//var_dump($this->transactions); 
 		//var_dump($this);
 
+		if(count($this->transactions)>0){
 
+			//TODO need to fix the below commented code
+			array_push($this->netValues, $this->transactions[0]->getAmount());
+			for ($index =1; $index<count($this->transactions); $index++){
+				//I THINK THIS LINE DOES NOT WORK CURRENTLY BECAUSE OF THE SAMPLE DATA
+				$prev_Sum= $this->netValues[$index-1]+$this->transactions[$index]->getAmount();
+				echo "string "+$prev_Sum+"<br>";
+				array_push($this->netValues, $prev_Sum;
+			}
+		}
+
+		echo "it got here <br>"
 		$endIndex=count($this->transactions)-1;
 		for ($index =0; $index<count($this->transactions); $index++){
 			if(strtotime($this->transactions[$index]->getDate()) >= $startDate){
@@ -124,7 +126,7 @@ class Account {
 			
 
 		}
-		echo "HEY THEREE ";//.$this->netValues[0]."<br>";
+		echo 'HEY THEREE ';//.$this->netValues[0]."<br>";
 		for ($index=0; $index<count($this->netValues);$index++){
 			echo $this->netValues[$index]."<br>";
 		}
