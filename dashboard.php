@@ -184,18 +184,19 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
 		      		<script type="text/javascript">
 					function reCalculate(){
+						
+						var StartDate = $( "#datepicker1" ).datepicker( "getDate" );
+						var EndDate = $( "#datepicker2" ).datepicker( "getDate" );
+						// alert(startDate); 
 						alert("here1");
+					 	$.get("dateChangeHandler.php") {
+						 	startDate: StartDate,
+						 	endDate:  EndDate
+						 }).done(function(data) {
+						 	alert("here2");
 
-						var startDate = $( "#datepicker1" ).datepicker( "getDate" );
-						var endDate = $( "#datepicker2" ).datepicker( "getDate" );
-						alert(startDate); 
-						alert("here2");
-					 // 	$.get("dateChangeHandler.php") {
-						//  	startDate: 
-						//  	endDate:  
-						//  }).done(function(data) {
-						// 	//$("#AccountTable").html(data); NEED TO FIX THIS PART
-						// });
+							//$("#AccountTable").html(data); NEED TO FIX THIS PART
+						});
 					}
 					</script>
 					<button  class="btn btn-lg btn-primary btn-block" type="button" onClick="reCalculate()">Recalculate</button>
