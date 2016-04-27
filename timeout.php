@@ -3,13 +3,13 @@
 		session_start();
 	// }
 	require_once("header.php");
-	
+
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
 	while ($_SESSION['timeout'] + 20 > time())
 	{
-		echo ""
+		echo "";
 	}
 
 	$_SESSION['timeout'] = 0;
