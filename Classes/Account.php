@@ -129,7 +129,7 @@ class Account {
 			echo " current date is ";
 			echo date('d-m-Y',$currDate)."<br>";
 			 if($currDate == strtotime($this->transactions[$netValuesIndex]->getDate()) ){
-				echo 'reached here <br>'
+				echo 'reached here <br>';
 				$netValuesIndex++;
 			}
 			// array_push($this->dataPoints, 1]);//$this->netValues[$netValuesIndex]);
