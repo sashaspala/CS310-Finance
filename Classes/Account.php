@@ -110,8 +110,10 @@ class Account {
 		echo $endIndex; 
 		$netValuesIndex=$startIndex;
 		$currDate=$startDate;
-		for($index=0; $index<$numOfPoints;$index++){
-			if($currDate>$this->transactions[$netValuesIndex]->getDate()){
+		for($index=0; $index<$numOfPoints;$index++){//because we need that many points
+			echo "current index is"
+			echo $index;
+			if($currDate>strtotime($this->transactions[$netValuesIndex]->getDate())){
 				$netValuesIndex++;
 			}
 			array_push($this->dataPoints, $this->netValues[$netValuesIndex]);
