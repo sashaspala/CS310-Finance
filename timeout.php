@@ -8,8 +8,7 @@
 	ini_set('display_errors', 1);
 
 	echo "timeout ):";
-	ob_end_flush(); 
-    ob_flush(); 
+	ob_end_flush();  
     flush(); 
     ob_start(); 
 
