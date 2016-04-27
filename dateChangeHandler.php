@@ -15,7 +15,7 @@
 		$end = strtotime($_GET['endDate']);
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
-				header('Location: ' . $start . '+++' . $end); 
+				header('Location: ' . date('d-m-Y',$start) . '+++' . date('d-m-Y',$end)); 
 
 		//echo "HELPPPPOPPOPPOPO";
 		$accountList=$balanceSheet->getAccounts();
