@@ -311,6 +311,9 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
     });
 });
 
+$(function() {
+    $( "#datepicker" ).datepicker();
+});
 
 
 
