@@ -18,7 +18,6 @@ echo "created balanceSheet";
 if($_SESSION['balanceSheet']==null){
 	$balanceSheet = new BalanceSheet($accounts);
 	$_SESSION['balanceSheet'] = $balanceSheet;
-	header('Location: swag.php'); 
 }
 echo "created balanceSheet3";
 $_SESSION['dataManager'] = DataManager::getInstance();
