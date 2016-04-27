@@ -16,9 +16,8 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 //TODO FIX BALANCESHEET
 if($_SESSION['balanceSheet']==null){
 	$balanceSheet = new BalanceSheet($accounts);
-	$_SESSION['balanceSheet'] = $balanceSheet;
+	DataManager::getInstance()->balanceSheet = $balanceSheet;
 }
-$_SESSION['dataManager'] = DataManager::getInstance();
 //session_write_close();
 ?>
 <head>
@@ -106,7 +105,7 @@ $_SESSION['dataManager'] = DataManager::getInstance();
 
 				</script>
 				<?php
-					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
+					$existingAccounts = DataManager::getInstance()->balanceSheet->getAccounts();
 
 						// foreach($existingAccounts as $account){
 						// echo "<tr>";
