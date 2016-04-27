@@ -124,7 +124,7 @@ class Account {
 		$currDate=$startDate;
 		echo 'number of points/day in time range is '. $numOfPoints.'<br>';
 		for($index=0; $index<$numOfPoints;$index++){//because we need that many points
-			echo 'Iteration '.$index;
+			echo 'Iteration1 '.$index;
 			echo " current date is ";
 			echo date('d-m-Y',$currDate)."<br>";
 			if($currDate>strtotime($this->transactions[$netValuesIndex]->getDate())){
@@ -132,7 +132,7 @@ class Account {
 			}
 			// array_push($this->dataPoints, 1]);//$this->netValues[$netValuesIndex]);
 			$currDate = strtotime("+1 day", $currDate);
-			
+			echo 'Iteration2 '.$index;
 
 		}
 	
