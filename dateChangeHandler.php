@@ -25,7 +25,7 @@
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
 			//echo "god";
 		}
-
+		header('Location: 2323.php');
 		// var_dump($accountList);
 		$returnValue=array();
 		for ($index=0; $index<count($accountList);$index++){
