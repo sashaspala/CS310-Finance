@@ -1,7 +1,8 @@
 <?php
+session_start();
+
  require_once("DataManager.php");
  require_once("header.php");
- session_start();
 
 $accountsString = $_GET["accounts"];
 $accountsString = substr($accountsString, 0, -1);
@@ -15,14 +16,14 @@ $accountList = explode('-', $accountsString);
 //
 
 foreach ($accountList as $item) {
-	$account = DataManager::getInstance()->getAccount($item, $_SESSION['userID']);
+	$account = DataManager::getInstance()->getAccount($item, 1);
 	array_push($accounts, $account);
 	# code...
 }
 
 //get transactions
 foreach ($accounts as $item) {
-	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),$_SESSION['userID']);
+	$accountTrans = DataManager::getInstance()->getTransactionsForAccount($item->getID(),1);
 	foreach($accountTrans as $accountItem) {
 		$transactions[] = $accountItem;
 	}
