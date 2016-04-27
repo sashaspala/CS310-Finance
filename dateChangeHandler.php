@@ -14,10 +14,10 @@
 
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
-		
-		$balanceSheet = DataManager::getInstance()->balanceSheet; 
 
-		echo json_encode($balanceSheet->getAccounts()); 
+		$balanceSheet = DataManager::getInstance()->balanceSheet;
+
+		echo json_encode($balanceSheet->getAccounts());
     }
 
 
@@ -41,7 +41,7 @@
 
 
 
-	}
+	//}
 	echo "HEUY NP"
 
 	// header('Location: dashboard.php');
