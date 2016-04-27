@@ -7,6 +7,8 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
+	unset($_SESSION['userID']);
+	
 	echo "asdasdasdasdasdas";
 	if (!isset($_SESSION['timeout']))
 	{
