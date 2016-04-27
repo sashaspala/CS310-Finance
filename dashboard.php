@@ -18,7 +18,7 @@ if($_SESSION['balanceSheet']==null){
 	$balanceSheet = new BalanceSheet($accounts);
 	$_SESSION['balanceSheet'] = $balanceSheet;
 }
-// $_SESSION['dataManager'] = DataManager::getInstance();
+ $_SESSION['dataManager'] = DataManager::getInstance();
 //session_write_close();
 ?>
 <head>
