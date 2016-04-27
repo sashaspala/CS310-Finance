@@ -105,16 +105,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 				}
 
 				</script>
-				<?php
-					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
-
-						foreach($existingAccounts as $account){
-						echo "<tr>";
-						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
-						echo "<td><input type="."checkbox". " name=showAccount "."onClick =" ."filter()"." />"."</td>";
-						echo "</tr>";
-						}
-				?>
+				
 				</table>
 				<div class="account-btn">
 					<button type="button" id="addAccount" class="btn btn-success">Add</button>
