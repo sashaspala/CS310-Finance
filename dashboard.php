@@ -12,7 +12,7 @@ require_once("header.php");
 
 //LOADS PERSISTENT DATA
 
-$accounts = DataManager::getInstance()->getAccountsForUser(99);
+$accounts = DataManager::getInstance()->getAccountsForUser($_SESSION['userID']);
 
 //TODO FIX BALANCESHEET
 if($_SESSION['balanceSheet']==null){
