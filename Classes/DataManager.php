@@ -5,6 +5,9 @@ require_once("Account.php");
 require_once("Transaction.php");
 require_once("BalanceSheet.php");
 
+date_default_timezone_set('America/Los_Angeles');
+
+
  DataManager::getInstance()->getTransactionsForMonth('april');
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
