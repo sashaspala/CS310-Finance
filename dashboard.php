@@ -219,7 +219,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							            verticalAlign: 'middle',
 							            borderWidth: 0
 							        },
-							        series: data; 
+							        series: data
 							    });
 
 
