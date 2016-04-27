@@ -164,7 +164,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 		</script>
 		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div class="well" style="background-color:#FFFFFF">
-				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto">
+				<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto;float:left;">
 
 
 
@@ -172,12 +172,14 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 
 				</div>
-				<form class="form-recalculate-graph" action='dateChangeHandler.php' method='post' accept-charset='UTF-8'>
-					<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
-					<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
-					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
-					<button  class="btn btn-lg btn-primary btn-block" type="submit" id="dateButton" name = "dateSubmit">Re-Calculate</button>
-		      	</form>
+				<div style="float:right">
+					<form class="form-recalculate-graph" action='dateChangeHandler.php' method='post' accept-charset='UTF-8'>
+						<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
+						<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
+						<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
+						<button  class="btn btn-lg btn-primary btn-block" type="submit" id="dateButton" name = "dateSubmit">Re-Calculate</button>
+			      	</form>
+			      </div>
 			</div>
 
 		</div>
