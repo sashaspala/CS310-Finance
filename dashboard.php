@@ -150,13 +150,6 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 				<div class="account-btn">
 					<button type="submit" id="removeAccount" onClick="checkboxFilter" class="btn btn-danger">Remove</button>
 				</div>
-				<!-- <?php
-					// if(isset($_GET['removeAccount'])){
-					// 	#echo "<td><input type="."checkbox". "name="."checkboxFilter()"." onClick=" ."return false"."/>"."</td>"; 
-					// 	DataManager::removeAccount(checkboxFilter(), 1);
-					}
-				?> -->
-				
 			</div>
 		</div>
 		</form>
