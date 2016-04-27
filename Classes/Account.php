@@ -81,21 +81,29 @@ class Account {
 		$startIndex=0;
 		$this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, 1);
 		//echo $this->accountID;
-		var_dump($this->transactions); 
+		//var_dump($this->transactions); 
 		//var_dump($this);
 		$endIndex=count($this->transactions);
 		for ($index =0; $index<count($this->transactions); $index++){
-			if($this->transactions[$index]->getDate()>=$startDate){
+			if(strtotime($this->transactions[$index]->getDate()) >= $startDate){
 				$startIndex=$index;
 				break;
 			}
 		}
+
+		unset($index); 
+
 		for ($index =0; $index<count($this->transactions); $index++){
-			if($this->transactions[$index]->getDate()<=$endDate){
+			if(strtotime($this->transactions[$index]->getDate()) <= $endDate){
 				$endIndex=$index;
 				break;
 			}
 		}
+
+		unset($index); 
+		echo 'INDICES'; 
+		echo $startIndex; 
+		echo $endIndex; 
 		$netValuesIndex=$startIndex;
 		$currDate=$startDate;
 		for($index=0; $index<$numOfPoints;$index++){
@@ -105,8 +113,9 @@ class Account {
 			array_push($this->dataPoints, $this->netValues[$netValuesIndex]);
 			$currDate = strtotime("+1 day", $currDate);
 
-
 		}
+
+
 	}
 	function getDataPoints(){
 		return $this->dataPoints;
