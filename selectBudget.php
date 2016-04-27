@@ -44,10 +44,8 @@
 			<input type="submit" id="bugdetSet" name="bugdetSet" value= "Set Budget" class="btn btn-info">
 			</form>
 			<?php
-			if(isset($_POST['budgetSet'])) {
-				if($budget == 'Food') $food[$month] = $_POST['budgetAmount'];
-				else if($budget == 'Education') $education[$month] = $_POST['budgetAmount'];
-			}
+			if($budget == 'Food') $food[$month] = $_POST['budgetAmount'];
+			else if($budget == 'Education') $education[$month] = $_POST['budgetAmount'];
 		}
 
 		if($month != 'Select a month') {
