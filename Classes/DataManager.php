@@ -6,7 +6,7 @@ require_once("Transaction.php");
 require_once("BalanceSheet.php");
 
  DataManager::getInstance()->getTransactionsForMonth('april');
- 
+
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
@@ -404,7 +404,7 @@ class DataManager {
 
 			foreach($transactions as $transaction) {
 				$date = $transaction->transactionDate;
-				echo $date;
+				echo date("jS F, Y", strtotime($date));
 			}
 		}
 	}
