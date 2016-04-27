@@ -186,16 +186,16 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 					function reCalculate(){
 						alert("here1");
 
-						var startDate = $( "#datepicker1" ).datepicker( "getDate" );
-						var endDate = $( "#datepicker2" ).datepicker( "getDate" );
+						var StartDate = $( "#datepicker1" ).datepicker( "getDate" );
+						var EndDate = $( "#datepicker2" ).datepicker( "getDate" );
 						alert(startDate); 
 						alert("here2");
-					 // 	$.get("dateChangeHandler.php") {
-						//  	startDate: 
-						//  	endDate:  
-						//  }).done(function(data) {
-						// 	//$("#AccountTable").html(data); NEED TO FIX THIS PART
-						// });
+					 	$.get("dateChangeHandler.php") {
+						 	startDate: StartDate,
+						 	endDate: EndDate
+						 }).done(function(data) {
+							//$("#AccountTable").html(data); NEED TO FIX THIS PART
+						});
 					}
 					</script>
 					<button  class="btn btn-lg btn-primary btn-block" type="button" onClick="reCalculate()">Recalculate</button>
