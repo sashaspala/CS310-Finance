@@ -5,13 +5,15 @@
 
 	if ($_SESSION['timeout'] == null)
 	{
-		$_SESSION['timeout'] = time();
+		$_SESSION['timeout'] = 0;
 	}
 
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
 	require_once("header.php");
+
+
 
 	if  ($_SESSION['timeout'] != 0)
 		header('timeout.php');
