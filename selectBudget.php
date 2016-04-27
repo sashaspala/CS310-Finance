@@ -16,22 +16,24 @@
 			<?php
 		}
 
-	 	switch ($budget) {
-	 		case 'Select a budget':
-	 			break;
-	 		case 'Food': ?>
-	 			<h3>Food</h3>
-	 			<h4>Total budget: $300.00</h4>
-	 			<?php
-	 			break;
-	 		case 'Education': ?>
-	 			<h3>Education</h3>
-	 			<h4>Total budget: $500.00</h4>
-	 			<?php
-	 			break;
-	 		default:
-	 			echo 'ERROR!';
-	 			break;
-	 	}
+		if($month != 'Select a month') {
+			switch ($budget) {
+		 		case 'Select a budget':
+		 			break;
+		 		case 'Food': ?>
+		 			<h3>Food</h3>
+		 			<h4>Total budget: $300.00</h4>
+		 			<?php
+		 			break;
+		 		case 'Education': ?>
+		 			<h3>Education</h3>
+		 			<h4>Total budget: $500.00</h4>
+		 			<?php
+		 			break;
+		 		default:
+		 			echo 'ERROR!';
+		 			break;
+	 		}
+		}
 	}
 ?>
