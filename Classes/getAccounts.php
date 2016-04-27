@@ -14,7 +14,7 @@ $accountList = explode('-', $accountsString);
 //
 
 foreach ($accountList as $item) {
-	$account = DataManager::getInstance()->getAccount($item, 1);
+	$account = DataManager::getInstance()->getAccount($item->getID(), 1);
 	array_push($accounts, $account);
 	# code...
 }
