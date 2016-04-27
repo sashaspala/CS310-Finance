@@ -11,15 +11,13 @@ require_once("header.php");
 
 //LOADS PERSISTENT DATA
 
-$accounts = DataManager::getInstance()->getAccountsForUser(1);
+//$accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 //TODO FIX BALANCESHEET
-if($_SESSION['balanceSheet']==null){
-	$balanceSheet = new BalanceSheet($accounts);
-	$_SESSION['balanceSheet'] = $balanceSheet;
-}
-$_SESSION['dataManager'] = DataManager::getInstance();
-$_SESSION['test']="STRIGN";
+// if($_SESSION['balanceSheet']==null){
+// 	$balanceSheet = new BalanceSheet($accounts);
+// 	$_SESSION['balanceSheet'] = $balanceSheet;
+// }
 //session_write_close();
 ?>
 <head>
@@ -106,16 +104,7 @@ $_SESSION['test']="STRIGN";
 				}
 
 				</script>
-				<?php
-					$existingAccounts = $_SESSION['balanceSheet']->getAccounts();
-
-						foreach($existingAccounts as $account){
-						echo "<tr>";
-						echo "<td headers="."name>" . $account->getAccountName() . "</td>";
-						echo "<td><input type="."checkbox". " name=showAccount "."onClick =" ."filter()"." />"."</td>";
-						echo "</tr>";
-						}
-				?>
+			
 				</table>
 				<div class="account-btn">
 					<button type="button" id="addAccount" class="btn btn-success">Add</button>
