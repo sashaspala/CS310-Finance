@@ -81,14 +81,14 @@ class Account {
 	public function calculateDataPoint($startDate, $endDate, $numOfPoints){
 		$startIndex=0;
 		$this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, 1);
-		echo count($this->transactions).'yeah thats right <br>';
+		// echo count($this->transactions).'yeah thats right <br>';
 		if(count($this->transactions)>0){
 			array_push($this->netValues, $this->transactions[0]->getAmount());
-			echo "net value ". $this->netValues[0].'<br>';
+			// echo "net value ". $this->netValues[0].'<br>';
 			for ($index =1; $index<count($this->transactions); $index++){		
 				$prev_Sum= $this->netValues[$index-1]+$this->transactions[$index]->getAmount();
 				array_push($this->netValues, $prev_Sum);
-				echo "net value at index ".$index." is equal to " .$this->netValues[$index].'<br>';
+				// echo "net value at index ".$index." is equal to " .$this->netValues[$index].'<br>';
 			}
 		}
 
@@ -117,27 +117,28 @@ class Account {
 		}
 
 		unset($index); 
-		echo 'INDICES'; 
-		echo $startIndex; 
-		echo $endIndex."<br>"; 
+		// echo 'INDICES'; 
+		// echo $startIndex; 
+		// echo $endIndex."<br>"; 
 		$netValuesIndex=$startIndex;
 		$currDate=$startDate;
-		echo 'number of points/day in time range is '. $numOfPoints.'<br>';
-		echo ' start value'. $this->netValues[$startIndex].'<br>';
+		// echo 'number of points/day in time range is '. $numOfPoints.'<br>';
+		// echo ' start value'. $this->netValues[$startIndex].'<br>';
 		for($index=0; $index<$numOfPoints;$index++){//because we need that many points
-			echo 'Iteration1 '.$index;
-			echo " current date is ";
-			echo date('d-m-Y',$currDate)."<br>";
-			 if($currDate == strtotime($this->transactions[$netValuesIndex]->getDate()) ){
-				echo 'reached here <br>';
+			// echo 'Iteration1 '.$index;
+			// echo " current date is ";
+			// echo date('d-m-Y',$currDate)."<br>";
+			if($currDate == strtotime($this->transactions[$netValuesIndex]->getDate()) ){
+				// echo 'reached here <br>';
 				$netValuesIndex++;
 			}
 			array_push($this->dataPoints, $this->netValues[$netValuesIndex]);
 			$currDate = strtotime("+1 day", $currDate);
-			echo 'Iteration2 '.$index."<br>";
+			// echo 'Iteration2 '.$index."<br>";
 
 		}
-	
+
+	echo 'Iteration2';
 
 	}
 	function getDataPoints(){
