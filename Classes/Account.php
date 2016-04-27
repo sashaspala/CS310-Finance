@@ -99,7 +99,7 @@ class Account {
 
 		$endIndex=count($this->transactions)-1;
 		for ($index =0; $index<count($this->transactions); $index++){
-			if(strtotime($this->transactions[$index]->getDate()) > $startDate){
+			if(strtotime($this->transactions[$index]->getDate()) >= $startDate){
 				$startIndex=$index;
 				// echo 'found start'.$index."<br>"; 
 				break;
@@ -117,9 +117,9 @@ class Account {
 		}
 
 		unset($index); 
-		// echo 'INDICES'; 
-		// echo $startIndex; 
-		// echo $endIndex."<br>"; 
+		echo 'INDICES'; 
+		echo $startIndex; 
+		echo $endIndex."<br>"; 
 		$netValuesIndex=$startIndex;
 		$currDate=$startDate;
 		echo 'number of points/day in time range is '. $numOfPoints.'<br>';
