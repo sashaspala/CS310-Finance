@@ -178,49 +178,21 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 					<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
 					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
 					<button  class="btn btn-lg btn-primary btn-block" type="submit" id="dateButton" name = "dateSubmit">Re-Calculate</button>
-		      		<script type="text/javascript">
-		      			function filter(){
+		    //   		<script type="text/javascript">
+		    //   			function graphData(){
 
-						var accountTable = document.getElementById("AccountsTable");
-						var checkedAccounts = accountTable.getElementsByTagName("input");
-						var getString = "";
-
-
-
-						var accountFound = false;
-
-						for(var i =0; i<checkedAccounts.length; i++){
-							if(checkedAccounts[i].checked){
-								//alert("yes");
-								 var currentRow = $(checkedAccounts[i]).closest('tr');
-
-								 var accountName = $(currentRow).children()[0].innerText;
-
-								 accountFound = true;
-
-								getString += accountName + "-";
-								//alert(getString);
-
-							}
-						}
+					
+						// 	 $.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
+						// 		console.log('finished');
+						// 		$("#ajaxtable").html(data);
+						// 		});
 
 
-						if(getString != ""){
-							 $.get("Classes/getAccounts.php", { accounts : getString }).done(function(data) {
-								console.log('finished');
-								$("#ajaxtable").html(data);
-								});
+						
+						// 	$("#ajaxtable").html("<table id='transactions' class='table table-bordered table-hover sortable'><thead><tr><th>Name</th><th>Type</th><th>Amount</th><th>Date</th></tr></thead><tbody></tbody></table>");
+						// }
 
-
-						}
-						else
-						{
-							$("#ajaxtable").html("<table id='transactions' class='table table-bordered table-hover sortable'><thead><tr><th>Name</th><th>Type</th><th>Amount</th><th>Date</th></tr></thead><tbody></tbody></table>");
-						}
-						//ajax request
-						}
-
-		      		</script>
+		    //   		</script>
 		      	</form>
 			</div>
 
