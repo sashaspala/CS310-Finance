@@ -191,7 +191,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 						 	startDate: StartDate,
 						 	endDate: EndDate
 						 }).done(function(data) {
-							console.log(data);
+							alert(data);
 							$('#graph').highcharts({
 							        title: {
 							            text: 'Finances',
@@ -219,7 +219,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							            verticalAlign: 'middle',
 							            borderWidth: 0
 							        },
-							        series: [data]
+							        series: data
 							    });
 
 
