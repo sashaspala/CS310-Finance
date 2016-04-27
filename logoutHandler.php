@@ -7,9 +7,9 @@
 
 	// unset($_SESSION);
 	unset($_SESSION['userID']);
-	unset($_SESSION['userFullName']);
+	//unset($_SESSION['userFullName']);
 	unset($_SESSION['timeout'])
-	unset($_SESSION['b'])
+	//unset($_SESSION['b'])
 
 	DataManager::getInstance()->logout();
 	header('Location: login.php');
