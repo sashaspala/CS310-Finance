@@ -179,24 +179,23 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 				</div>
 				<!-- <form class="form-recalculate-graph" id="form-recalculate-graph" action='dateChangeHandler.php' method='get' accept-charset='UTF-8'> -->
-					<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
-					<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
+					<p>Start Date: <input type="text" id="datepicker1" name = "StartDate"></p>
+					<p>End Date: <input type="text" id="datepicker2" name = "EndDate"></p>
 					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
 		      		<script type="text/javascript">
 					function reCalculate(){
-						
-						var StartDate = $( "#datepicker1" ).datepicker( "getDate" );
-						var EndDate = $( "#datepicker2" ).datepicker( "getDate" );
-						// alert(startDate); 
 						alert("here1");
-					 	$.get("dateChangeHandler.php") {
-						 	startDate: StartDate,
-						 	endDate:  EndDate
-						 }).done(function(data) {
-						 	alert("here2");
 
-							//$("#AccountTable").html(data); NEED TO FIX THIS PART
-						});
+						var startDate = $( "#datepicker1" ).datepicker( "getDate" );
+						var endDate = $( "#datepicker2" ).datepicker( "getDate" );
+						alert(startDate); 
+						alert("here2");
+					 // 	$.get("dateChangeHandler.php") {
+						//  	startDate: 
+						//  	endDate:  
+						//  }).done(function(data) {
+						// 	//$("#AccountTable").html(data); NEED TO FIX THIS PART
+						// });
 					}
 					</script>
 					<button  class="btn btn-lg btn-primary btn-block" type="button" onClick="reCalculate()">Recalculate</button>
@@ -215,7 +214,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 				<h2>Transactions</h2>
 <!-- >>>>>>> origin -->
-	<div id=ajaxtable1>
+	<div id=ajaxtable>
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
