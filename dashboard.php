@@ -1,23 +1,26 @@
 <?php
-
+// if(!session_id()) {
+   session_start();
+// }
 require_once("Classes/DataManager.php");
 //TODO FIX BALANCESHEET
 require_once("Classes/BalanceSheet.php");
 require_once("header.php");
 
-if(!session_id()) {
-   session_start();
-}
+
 
 //LOADS PERSISTENT DATA
 
 $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 //TODO FIX BALANCESHEET
+echo "created balanceSheet";
 if($_SESSION['balanceSheet']==null){
 	$balanceSheet = new BalanceSheet($accounts);
 	$_SESSION['balanceSheet'] = $balanceSheet;
+	echo "created balanceSheet2";
 }
+echo "created balanceSheet3";
 $_SESSION['dataManager'] = DataManager::getInstance();
 $_SESSION['test']="STRIGN";
 ?>
