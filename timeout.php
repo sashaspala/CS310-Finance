@@ -1,3 +1,4 @@
+<div>timeout ):</div>
 <?php
 	if(!session_id()) {
 		session_start();
@@ -14,6 +15,4 @@
 	session_destroy();
 	#$_SESSION['timeout'] = 0;
 	header("Location: login.php")
-?>	
-
-timeout ):
+?>
