@@ -6,9 +6,9 @@
 	require_once("Classes/BalanceSheet.php");
 
   $balanceSheet = DataManager::getInstance()->balanceSheet;
-  
+  echo "Hyup"
 	if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
-
+		echo "nope";
 		//THE PARAMETERS AS PASSED IN AS STRING
 
 		$start = strtotime($_POST['startDate']);
@@ -19,7 +19,7 @@
 
 		$accountList=$balanceSheet->getAccounts();
 		for ($index=0; $index<count($accountList); $index++){
-			echo $index;
+			echo "".$index."\n";
 			$accountList[$index]->calculateDataPoint($start, $end, $days);
 		}
 
@@ -27,7 +27,7 @@
 
 		$dataPoints= $accountList[0]->getDataPoints();
 		for($i=0;$i<$i;$i++){
-			echo $i.\n;
+			echo $i."\n";
 			$dataPoints[$i];
 		}
 		// echo json_encode($accountList);
