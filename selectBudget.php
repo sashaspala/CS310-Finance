@@ -6,7 +6,7 @@
 		$budget = $_POST['budgets'];
 		$month = $_POST['months'];
 
-		if($budget != 'Select a budget' || $month != 'Select a month') {
+		if($budget != 'Select a budget' && $month != 'Select a month') {
 			?>
 			<form id="setBudget" class="form-set-budget" action='setBudget.php' method='post' accept-charset='UTF-8'>
 			<font size="3">Set Budget Amount: $</font>
