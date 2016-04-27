@@ -6,18 +6,9 @@
 
 	require_once("Classes/DataManager.php");
 
-	echo '<div class="my_class">';
-	echo "HELLO";
-	echo '</div>';
-
 	if (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['password'])) {
 
 		$user = DataManager::getInstance()->loginUser($_POST['email'], md5($_POST['password']));
-		$failed_attempts = 4;
-
-		echo '<div class="my_class">';
-		echo $failed_attempts;
-		echo '</div>';
 
 		if($failed_attempts > 3) {
 			echo "
