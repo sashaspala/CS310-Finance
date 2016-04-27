@@ -179,24 +179,24 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 
 				</div>
-				<form class="form-recalculate-graph" id="form-recalculate-graph" action="javascript:Re-Calculate()" method='get' accept-charset='UTF-8'>
+				<!-- <form class="form-recalculate-graph" id="form-recalculate-graph" action='dateChangeHandler.php' method='get' accept-charset='UTF-8'> -->
 					<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
 					<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
 					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
-					<button  class="btn btn-lg btn-primary btn-block" type="submit" id="dateButton" name = "dateSubmit">Re-Calculate</button>
-		      	
-					<script type="text/javascript">
-					function Re-Calculate(){
-						alert('here'); 
+		      		<script type="text/javascript">
+					function reCalculate(){
+						alert("here"); 
 					 	$.get("dateChangeHandler.php", {
 						 	accounts : getString }).done(function(data) {
 							$("#AccountTable").html(data);
 						});
 					}
 					</script>
+					<button  class="btn btn-lg btn-primary btn-block" type="button" onClick="reCalculate()">Recalculate</button>
 
 
-		      	</form>
+
+		      	<!-- </form> -->
 			</div>
 
 		</div>
