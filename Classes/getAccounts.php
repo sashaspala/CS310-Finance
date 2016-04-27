@@ -1,6 +1,6 @@
 <?php
  require_once("DataManager.php");
- require_once("../header.php");
+
 
 $accountsString = $_GET["accounts"];
 $accountsString = substr($accountsString, 0, -1);
