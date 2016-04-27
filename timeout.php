@@ -10,7 +10,7 @@
 	session_unset();
 	session_destroy();
 	#$_SESSION['timeout'] = 0;
-	header("login.php")
+	header("Location: login.php")
 ?>	
 
 timeout ):
