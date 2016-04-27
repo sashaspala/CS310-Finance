@@ -7,9 +7,6 @@ require_once("BalanceSheet.php");
 
 date_default_timezone_set('America/Los_Angeles');
 
-
- DataManager::getInstance()->getTransactionsForMonth('april');
-
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
@@ -401,15 +398,19 @@ class DataManager {
 
 	function getTransactionsForMonth($month) {
 		$accounts = self::getAccountsForUser(1);
-
+		$results = array();
 		foreach ($accounts as $account) {
 			$transactions = self::getTransactionsForAccount($account->getID(), 1);
 
 			foreach($transactions as $transaction) {
 				$date = $transaction->transactionDate;
-				echo date("F", strtotime($date));
+				if(date("F", strtotime($date)) === $month) {
+					$results[] = $transaction;
+				}
 			}
 		}
+
+		return $results;
 	}
 }
 
