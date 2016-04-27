@@ -22,8 +22,9 @@
 
 	if ($_SESSION['timeout_count'] > 3)
 	{
+		echo ">3";
 		$_SESSION['timeout'] = time();
-		header("timeout.php");
+		header("Location: timeout.php");
 	}
 ?>	
 
