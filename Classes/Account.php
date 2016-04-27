@@ -127,9 +127,7 @@ class Account {
 			echo 'Iteration1 '.$index;
 			echo " current date is ";
 			echo date('d-m-Y',$currDate)."<br>";
-			echo date('d-m-Y',strtotime($this->transactions[$netValuesIndex]->getDate()));
-			if(($currDate>strtotime($this->transactions[$netValuesIndex]->getDate()))
-			{
+			if(($currDate>strtotime($this->transactions[$netValuesIndex]->getDate())){
 				echo 'reached here <br>';
 				$netValuesIndex++;
 			}
