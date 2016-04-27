@@ -11,7 +11,7 @@ date_default_timezone_set('America/Los_Angeles');
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
 
-DataManager::getInstance()->removeAccount('Bank Of America2', 1);
+//DataManager::getInstance()->removeAccount('Bank Of America2', 1);
 
 // $testManager
 // $newAccount = $testManager->getAccount('Credit `Card2', 2);
@@ -191,7 +191,7 @@ class DataManager {
 		$accountID = self::getAccount($name, $userID)->getID();
 		$transactionDeleteStatement = $this->_db->prepare('DELETE FROM Transactions WHERE Accounts_accountID = :accountID');
 		$transactionDeleteStatement->bindParam(':accountID', $accountID);
-		$this->executeStatement($transactionDeleteStatement); 
+		$this->executeStatement($transactionDeleteStatement);
 		$statement = $this->_db->prepare('DELETE FROM Accounts WHERE name = :name AND Users_userID = :userID');
 
 		$statement->bindParam(':name', $name);
