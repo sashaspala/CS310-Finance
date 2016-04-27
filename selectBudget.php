@@ -76,11 +76,11 @@
 		 			<h4>Total budget: $<?php echo $food[$month] ?>.00</h4>
 		 			<?php
 		 			$transactions = DataManager::getInstance()->getTransactionsForMonth($months_to_transactions[$month], 1);
-		 			$total = 0;
-		 			foreach($transactions as $transaction) {
-		 				$total += $transaction->getAmount();
-		 			}
-		 			echo $total;
+		 			// $total = 0;
+		 			// foreach($transactions as $transaction) {
+		 			// 	$total += $transaction->getAmount();
+		 			// }
+		 			// echo $total;
 		 			break;
 		 		case 'Education': ?>
 		 			<h3>Education</h3>
