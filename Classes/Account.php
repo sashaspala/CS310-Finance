@@ -111,7 +111,7 @@ class Account {
 		// echo $endIndex."<br>"; 
 		$netValuesIndex=$startIndex;
 		$currDate=$startDate;
-		echo "HEY THEREE1 ";
+		echo 'HEY THEREE1 ';
 		for($index=0; $index<$numOfPoints;$index++){//because we need that many points
 			echo "HEY THEREE ".$index;
 			// echo "current date is";
