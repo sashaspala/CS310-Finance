@@ -1,7 +1,7 @@
 <?php
-	if(!session_id()) {
+	//if(!session_id()) {
 		session_start();
-	}
+	//}
 
 	require_once("header.php");
 	error_reporting(E_ALL);
