@@ -14,7 +14,10 @@
 
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
-		if(is_null($_SESSION['balanceSheet'])){echo "it is okay";}
+		if(is_null($_SESSION['balanceSheet'])){echo "it is null";}
+    else {
+      echo "it is okay";
+    }
 
 
 		// $_SESSION['balanceSheet']->getAccounts();
