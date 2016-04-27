@@ -3,9 +3,10 @@
 require_once("User.php");
 require_once("Account.php");
 require_once("Transaction.php");
+require_once("BalanceSheet.php");
 
-//$accountTrans = DataManager::getInstance()->getTransactionsForAccount(1, 1);
- //DataManager::getInstance(); 
+$accountTrans = DataManager::getInstance()->getTransactionsForAccount(1, 1);
+ //DataManager::getInstance();
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
@@ -45,8 +46,8 @@ class DataManager {
 		return self::$currentInstance;
 	}
 	public $currentLoggedInUserID; // ID for the currently logged in user
-	private $_db; //database connection
 	public $balanceSheet;
+	private $_db; //database connection
 
 	function __construct() {
 
@@ -60,7 +61,7 @@ class DataManager {
 
 			$this->_db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
 			$this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+			$this->balanceSheet = new BalanceSheet(self::getAccountsForUser(1));
 		} catch(Exception $e) {
 
 			header('Location: ' . $e->getMessage());
