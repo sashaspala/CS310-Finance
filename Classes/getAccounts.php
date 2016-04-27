@@ -31,8 +31,6 @@ foreach ($accounts as $item) {
 //echo transactions
 echo "<table id='transactions' class='table table-bordered table-hover sortable'>";
 
-echo "<tbody>";
-
 echo "<thead>";
 echo "<tr>";
 echo		"<th>Name</th>";
