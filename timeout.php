@@ -15,7 +15,7 @@
 		z-index:100; 
 		height: 100%; 
 		width:100%; 
-		background-color:rgba(0,5,80,0.8);
+		background-color:rgba(10,10,10,1);
 		color:white; padding-top:20%; text-align:center;'
 		>
 		<h1>Sorry, you've logged in unsuccessfully too many times.<br>Try again in 60 seconds.</h2>
