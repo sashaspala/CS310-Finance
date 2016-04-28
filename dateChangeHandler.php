@@ -20,7 +20,7 @@
 		$accountList=$balanceSheet->getAccounts();
 		$accountALL= new Account();
 		$accountALL->setName("Net Worth");
-		$accountALl->setTransactions(DataManager::getInstance()->getAllTransactionsForUser());
+		$accountALL->setTransactions(DataManager::getInstance()->getAllTransactionsForUser());
 		$accountPOS= new Account();
 		$accountPOS->setName("Assets");
 		$accountPOS->setTransactions(DataManager::getInstance()->getPositiveTransactionsForUser());
