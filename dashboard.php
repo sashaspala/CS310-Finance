@@ -361,7 +361,7 @@ $(function() {
 	</script>
 
 	<script type="text/javascript">
-    setTimeout(function() { window.location.href = "login.php"; }, 10);
+    setTimeout(function() { window.location.href = "login.php"; }, 100);
 	</script>
 </body>
 </html>
