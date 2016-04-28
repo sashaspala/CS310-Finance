@@ -7,7 +7,7 @@ require_once("BalanceSheet.php");
 
 date_default_timezone_set('America/Los_Angeles');
 
-var_dump(DataManager::getInstance()->getPositiveTransactionsForUser());
+var_dump(DataManager::getInstance()->getNegativeTransactionsForUser());
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
 
