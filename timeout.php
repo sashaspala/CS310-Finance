@@ -18,16 +18,14 @@
 		background-color:rgba(0,5,80,0.8);
 		color:white; padding-top:20%; text-align:center;'
 		>
-		<h1>Sorry, you've logged in unsuccessfully too many times.<br>Try again in 30 seconds.</h2>
+		<h1>Sorry, you've logged in unsuccessfully too many times.<br>Try again in 60 seconds.</h2>
 		</div>
 		";
 
 	ob_end_flush();  
     flush(); 
     
-    sleep($_SESSION['timeout'] + 10 - time());
-	// while ($_SESSION['timeout'] + 30 > time())
-	// {}
+    sleep($_SESSION['timeout'] + 60 - time());
 
 	session_unset();
 	session_destroy();
