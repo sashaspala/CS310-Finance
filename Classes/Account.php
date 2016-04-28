@@ -38,6 +38,14 @@ class Account {
 		return $this->accountID;
 	}
 
+	function setTransactions ($transactions) {
+		$this->transactions = $transactions;
+	}
+
+	function setName ($name) {
+		$this->name = $name; 
+	}
+
 	function calculateTotalSum(){
 		$total = 0.00;
 		if(!empty($this->transactions)){
@@ -85,7 +93,7 @@ class Account {
 		if(count($this->transactions)>0){
 			array_push($this->netValues, $this->transactions[0]->getAmount());
 			// echo "net value ". $this->netValues[0].'<br>';
-			for ($index =1; $index<count($this->transactions); $index++){		
+			for ($index =1; $index<count($this->transactions); $index++){
 				$prev_Sum= $this->netValues[$index-1]+$this->transactions[$index]->getAmount();
 				array_push($this->netValues, $prev_Sum);
 				// echo "net value at index ".$index." is equal to " .$this->netValues[$index].'<br>';
@@ -93,7 +101,7 @@ class Account {
 		}
 
 		//echo $this->accountID;
-		//var_dump($this->transactions); 
+		//var_dump($this->transactions);
 		//var_dump($this);
 
 
@@ -101,25 +109,25 @@ class Account {
 		for ($index =0; $index<count($this->transactions); $index++){
 			if(strtotime($this->transactions[$index]->getDate()) >= $startDate){
 				$startIndex=$index;
-				// echo 'found start'.$index."<br>"; 
+				// echo 'found start'.$index."<br>";
 				break;
 			}
 		}
 
-		unset($index); 
+		unset($index);
 
 		for ($index = 0; $index < count($this->transactions); $index++){
 			if(strtotime($this->transactions[$index]->getDate()) > $endDate){
 				$endIndex=$index - 1;
-				// echo 'found end'.$index."<br>"; 
+				// echo 'found end'.$index."<br>";
 				break;
 			}
 		}
 
-		unset($index); 
-		// echo 'INDICES'; 
-		// echo $startIndex; 
-		// echo $endIndex."<br>"; 
+		unset($index);
+		// echo 'INDICES';
+		// echo $startIndex;
+		// echo $endIndex."<br>";
 		$netValuesIndex=$startIndex;
 		$currDate=$startDate;
 		// echo 'number of points/day in time range is '. $numOfPoints.'<br>';
@@ -130,18 +138,18 @@ class Account {
 			// echo date('d-m-Y',$currDate)."<br>";
 			if($currDate == strtotime($this->transactions[$netValuesIndex]->getDate()) ){
 				// echo 'reached here <br>';
-				if ($netValuesIndex < count($this->netValues) - 1) { 
+				if ($netValuesIndex < count($this->netValues) - 1) {
 					$netValuesIndex++;
 				}
 			}
-			// echo $netValuesIndex; 
+			// echo $netValuesIndex;
 			array_push($this->dataPoints, $this->netValues[$netValuesIndex]);
 			$currDate = strtotime("+1 day", $currDate);
 			// echo 'Iteration2 '.$index."<br>";
 
 		}
 
-	
+
 
 	}
 	function getDataPoints(){
