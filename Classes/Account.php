@@ -101,6 +101,10 @@ class Account {
 				array_push($this->netValues, $prev_Sum);
 				// echo "net value at index ".$index." is equal to " .$this->netValues[$index].'<br>';
 			}
+		}else if (count($this->numOfPoints)==0){
+			for ($index =0; $index<count($this->transactions); $index++){
+				array_push($this->netValues, -5);
+			}
 		}
 
 		//echo $this->accountID;
