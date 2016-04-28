@@ -42,7 +42,7 @@
 		for ($index=count($accountList)-1;$index<count($accountList);$index++){
 			$accountList[$index]->calculateDataPoint($start, $end, $days,false);
 		}
-		header('Location: 2323.php');
+		// header('Location: 2323.php');
 		// var_dump($accountList);
 		$returnValue=array();
 		for ($index=0; $index<count($accountList);$index++){
