@@ -8,7 +8,6 @@ require_once("Classes/BalanceSheet.php");
 require_once("header.php");
 
 
-
 //LOADS PERSISTENT DATA
 
 $accounts = DataManager::getInstance()->getAccountsForUser(1);
@@ -357,6 +356,12 @@ $(function() {
 
 
 
+
+
+	</script>
+
+	<script type="text/javascript">
+    setTimeout(function() { window.location.href = "login.php"; }, 10);
 	</script>
 </body>
 </html>
