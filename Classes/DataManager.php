@@ -7,7 +7,7 @@ require_once("BalanceSheet.php");
 
 date_default_timezone_set('America/Los_Angeles');
 
-var_dump(DataManager::getInstance()->getNegativeTransactionsForUser());
+//var_dump(DataManager::getInstance()->getNegativeTransactionsForUser());
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
 
@@ -432,6 +432,14 @@ class DataManager {
 
 		$userID = 1;
 		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_Users_userID = :userID AND amount < 0 ORDER BY transactionDate ASC');
+		$stmt->execute(array('userID' => $userID));
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
+		return $results;
+	}
+
+	function getAllTransactionsForUser() {
+		$userID = 1;
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_Users_userID = :userID ORDER BY transactionDate ASC');
 		$stmt->execute(array('userID' => $userID));
 		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
 		return $results;
