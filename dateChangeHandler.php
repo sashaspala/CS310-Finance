@@ -7,12 +7,14 @@
 
   $balanceSheet = DataManager::getInstance()->balanceSheet;
   //echo "Hyup";
-	//if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
+	if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
 		//echo "nope \n";
 		//THE PARAMETERS AS PASSED IN AS STRING
 
-		$start = strtotime('04/01/2016');//$_GET['startDate']);
-		$end = strtotime('04/20/2016');//$_GET['endDate']);
+		// $start = strtotime('04/01/2016');//$_GET['startDate']);
+		// $end = strtotime('04/20/2016');//$_GET['endDate']);
+		$start = strtotime($_GET['startDate']);
+		$end = strtotime($_GET['endDate']);
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
@@ -41,7 +43,7 @@
 			$accountList[$index]->calculateDataPoint($start, $end, $days,false);
 		}
 		header('Location: 2323.php');
-		var_dump($accountList);
+		// var_dump($accountList);
 		$returnValue=array();
 		for ($index=0; $index<count($accountList);$index++){
 			$dataPoints= $accountList[$index]->getDataPoints();
@@ -58,7 +60,7 @@
 
 
 		echo json_encode($returnValue);
- // }
+ }
 
 
 		
