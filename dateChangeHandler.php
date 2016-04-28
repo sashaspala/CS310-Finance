@@ -18,11 +18,17 @@
 
 		//echo "HELPPPPOPPOPPOPO";
 		$accountList=$balanceSheet->getAccounts();
+		$accountALL= new Account();
+		$accountALL->setName("Net Worth");
+		$accountALl->setTransactions(DataManager::getInstance()->getAllTransactionsbyUsers());
+		$accountPOS= new Account();
+		$accountPOS->setName("Assets");
+		$accountPOS->setTransactions(DataManager::getInstance()->getPo)
 		//echo "121212HELPPPPOPPOPPOPO121212";
 		for ($index=0; $index<count($accountList); $index++){
 
 			//echo " hi".$index."\n";
-			$accountList[$index]->calculateDataPoint($start, $end, $days);
+			$accountList[$index]->calculateDataPoint($start, $end, $days,true);
 			//echo "god";
 		}
 		// header('Location: 2323.php');
@@ -39,6 +45,8 @@
 
 
 		}
+
+
 
 		echo json_encode($returnValue);
   }
