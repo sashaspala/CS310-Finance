@@ -29,7 +29,7 @@
 		$accountNEG->setTransactions(DataManager::getInstance()->getNegativeTransactionsForUser());
 		array_push($accountList, $accountALL);
 		array_push($accountList, $accountPOS);
-		array_push($accountList, $accountNEG);
+		// array_push($accountList, $accountNEG);
 		//echo "121212HELPPPPOPPOPPOPO121212";
 		for ($index=0; $index<count($accountList)-3; $index++){
 
