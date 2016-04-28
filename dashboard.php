@@ -290,7 +290,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 					  	<option value="November">November</option>
 					  	<option value="December">December</option>
 					</select>
-					<input type="submit" id="bugdetSubmit" name="bugdetSubmit" value= "View" class="btn btn btn-warning">
+					<input type="submit" id="budgetSubmit" name="budgetName" value= "View" class="btn btn btn-warning">
 					</p>
 					</div>
 					<script type="text/javascript">

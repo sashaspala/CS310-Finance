@@ -24,6 +24,11 @@ Given /^I searched the (.*?) stock$/ do |stock|
 	click_button('searchbutton')
 end
 
+When /^I upload (.*?) to (.*?)$/ do |fileName, element|
+	click_on(element)
+	attach_file(element, fileName)
+end
+
 When /^I fill in (.*?) with (.*?)$/ do |box_name, value|
 	fill_in(box_name, :with => value)
 end
@@ -44,6 +49,13 @@ When /^I upload the file (.*?) to (.*?)$/ do |filePath, element|
 	attach_file(element, filePath)
 end
 
+When /^I hit the input button (.*?)$/ do |inputID|
+	locate(:css, inputID).click
+end
+
+When /^I select (.*?) from (.*?)$/ do |choice, element|
+	select(choice, :from => element)
+end
 
 
 Then /^I should see page (.*?)$/ do |path|
