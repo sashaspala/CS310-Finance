@@ -25,7 +25,7 @@
 	ob_end_flush();  
     flush(); 
     
-    sleep($_SESSION['timeout'] + 30 - time());
+    sleep($_SESSION['timeout'] + 5 - time());
 	// while ($_SESSION['timeout'] + 30 > time())
 	// {}
 
