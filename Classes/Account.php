@@ -91,6 +91,7 @@ class Account {
 		if($shouldUpdate){
 		$this->transactions = DataManager::getInstance()->getTransactionsForAccount($this->accountID, 1);
 		}
+		var_dump($this);
 		// echo count($this->transactions).'yeah thats right <br>';
 		if(count($this->transactions)>0){
 			array_push($this->netValues, $this->transactions[0]->getAmount());
