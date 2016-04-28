@@ -7,14 +7,14 @@
 
   $balanceSheet = DataManager::getInstance()->balanceSheet;
   //echo "Hyup";
-	// if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
+	if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
 		//echo "nope \n";
 		//THE PARAMETERS AS PASSED IN AS STRING
 
-		$start = strtotime('04/01/2016');//$_GET['startDate']);
-		$end = strtotime('04/20/2016');//$_GET['endDate']);
-		// $start = strtotime($_GET['startDate']);
-		// $end = strtotime($_GET['endDate']);
+		// $start = strtotime('04/01/2016');//$_GET['startDate']);
+		// $end = strtotime('04/20/2016');//$_GET['endDate']);
+		$start = strtotime($_GET['startDate']);
+		$end = strtotime($_GET['endDate']);
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
@@ -31,15 +31,15 @@
 		$accountNEG->setTransactions(DataManager::getInstance()->getNegativeTransactionsForUser());
 		array_push($accountList, $accountALL);
 		array_push($accountList, $accountPOS);
-		array_push($accountList, $accountNEG);
+		// array_push($accountList, $accountNEG);
 		//echo "121212HELPPPPOPPOPPOPO121212";
-		for ($index=0; $index<count($accountList) - 3; $index++){
+		for ($index=0; $index<count($accountList) - 2; $index++){
 
 			//echo " hi".$index."\n";
 			$accountList[$index]->calculateDataPoint($start, $end, $days,true);
 			//echo "god";
 		}
-		for ($index=count($accountList)-3;$index<count($accountList);$index++){
+		for ($index=count($accountList)-2;$index<count($accountList);$index++){
 			$accountList[$index]->calculateDataPoint($start, $end, $days,false);
 		}
 		// header('Location: 2323.php');
@@ -60,7 +60,7 @@
 
 
 		echo json_encode($returnValue);
- // }
+ }
 
 
 		
