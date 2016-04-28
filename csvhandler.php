@@ -1,6 +1,6 @@
-<?php 
+<?php
 	require_once("Classes/DataManager.php");
-	require_once("Classes/BalanceSheet.php"); 
+	require_once("Classes/BalanceSheet.php");
 
 	if(!session_id()) {
    		session_start();
@@ -12,7 +12,7 @@
 	$line=0;
 	$numOfAccount=$data[$line][0];
 	$line++;
-	
+
 	for($i = 0; $i < $numOfAccount; $i++){
 		$accountName=$data[$line][0];
 		$numOfTransactions=$data[$line][1];
@@ -28,6 +28,7 @@
 			$transactionPrincipal=$data[$line][1];
 			$transactionDate=$data[$line][2];
 			$transactionAmount=$data[$line][3];
+			echo $transactionAmount; 
 			$transactionCategory=$data[$line][4];
 			//CREATES A TRANSACTION IN DB
 			$transaction=DataManager::getInstance()->addTransaction($transactionDate, $transactionAmount, $transactionCategory, $transactionName, $transactionPrincipal,  $account->getID(), 1);
