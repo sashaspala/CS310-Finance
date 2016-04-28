@@ -7,7 +7,7 @@ require_once("BalanceSheet.php");
 
 date_default_timezone_set('America/Los_Angeles');
 
-var_dump(DataManager::getInstance()->getAllTransactionsForUser());
+//var_dump(DataManager::getInstance()->getAllTransactionsForUser());
 
 
 //DataManager::getInstance()->removeAccount('Chase Credit', 1);
