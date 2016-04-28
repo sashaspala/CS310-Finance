@@ -105,6 +105,7 @@ class Account {
 			for ($index =0; $index<count($this->transactions); $index++){
 				array_push($this->netValues, -5);
 			}
+			$this->dataPoints=$this->netValues;
 		}
 
 		//echo $this->accountID;
