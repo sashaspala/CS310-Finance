@@ -31,15 +31,15 @@
 		$accountNEG->setTransactions(DataManager::getInstance()->getNegativeTransactionsForUser());
 		array_push($accountList, $accountALL);
 		array_push($accountList, $accountPOS);
-		// array_push($accountList, $accountNEG);
+		array_push($accountList, $accountNEG);
 		//echo "121212HELPPPPOPPOPPOPO121212";
-		for ($index=0; $index<count($accountList) - 2; $index++){
+		for ($index=0; $index<count($accountList) - 3; $index++){
 
 			//echo " hi".$index."\n";
 			$accountList[$index]->calculateDataPoint($start, $end, $days,true);
 			//echo "god";
 		}
-		for ($index=count($accountList)-2;$index<count($accountList);$index++){
+		for ($index=count($accountList)-3;$index<count($accountList);$index++){
 			$accountList[$index]->calculateDataPoint($start, $end, $days,false);
 		}
 		// header('Location: 2323.php');
