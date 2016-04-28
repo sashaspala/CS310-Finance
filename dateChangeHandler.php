@@ -20,10 +20,10 @@
 		$accountList=$balanceSheet->getAccounts();
 		$accountALL= new Account();
 		$accountALL->setName("Net Worth");
-		$accountALl->setTransactions(DataManager::getInstance()->getAllTransactionsbyUsers());
+		$accountALl->setTransactions(DataManager::getInstance()->getAllTransactionsForUser());
 		$accountPOS= new Account();
 		$accountPOS->setName("Assets");
-		$accountPOS->setTransactions(DataManager::getInstance()->getPo)
+		$accountPOS->setTransactions(DataManager::getInstance()->getPositiveTransactionsForUser());
 		//echo "121212HELPPPPOPPOPPOPO121212";
 		for ($index=0; $index<count($accountList); $index++){
 
