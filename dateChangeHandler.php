@@ -7,12 +7,12 @@
 
   $balanceSheet = DataManager::getInstance()->balanceSheet;
   //echo "Hyup";
-	// if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
+	if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
 		//echo "nope \n";
 		//THE PARAMETERS AS PASSED IN AS STRING
 
-		$start = strtotime('04/01/2016');//$_GET['startDate']);
-		$end = strtotime('04/20/2016');//$_GET['endDate']);
+		$start = strtotime($_GET['startDate']);
+		$end = strtotime($_GET['endDate']);
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
@@ -49,7 +49,7 @@
 
 
 		echo json_encode($returnValue);
-  // }
+  }
 
 
 		
