@@ -8,7 +8,6 @@ require_once("Classes/BalanceSheet.php");
 require_once("header.php");
 
 
-
 //LOADS PERSISTENT DATA
 
 $accounts = DataManager::getInstance()->getAccountsForUser(1);
@@ -41,7 +40,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 				</span>
 				<input type="submit" id="csvSubmit" value= "Upload" class="btn btn-default btn-file">
 			</form>
-			<form action="logoutHandler.php" method = "GET" class="navbar-right">
+			<form action="logoutHandler.php" method = "get" class="navbar-right">
 				<p class="navbar-text" style="margin-right:10px">Signed in as <?php echo $_SESSION['userFullName']?> </p>
 	    		<button type="submit" id="logout" class="btn btn-default navbar-btn navbar-right" style="margin-right:0px">Logout</button>
 	    	</form>
@@ -111,7 +110,6 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 				<script type="text/javascript">
 				function checkboxFilter(){
-
 						var accountTable = document.getElementById("AccountsTable");
 						var checkedAccounts = accountTable.getElementsByTagName("input");
 						var getString = "";
@@ -119,7 +117,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 
 						var accountFound = false;
-						$nameArray;
+
 
 						for(var i =0; i<checkedAccounts.length; i++){
 							if(checkedAccounts[i].checked){
@@ -127,26 +125,31 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 								 var currentRow = $(checkedAccounts[i]).closest('tr');
 
 								 var accountName = $(currentRow).children()[0].innerText;
-								 array_push($nameArray, $accountName);
+
+								 getString += accountName + "-";
+								// array_push($nameArray, $accountName);
 							}
+						}
+
+
+						if(getString != ""){
+							 $.get("removeAccountHandler.php", {
+							 	accounts : getString }).done(function(data) {
+								$("#AccountTable").html(data);
+								});
+
+
 						}
 					//ajax request
 
-					return $nameArray
+
 				}
 				</script>
 
 				</table>
 				<div class="account-btn">
-					<button type="submit" id="removeAccount" class="btn btn-danger">Remove</button>
+					<button type="button" id="removeAccount" onClick="checkboxFilter()" class="btn btn-danger">Remove</button>
 				</div>
-				<?php
-					if(isset($_GET['removeAccount'])){
-						echo "<td><input="."checkbox". "name="."checkboxFilter()"." onClick=" ."return false"."/>"."</td>"; 
-						#DataManager::removeAccount(checkboxFilter(), 1);
-					}
-				?>
-				
 			</div>
 		</div>
 		</form>
@@ -174,12 +177,58 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 
 				</div>
-				<form class="form-recalculate-graph" action='dateChangeHandler.php' method='post' accept-charset='UTF-8'>
-					<p>Start Date: <input type="text" id="datepicker1" name = "startDate"></p>
-					<p>End Date: <input type="text" id="datepicker2" name = "endDate"></p>
+				<!-- <form class="form-recalculate-graph" id="form-recalculate-graph" action='dateChangeHandler.php' method='get' accept-charset='UTF-8'> -->
+					<p>Start Date: <input type="text" id="datepicker1" name = "StartDate"></p>
+					<p>End Date: <input type="text" id="datepicker2" name = "EndDate"></p>
 					<!-- <input type="submit" id="dateSubmit" value= "Upload" class="btn btn-default btn-file"> -->
-					<button  class="btn btn-lg btn-primary btn-block" type="submit" id="dateButton" name = "dateSubmit">Re-Calculate</button>
-		      	</form>
+		      		<script type="text/javascript">
+					function reCalculate(){
+
+						var StartDate = $( "#datepicker1" ).datepicker( "getDate" );
+						var EndDate = $( "#datepicker2" ).datepicker( "getDate" );
+					 	$.get("dateChangeHandler.php", {
+						 	startDate: StartDate,
+						 	endDate: EndDate
+						 }).done(function(data) {
+							
+						 	console.log(data); 
+							$('#graph').highcharts({
+							        title: {
+							            text: 'Finances',
+							            x: -20 //center
+							        },
+							      
+							        yAxis: {
+							            title: {
+							                text: 'Amount in $'
+							            },
+							            plotLines: [{
+							                value: 0,
+							                width: 1,
+							                color: '#808080'
+							            }]
+							        },
+							        tooltip: {
+							            valuePrefix: '$'
+							        },
+							        legend: {
+							            layout: 'vertical',
+							            align: 'right',
+							            verticalAlign: 'middle',
+							            borderWidth: 0
+							        },
+							        series: JSON.parse(data)
+							    });
+
+
+						});
+					}
+					</script>
+					<button  class="btn btn-lg btn-primary btn-block" type="button" onClick="reCalculate()">Recalculate</button>
+
+
+
+		      	<!-- </form> -->
 			</div>
 
 		</div>
@@ -191,7 +240,7 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 
 				<h2>Transactions</h2>
 <!-- >>>>>>> origin -->
-	<div id=ajaxtable>
+
 				<table id="transactions" class="table table-bordered table-hover sortable">
 					<thead>
 						<tr>
@@ -201,11 +250,14 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 							<th>Date</th>
 						</tr>
 					</thead>
-					<tbody>
+
+					<tbody id=ajaxtable>
+					
+
+
 
 					</tbody>
 				</table>
-				</div>
 			</div>
 		</div>
 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
@@ -263,48 +315,36 @@ $accounts = DataManager::getInstance()->getAccountsForUser(1);
 	<script type="text/javascript">
 
 	$(function () {
-    $('#graph').highcharts({
-        title: {
-            text: 'Finances',
-            x: -20 //center
-        },
-        xAxis: {
-            categories: ['Jan', 'Feb', 'March']
-        },
-        yAxis: {
-            title: {
-                text: 'Amount in $'
-            },
-            plotLines: [{
-                value: 0,
-                width: 1,
-                color: '#808080'
-            }]
-        },
-        tooltip: {
-            valuePrefix: '$'
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
-        },
-        series: [{
-            name: 'Liabilities',
-            data: [7.0, 6.9, 9.5]
-        }, {
-            name: 'Assets',
-            data: [-0.2, 0.8, 5.7]
-        }, {
-            name: 'Net Worth',
-            data: [-0.9, 0.6, 3.5]
-        }, {
-            name: 'Account 1', //this should update automatically from some function call
-            data: [3.9, 4.2, 5.7]
-        }]
-    });
-});
+    // $('#graph').highcharts({
+    //     title: {
+    //         text: 'Finances',
+    //         x: -20 //center
+    //     },
+    //     xAxis: {
+    //         categories: ['Jan', 'Feb', 'March']
+    //     },
+    //     yAxis: {
+    //         title: {
+    //             text: 'Amount in $'
+    //         },
+    //         plotLines: [{
+    //             value: 0,
+    //             width: 1,
+    //             color: '#808080'
+    //         }]
+    //     },
+    //     tooltip: {
+    //         valuePrefix: '$'
+    //     },
+    //     legend: {
+    //         layout: 'vertical',
+    //         align: 'right',
+    //         verticalAlign: 'middle',
+    //         borderWidth: 0
+    //     },
+    //     series: [{"name":"HSBC","data":[33,54,54]}]
+    // });
+	});
 
 $(function() {
     $( "#datepicker" ).datepicker();
@@ -316,6 +356,12 @@ $(function() {
 
 
 
+
+
+	</script>
+
+	<script type="text/javascript">
+    setTimeout(function() { window.location.href = "login.php"; }, 120000);
 	</script>
 </body>
 </html>

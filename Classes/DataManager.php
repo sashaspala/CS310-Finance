@@ -7,11 +7,10 @@ require_once("BalanceSheet.php");
 
 date_default_timezone_set('America/Los_Angeles');
 
-// DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
-
-// DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
+//var_dump(DataManager::getInstance()->getAllTransactionsForUser());
 
 
+//DataManager::getInstance()->removeAccount('Chase Credit', 1);
 
 // $testManager
 // $newAccount = $testManager->getAccount('Credit `Card2', 2);
@@ -187,6 +186,11 @@ class DataManager {
 	* @param int userID The ID for the user who owns the account
 	*/
 	function removeAccount ($name, $userID) {
+
+		$accountID = self::getAccount($name, $userID)->getID();
+		$transactionDeleteStatement = $this->_db->prepare('DELETE FROM Transactions WHERE Accounts_accountID = :accountID');
+		$transactionDeleteStatement->bindParam(':accountID', $accountID);
+		$this->executeStatement($transactionDeleteStatement);
 		$statement = $this->_db->prepare('DELETE FROM Accounts WHERE name = :name AND Users_userID = :userID');
 
 		$statement->bindParam(':name', $name);
@@ -246,11 +250,12 @@ class DataManager {
 			$userID = $this->currentLoggedInUserID;
 		}
 
-		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_accountID = :accountID AND Accounts_Users_userID = :userID');
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_accountID = :accountID AND Accounts_Users_userID = :userID ORDER BY transactionDate ASC');
 		$stmt->execute(array('userID' => $userID, 'accountID' => $accountID));
 		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
 		return $results;
 	}
+
 
 	/**
 	* Finds all the transactions for a month
@@ -388,7 +393,7 @@ class DataManager {
 	function executeStatement($statement) {
 		try {
 			$statement->execute();
-			//echo "Success\n";
+			echo "Success\n";
 			return true;
 		} catch(PDOException $error) {
 			echo $error->getMessage()."\n";
@@ -412,6 +417,35 @@ class DataManager {
 
 		return $results;
 	}
+
+	function getPositiveTransactionsForUser() {
+
+		$userID = 1;
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_Users_userID = :userID AND amount > 0 ORDER BY transactionDate ASC');
+		$stmt->execute(array('userID' => $userID));
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
+		return $results;
+	}
+
+	function getNegativeTransactionsForUser() {
+
+		$userID = 1;
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_Users_userID = :userID AND amount < 0 ORDER BY transactionDate ASC');
+		$stmt->execute(array('userID' => $userID));
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
+		return $results;
+	}
+
+	function getAllTransactionsForUser() {
+		$userID = 1;
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_Users_userID = :userID ORDER BY transactionDate ASC');
+		$stmt->execute(array('userID' => $userID));
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
+		return $results;
+	}
+
+
+
 }
 
 

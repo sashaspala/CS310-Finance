@@ -6,34 +6,64 @@
 	require_once("Classes/BalanceSheet.php");
 
   $balanceSheet = DataManager::getInstance()->balanceSheet;
-  
-	if (!empty($_POST['startDate']) && !empty($_POST['endDate'])) {
-
+  //echo "Hyup";
+	if (!empty($_GET['startDate']) && !empty($_GET['endDate'])) {
+		//echo "nope \n";
 		//THE PARAMETERS AS PASSED IN AS STRING
 
-		$start = strtotime($_POST['startDate']);
-		$end = strtotime($_POST['endDate']);
-
+		// $start = strtotime('04/01/2016');//$_GET['startDate']);
+		// $end = strtotime('04/20/2016');//$_GET['endDate']);
+		$start = strtotime($_GET['startDate']);
+		$end = strtotime($_GET['endDate']);
 		$difference = $end - $start;
 		$days = floor($difference / (60*60*24) );
 
+		//echo "HELPPPPOPPOPPOPO";
+		$accountList=$balanceSheet->getAccounts();
+		$accountALL= new Account();
+		$accountALL->setName("Net Worth");
+		$accountALL->setTransactions(DataManager::getInstance()->getAllTransactionsForUser());
+		$accountPOS= new Account();
+		$accountPOS->setName("Assets");
+		$accountPOS->setTransactions(DataManager::getInstance()->getPositiveTransactionsForUser());
+		$accountNEG= new Account();
+		$accountNEG->setName("Liabilities");
+		$accountNEG->setTransactions(DataManager::getInstance()->getNegativeTransactionsForUser());
+		array_push($accountList, $accountALL);
+		array_push($accountList, $accountPOS);
+		array_push($accountList, $accountNEG);
+		//echo "121212HELPPPPOPPOPPOPO121212";
+		for ($index=0; $index<count($accountList) - 3; $index++){
 
-  }
+			//echo " hi".$index."\n";
+			$accountList[$index]->calculateDataPoint($start, $end, $days,true);
+			//echo "god";
+		}
+		for ($index=count($accountList)-3;$index<count($accountList);$index++){
+			$accountList[$index]->calculateDataPoint($start, $end, $days,false);
+		}
+		// header('Location: 2323.php');
+		// var_dump($accountList);
+		$returnValue=array();
+		for ($index=0; $index<count($accountList);$index++){
+			$dataPoints= $accountList[$index]->getDataPoints();
+			$temp =[
+				"name"=> $accountList[$index]->getAccountName(),
+				"data"=> $dataPoints,
+			];
+
+			$returnValue[] = $temp; 
 
 
-		// $_SESSION['balanceSheet']->getAccounts();
-
-		// if(is_null($_SESSION['test'])){echo "it is test null";} else {
-		// 	echo "it is test correct";
-		// }
+		}
 
 
-		// $accountList=$_SESSION['balanceSheet']->getAccounts();
+
+		echo json_encode($returnValue);
+ }
 
 
-		// for ($index=0; $index<count($accountList); $index++){
-		// 	// $accountList[$index]->calculateDataPoint($start, $end, $days);
-		// }
+		
 
 		//if the difference is < 30 do in days
 		// > 30 do in months
@@ -42,8 +72,7 @@
 
 
 	//}
-	echo "HEUY NP"
-
+	
 	// header('Location: dashboard.php');
 	// exit();
 ?>
