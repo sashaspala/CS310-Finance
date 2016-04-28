@@ -7,7 +7,7 @@ require_once("BalanceSheet.php");
 
 date_default_timezone_set('America/Los_Angeles');
 
-// DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"food","lots of stuff", "Ralphs",1,2);
+var_dump(DataManager::getInstance()->getPositiveTransactionsForUser());
 
 // DataManager::getInstance()->addTransaction(date('Y-m-d'),99.99,"fdod","lots of stuff", "Ralphs",2,1);
 
@@ -419,14 +419,25 @@ class DataManager {
 		return $results;
 	}
 
-	function getTransactionsForUser() {
-		
-		$userID = 1; 
-		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_Users_userID = :userID ORDER BY transactionDate ASC');
+	function getPositiveTransactionsForUser() {
+
+		$userID = 1;
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_Users_userID = :userID AND amount > 0 ORDER BY transactionDate ASC');
 		$stmt->execute(array('userID' => $userID));
 		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
 		return $results;
 	}
+
+	function getNegativeTransactionsForUser() {
+
+		$userID = 1;
+		$stmt = $this->_db->prepare('SELECT * FROM Transactions WHERE Accounts_Users_userID = :userID AND amount < 0 ORDER BY transactionDate ASC');
+		$stmt->execute(array('userID' => $userID));
+		$results = $stmt->fetchAll (PDO::FETCH_CLASS, "Transaction");
+		return $results;
+	}
+
+
 
 }
 
